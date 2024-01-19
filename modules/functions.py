@@ -91,3 +91,98 @@ def bcrp_dataframe( series , start_date , end_date, freq):
         print(f'There has been an exception: {err}. Try with a different code.')
         
     return df
+
+
+def get_RMSE( results ):
+    '''
+    Objective:
+        This function receives a dataframe with both Actual and Predicted values and calculates the cummulative RMSE
+        for the number of horizons.
+        
+    Input:
+        results (dataframe) = Dataframe with an Actual and Predicted columns
+        
+    Output:
+        A dataframe with the RMSE for each horizons
+    
+    '''
+    RMSE = []
+    rmse = []
+
+    for index, row in results.iterrows():
+        sqr_err = (row['Actual'] - row['Predicted'])**2
+        rmse.append(sqr_err)
+        aux_RMSE = np.sqrt(sum(rmse) / len(rmse))
+        RMSE.append(aux_RMSE)
+
+    return RMSE
+
+def get_MAPE( results ):
+    '''
+    Objective:
+        This function receives a dataframe with both Actual and Predicted values and calculates the cummulative MAPE
+        for the number of horizons.
+        
+    Input:
+        results (dataframe) = Dataframe with an Actual and Predicted columns
+        
+    Output:
+        A dataframe with the MAPE for each horizons
+    
+    '''
+    MAPE = []
+    mape = []
+
+    for index, row in results.iterrows():
+        per_err = abs((row['Actual'] - row['Predicted']) / row['Actual'])
+        mape.append(per_err)
+        aux_MAPE = sum(mape) / len(mape)
+        MAPE.append(aux_MAPE)
+
+    return MAPE
+
+# def get_adjusted_R2(results):
+#     '''
+#     Objective:
+#         This function receives a dataframe with both Actual and Predicted values and calculates the adjusted R-squared
+#         for the predictions in the context of time series.
+        
+#     Input:
+#         results (dataframe) - DataFrame with 'Actual' and 'Prediction' columns
+        
+#     Output:
+#         A single adjusted R-squared value for the predictions
+#     '''
+#     actual_mean = results['Actual'].mean()
+#     n = len(results)
+#     k = 1  # Number of predictors (in this case, only one: 'Prediction')
+
+#     ss_total = ((results['Actual'] - actual_mean) ** 2).sum()
+#     ss_residual = ((results['Actual'] - results['Prediction']) ** 2).sum()
+
+#     r2 = 1 - (ss_residual / ss_total)
+#     adjusted_r2 = 1 - (1 - r2) * (n - 1) / (n - k - 1)
+
+#     return adjusted_r2
+
+
+def get_metrics(results, model='model'):
+    '''
+    Objective:
+        This function receives a dataframe with both Actual and Predicted values and calculates a series of metrics.
+        
+    Input:
+        results (dataframe) = Dataframe with an Actual and Predicted columns
+        
+        model (str)         = Name of the model. We add it for organizing reasons. 
+        
+    Output:
+        One dataframe for each metric for horizons 1 to 12
+    
+    '''
+    
+    RMSE = pd.DataFrame(get_RMSE(results), columns = [f'RMSE_{model}'], index = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+    
+    MAPE = pd.DataFrame(get_MAPE(results), columns = [f'MAPE_{model}'], index = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+        
+    return RMSE, MAPE  
