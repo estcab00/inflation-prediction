@@ -12,7 +12,7 @@ The repository is divided as follows:
 - ```modules```: Our functions are defined here.
 - ```report```: The PDF of the research is found here.
 
-The ```###``` at the end of each jupyter notebook indicated in which subfolder the notebook is located.
+The ```###``` at the end of each jupyter notebook indicates in which subfolder the notebook is located.
 - ```C##```: core_inflation
   - ```C19```: core_inflation/2019
   - ```C23```: core_inflation/2023
