@@ -1,6 +1,9 @@
 # Inflation forecasting with Machine Learning Methods in Peru
+
+## 1. Introduction:
 This repository contains the code for a resarch on inflation forecasting with different Machine Learning methods in Peru.
 
+## 2. Repository Structure
 The repository is divided as follows:
 - ```code```: This folder contains two subfolders ```headline_inflation``` and ```core_inflation```. In each one, there is the corresponding code for the prediction task for two periods ```2019``` and ```2023```. Each one of this folders is divided in this sections:
   -  ```1_DataExtraction_###.ipynb```: In this notebook we use the API interface of the Central Bank of Reserve of Peru (BCRP) to extract our data. We do the corresponding transformations to each series and append them in a dataframe ```df_raw_###.csv```, which contains contemporary variables and will be used for visualization, and ```df_lags_###.csv```, which additionally contains lagged variables and will be used for prediction tasks.
