@@ -26,16 +26,21 @@ The ```###``` at the end of each jupyter notebook indicates in which subfolder t
 The same interpretation can be used for ```###``` at the end of ```.csv``` and ```.png``` files in the ```output``` folder to determine the corresponding variable and year.
 
 ## 3. Methodology
-This section provides an overview of the Machine Learning methods employed in the research, including their implementation and evaluation strategies. We are considering three econometric models (RW, VAR, ARIMA) and four machine learning models (LASSO, Ridge, EN and RF)
+This section provides an overview of the Machine Learning methods employed in the research, including their implementation and evaluation strategies. We are considering three econometric models (RW, VAR, ARIMA) and four machine learning models (LASSO, Ridge, EN and RF):
+
+The linear machine learning models are LASSO and Ridge Regression
 
 Given the following linear regression model
 
-$$
-y_t = \beta x_t + \epsilon_t
-$$
+$$y_t = \beta x_t + \epsilon_t$$
 where $y$ is an Nx1 vector of dependant variables, X is an NxK matrix of explanatory variables, $\beta=(\beta_1 \ , ... \ , \beta_k)$ is a vector regression coefficients and $\epsilon$ is a vector of errors. It is possible that $K$ is relatively large compared to $N$. In those cases, the LASSO estimates are chosen to minimize
 
 $$LASSO = \min_{\beta}(\sum_{i=1}^N (y_i - \sum_{j=1}^K \beta_j x_ij )^2 + \lambda \sum_{i=1}^K|\beta_i|)$$
+
+while the Ridge estimates minimize
+
+$$Ridge = \min_{\beta} ( RSS + \lambda \sum_{i=1}^K\beta_i^2)$$
+where the term $\lambda \sum_{i=1}^K\beta_i^2$ is a regularization of type $\ell_2$ and $\lambda$ is the tuning parameter.
 
 ## 5. Update
 This repository is updated by @estcab00
