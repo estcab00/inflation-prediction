@@ -29,13 +29,15 @@ The same interpretation can be used for ```###``` at the end of ```.csv``` and `
 This section provides an overview of the Machine Learning methods employed in the research, including their implementation and evaluation strategies. We are considering three econometric models (RW, VAR, ARIMA) and four machine learning models (LASSO, Ridge, EN and RF)
 
 Given the following linear regression model
-$$
+
+$
     y_t = \beta x_t + \epsilon_t
-$$
+$
 where $y$ is an Nx1 vector of dependant variables, X is an NxK matrix of explanatory variables, $\beta=(\beta_1 \ , ... \ , \beta_k)$ is a vector regression coefficients and $\epsilon$ is a vector of errors. It is possible that $K$ is relatively large compared to $N$. In those cases, the LASSO estimates are chosen to minimize
-\begin{equation}
+
+$
     LASSO = \min_{\beta}(\sum_{i=1}^N (y_i - \sum_{j=1}^K \beta_j x_ij )^2 + \lambda \sum_{i=1}^K|\beta_i|)
-\end{equation}
+$
 
 
 ## 5. Update
