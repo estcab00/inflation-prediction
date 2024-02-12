@@ -61,8 +61,10 @@ All models are implemented using the Scikit-Learn and XGBoost package in Python.
 Scikit-Learn.
 
 ### 3.4 Model comparsion
-Given a $X_t$ vector of k explanatory variables for the variable $y_t$ for $(t = 1,...,T)$ we can construct the point forecast of $y_{t+h}$ given the information $I_h$, then $\hat{y}_{t+h}=f_{t+h}(X_{t+h}, I_h)$
-we can define the forecast error as
+Given a $X_t$ vector of k explanatory variables for the variable $y_t$ for $(t = 1,...,T)$ we can construct the point forecast of $y_{t+h}$ given the information $I_h$
+The forecast in $t+h$ is
+$$\hat{y}_{t+h}=f_{t+h}\(X_{t+h}, I_h\)$$
+And we can define the forecast error as
 $$e_{t+h}=y_{t+h}-\hat{y}_{t+h}$$
 
 Therefore, the RMSFE is defined by
