@@ -64,7 +64,9 @@ Scikit-Learn.
 Given a $X_t$ vector of k explanatory variables for the variable $y_t$ for $(t = 1,...,T)$ we can construct the point forecast of $y_{t+h}$ given the information $I_h$
 The forecast in $t+h$ is
 
-$$\hat{y}_{t+h}=f_{t+h} (X_{t+h}, I_h)$$
+$$\Hat{y}_{t+h}=f_{t+h} (X_{t+h}, I_h)$$
+
+$$y_{t+h}=f_{t+h} (X_{t+h}, I_h)$$
 
 And we can define the forecast error as
 $$e_{t+h}=y_{t+h}-\hat{y}_{t+h}$$
