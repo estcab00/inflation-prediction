@@ -73,5 +73,5 @@ and the MAPE is defined as
 
 $$MAPE = \frac{1}{T} \sum_{t=1}^T |\frac{e_{t+h}}{y_{t+h}}|$$
 
-## 4. Acknowledgements
-This repository is updated by @estcab00. Acknowledgement of @qlabpucp for the help provided during this investigation.  
+## 4. Update
+This repository is updated by Esteban Cabrera. Acknowledgement of QLAB-PUCP for the help provided during this investigation.  
