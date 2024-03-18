@@ -57,7 +57,7 @@ In the context of RF, each time a split in a tree is done, a random sample of $m
 
 ### 3.3 Model implementation
 
-All models are implemented using the Scikit-Learn and XGBoost package in Python. Linear models are imported as the Lasso,  Ridge, and ElasticNet functions respectively. Non-linear models are imported from RandomForestRegressor and XGBRegressor. All models are implemented with a random state = 2023. A cross validation followed by a grid-search is implemented using the TimeSeriesSplit and GridSearchCV modules from
+All models are implemented using the Scikit-Learn and XGBoost package in Python. Linear models are imported as the Lasso,  Ridge, and ElasticNet functions respectively. Non-linear models are imported from RandomForestRegressor and XGBRegressor. All models are implemented with a random state = 2024. A cross validation followed by a grid-search is implemented using the TimeSeriesSplit and GridSearchCV modules from
 Scikit-Learn.
 
 ### 3.4 Model comparsion
