@@ -1,0 +1,2500 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,          % color of internal links
+    citecolor=blue,        % color of links to bibliography
+    filecolor=blue,      % color of file links
+    urlcolor=blue,           % color of external links
+    breaklinks=true
+}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+%\usepackage{breakurl}
+%\setlength{\bibsep}{6pt plus 0.2ex}
+\setlength{\bibsep}{2pt plus 0.05ex}
+\usepackage{breakurl}
+
+\usepackage{pdflscape}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "times" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref true
+\pdf_title "Use Lyx for typesetting: A template for empirical research projects"
+\pdf_author "First Author and Second Author"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+\paragraph_spacing onehalf
+Assessing forecasting in linear and non-linear Machine Learning models for
+ short-term inflation in Peru
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We are grateful to Tilburg Science Hub for providing this template.
+ This is a footnote by the way.
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ Aliquam sollicitudin ullamcorper tellus, non tristique elit posuere vitae.
+ In iaculis ultrices justo sit amet condimentum.
+ Sed ultricies non leo quis varius.
+ Aliquam sit amet ante odio.
+ Sed nibh libero, posuere fermentum ligula non, feugiat interdum risus.
+ Ut vitae bibendum urna.
+ Sed justo justo, posuere non lacus nec, condimentum sollicitudin urna.
+ Morbi elementum consectetur purus in auctor.
+ Vestibulum ut placerat erat, a consectetur nulla.
+ Morbi pellentesque pellentesque mauris quis vestibulum.
+ Proin nec turpis justo.
+ Phasellus vitae mauris ultrices ligula aliquam viverra.
+ Aenean sed quam a orci fringilla malesuada.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Esteban Cabrera 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First Author: Pontificia Universidad Católica del Perú; e-mail: 
+\begin_inset CommandInset href
+LatexCommand href
+name "esteban.cabrera@pucp.edu.pe"
+target "esteban.cabrera@pucp.edu.pe"
+type "mailto:"
+literal "false"
+
+\end_inset
+
+.
+ Second Author: Another University; e-mail: 
+\begin_inset CommandInset href
+LatexCommand href
+name "author@placeholderuniversity.edu"
+target "author@placeholderuniversity.edu"
+type "mailto:"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+Date Goes Here
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+\paragraph_spacing other 0.9
+\noindent
+Inflation forecasting is a key element of monetary policy.
+ Bayesian techniques have been used to improve upon univariate methods.
+ A relatively recent approach to forecasting has been the implementation
+ of Machine Learning methods.
+ In this document we compare two types of methods, benchmark models, commonly
+ used to predict future inflation, with linear and non-linear Machine Learning
+ methods for inflation forecasting in Peru after the implementation of an
+ inflation-targeting regime.
+ Our goal is to demonstrate that both linear and non-linear machine learning
+ models can easily outperform traditional models, and even Bayesian techniques
+ in a in an emerging economy with a steady price level like Peru.
+ We will also find out if non-linear models are most suitable for inflation
+ forecasting in Peru, which would imply the presence of non-linear relationships
+ between inflation and its predictors.
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+\paragraph_spacing other 0.9
+\noindent
+
+\series bold
+Key words:
+\series default
+ Inflation, forecasting, Machine Learning, Peru.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+\paragraph_spacing other 0.9
+\noindent
+
+\series bold
+Journal-classification:
+\series default
+ E31, C49, C53, C59.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Some notes.
+ These won't be shown on the PDF.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+As Stock and Watson (2001) said, macroeconometricians are given four main
+ tasks: “describe and summarize macroeconomic data, make macroeconomic forecasts
+, quantify what we do or do not know about the true structure of the macroeconom
+y, and advise macroeconomic policymakers.” In this thesis, we will focus
+ on the second and fourth tasks, macroeconomic forecasts and policy advice.
+ Inflation is one of the most important macroeconomic indicators for a country,
+ therefore it is crucial to keep it monitored.
+ Across the world, one thing that most central banks have in common is the
+ goal to keep the steadiness of price levels.
+ In Peru, for instance, the main purpose of the Central Bank of Reserve
+ (BCRP) is “to preserve monetary stability” (BCRP, n/d), which translates
+ into keeping inflation under control.
+ Similarly, monetary authorities of other countries in the region pursue
+ the same objective.
+\end_layout
+
+\begin_layout Standard
+Inflation forecasting is key to dictating an accurate monetary policy.
+ Due to the lag between implementing monetary policy and its effects, most
+ central banks implement a forecast-based monetary policy.
+ In that sense, inflation forecasting becomes one of the major tasks of
+ policymakers since it is one of the main indicators that will drive monetary
+ policy, the primary tool to target inflation.
+ Forecasting also contributes to macroeconomic stabilization, as it helps
+ private agents make better and more informed decisions (Carnot et al., 2011).
+ 
+\end_layout
+
+\begin_layout Standard
+In 2001, the BCRP adopted the reference interest rate as its main policy
+ instrument.
+ The following year, 2002, it implemented an inflation targeting system
+ to make the monetary policy decisions more transparent.
+ These two changes, alongside other measures, such as the accumulation of
+ large foreign exchange reserves on a large scale, changed the dynamics
+ of inflation in Peru and allowed the central bank to ensured monetary stability
+ in Peru in favourable and unfavourable external contexts over the first
+ decades of the 21st century (Dancourt, 2014).
+ When it comes to forecasting, these changes have made Peruvian inflation
+ easier to forecast as it has become more stable since volatility has decreased.
+ 
+\end_layout
+
+\begin_layout Standard
+The BCRP uses the dynamic semi-structural model known as Modelo de Proyección
+ Trimestral (MPT) as its main forecasting and policymakingQuisque a enim
+ blandit, tristique libero ac, dignissim nibh.
+ In pellentesque leo eget placerat dapibus.
+ Vestibulum iaculis, enim sodales aliquet pretium, mi mi feugiat diam, eu
+ dignissim ante ipsum dignissim eros.
+ Nullam et mollis lacus, sed fermentum enim.
+ Duis tempus condimentum faucibus.
+ Sed sodales placerat orci, vel fringilla nunc porta id.
+ Ut vitae fermentum enim.
+ Nam ultricies tempor velit, in convallis dolor dictum ac.
+ tool.
+ However, it has been pointed out that the model lacks parsimony, as it
+ is composed by hundreds of equations.
+ Llosa et al.
+ (2006) proposes, alternatively, the use of Bayesian techniques and a small
+ number of variables to accurately forecast Peruvian inflation.
+ Barrera (2007) shows a robust sparse model approach to achieve parsimony,
+ as these models identify the most relevant variables and discard the rest,
+ reducing the number of variables used in the forecast.
+\end_layout
+
+\begin_layout Standard
+Machine Learning (ML) is a relatively new approach to inflation forecasting.
+ Therefore, there is little literature on the subject compared to other
+ forecasting methods.
+ Nevertheless, many of the papers on ML have concluded that both linear
+ and non-linear multivariate ML models outperform other forecasting methods
+ (Ülke et al., 2018; Medeiros et al., 2022).
+ In particular, the find out that non-linear models, like Random Forest,
+ are way better at predicting inflation than other models.
+\end_layout
+
+\begin_layout Standard
+Across the region, there have been articles that have compared traditional
+ univariate and multivariate econometric models with ML methods in terms
+ of forecasting (Rodriguez- Vargas, 2020; Silva & Piazza, 2020).
+ However, there has not been a proper comparison against more potent econometric
+ methods, like Bayesian Vector Autoregressions.
+ Furthermore, such an analysis with ML models has not yet been done for
+ Peru.
+\end_layout
+
+\begin_layout Standard
+Therefore, the purpose of this thesis is to evaluate the performance of
+ different linear and non-linear univariate and multivariate models in terms
+ of forecasting inflation for Peru after the introduction of the explicit
+ inflation-targeting regime.
+ Our benchmark econometric model will be a Random Walk (RW).
+ We will compare econometric models such as Autoregressive Integrated Moving
+ Average (ARIMA) and Vector Autoregression (VAR), while the ML methods will
+ be a LASSO regression, Ridge regression, Elastic Net (EN) and Random Forest
+ (RF).
+ We will see which models perform better during three main forecasting periods:
+ January 2009 - December 2009, January 2019 - December 2019 and January
+ 2023 - December 2023.
+ We will see which variables contribute more to making better predictions.
+ We will also find out if non-linear models are most suitable for inflation
+ forecasting in Peru, which would imply the presence of non-linear relationships
+ between inflation and its predictors.
+\end_layout
+
+\begin_layout Standard
+The structure of the document includes the following: Section 2 outlines
+ both the theoretical and empirical literature regarding inflation forecasting;
+ Section 3 describes the theoretical framework that is going to be used
+ to compare the forecasting models; Section 4 portrays the data and describes
+ the models; Section 5 comprises the discussion of the main results, followed
+ by the concluding section.
+\end_layout
+
+\begin_layout Standard
+Vivamus lobortis convallis hendrerit.
+ Aliquam pharetra luctus nisl, quis sollicitudin ante fermentum et.
+ Nunc efficitur enim id urna posuere vehicula.
+ Nullam dui diam, ultrices vel enim non, imperdiet sagittis lectus.
+ Curabitur elementum faucibus cursus.
+ Donec eget posuere sapien, dapibus sagittis nulla.
+ Etiam bibendum, tellus sit amet mollis egestas, urna eros egestas quam,
+ a sagittis tellus purus id ante.
+ Praesent vitae facilisis ante.
+ 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This is a footnote.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And this is a citation 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "surname2020placeholder"
+literal "true"
+
+\end_inset
+
+.
+ You can reference to different sections in your paper, like this: See Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Third-section"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Literature review
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Second-section"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we will review the main literature regarding inflation and
+ time-series forecasting.
+ Subsection 2.1 contains a brief describe of the evolution of forecasting
+ theory and forecasting evaluation criteria.
+ Subsection 2.2 examines different forecasting methods that has been used
+ in empirical works, from simple univariate ARMA models, to State-Space
+ representations, Stochastic Volatility models and Bayesian Vector Autoregressio
+ns.
+ It first shows international documentation, then regional literature followed
+ by papers centred in Peruvian inflation.
+ It then reviews the most recent method: Machine Learning models, and how
+ they have been used to forecast inflation in countries in the region.
+\end_layout
+
+\begin_layout Subsection
+Theorical Literature
+\end_layout
+
+\begin_layout Standard
+The theory of economic forecasting has roots in the beginning of the twentieth
+ century, with the first extensive work being that of Morgenstern (1928).
+ According to Clements and Hendry (1998), based on reviews by Marget (1929),
+ his work was the first one to discuss in-depth economic and business forecastin
+g.
+ He argued against it since economic data was not suitable for forecasting
+ (it was not homogenous, nor independently distributed, and samples were
+ too small to be used) and forecasting itself could impact agents’ reactions
+ to them, making it ineffective (this was some sort of first ‘Lucas’s critique’).
+\end_layout
+
+\begin_layout Standard
+Marget, on the other hand, while agreeing with the first argument of Morgenstern
+, stated that forecasting should be viable as long as it was based on the
+ extrapolation of previous patterns, rather than on probability-based techniques.
+ This idea would imply that causation means predictability, which is not
+ always the case.
+ Marget would also support the idea of testing economic theories using forecasti
+ng.
+ Tinbergen (1939) was one of the first to do so, by constructing forecasting
+ tests for econometric models developed for two reports delegated by the
+ League of Nations.
+ The role of econometric modelling and forecasting was later enhanced by
+ the work of Theil (1961), Heesterman (1970), and Pindyck & Rubinfeld (1981),
+ among others.
+\end_layout
+
+\begin_layout Standard
+Another endeavour worth acknowledging is Haavelmo (1944).
+ Haavelmo had a probabilistic approach to econometrics, proclaiming that
+ the nature of economic data shouldn’t be an obstacle to applying statistical
+ tools to its analysis.
+ His forecasting approach (with a probabilistic framework) was the precursor
+ of the textbook economic forecasting (Clements & Hendry, 1998).
+ It is worth noting that his analysis required certain regularity in the
+ series being forecasted (e.g., no structural breaks) since alternative forecastin
+g techniques to deal with breaks in the data were yet to be developed.
+\end_layout
+
+\begin_layout Standard
+The forecast evaluation criteria changed and developed during this period.
+ The work of Klein (1950), Brown (1954) and Theil (1961) had a predominant
+ role in the development of forecasting theory in the post-war period.
+ Brown derived standard errors for forecasts from systems, while Theil developed
+ the Theil index, a comparison measure for forecasting.
+ Granger and Newbold (1973) showed that forecast accuracy cannot be based
+ on comparisons of the predicted and actual time series or their distributional
+ properties.
+ Instead, we should focus on their difference, the forecast error.
+ Ericsson (1992) considers the traditional use of the mean square forecast
+ error (MSFE) in forecast evaluation, as well as the consistency of the
+ models being compared.
+\end_layout
+
+\begin_layout Subsection
+Empirical Literature
+\end_layout
+
+\begin_layout Standard
+Based on the framework developed by Box and Jenkins (1976), most literature
+ on forecasting in the post-war period focused on ARMA and ARIMA models
+ (Anderson, 1977; Harvey & Todd, 1983).
+ The Wold decomposition theorem (Wold, 1938) postulates that a purely determinis
+tic covariance stationary process can have an infinite moving-average (MA)
+ representation.
+ Furthermore, any MA(∞) can be represented in accuracy by an ARMA(p,q) model.
+ Due to the stochastic nature of most economic time series, they require
+ differencing at least once in order to be stationary.
+ For this reason, the integrated autoregressive moving average (ARIMA(p,d,q))
+ models, in which the d indicates the number of times the series has been
+ differentiated to be stationary, became dominant in modelling and forecasting.
+\end_layout
+
+\begin_layout Standard
+Time series have also taken the form proposed by Kalman (1960), who designed
+ a technique to identify and extract latent factors in state-space models.
+ These models are useful since they relax the assumption that the explanatory
+ variable is observable, which can help to explain the behaviour of some
+ economic and financial time series.
+ This allows for an easy way to model dynamic multivariate time series and
+ avoids the need for proxy variables (Martin et al., 2013).
+ The unobserved components approach has been proven to be a good fit for
+ modelling and forecasting, competing and outperforming ARIMA models (Harvey
+ & Todd, 1983; Stock & Watson, 1988, 1989, 1993, 2003).
+ However, it has also been pointed out that when using UC models, there
+ can be issues both in the specification of the models and in the inferences
+ drawn from the distribution of the unobserved components (Maravelli, 1994).
+\end_layout
+
+\begin_layout Standard
+A more recent approach of the unobserved components model with stochastic
+ volatility (UC-SV) has been used to forecast inflation (Stock & Watson,
+ 2007).
+ Considering that inflation has both a permanent stochastic trend component
+ that has suffered large changes in its variance since the post-war period
+ and a serially uncorrelated transitory component with a relatively constant
+ variance, Stock & Watson compare different models, including a univariate
+ AR model, an Atkeson–Ohanian (2001) random walk, an integrated moving-average
+ IMA(1,1), multiple multivariate Backward-looking Phillips curve (PC) and
+ a UC-SV model.
+ They divide the US inflation data into two samples (1970Q1- 1983Q4 and
+ 1984Q1-2004Q4) to produce pseudo-out-of-sample forecasts.
+ They concluded that in the second period, MSFE has declined substantially,
+ meaning that inflation has become relatively easier to forecast.
+ However, the traditional AR and PC models have reduced their performance,
+ whereas the UC-SV and IMA models appear to hold the upper hand in forecasting.
+\end_layout
+
+\begin_layout Standard
+Another approach to forecasting was developed in the 80s, embracing Bayesian
+ methods for estimating vector autoregressions (Litterman, 1980; Litterman,
+ 1986; Doan et al., 1984; Sims, 1993) showing that the Bayesian vector autoregres
+sion (BVAR) approach had better results than their univariate counterparts.
+ Litterman was a pioneer in forecasting macroeconomic variables based on
+ Bayesian shrinkage estimation techniques developed in previous decades
+ (Shiller, 1970; Stein, 1960).
+ Doan, Litterman, and Sims provided unconditional forecasts 1982:12-1983:3
+ for the U.S.
+ Congressional Budget Office and described how these Bayesian techniques
+ with time-varying parameters could be useful for conditional projections
+ and to discuss policy alternatives.
+ Sims modified Litterman’s model to allow for conditional heteroskedasticity
+ and non-normality of disturbances and used it to forecast nine macroeconomic
+ variables.
+ His model worked pretty well with unconditional predictions, but it felt
+ short with conditional predictions, therefore, was not as useful to analyze
+ policy interventions.
+\end_layout
+
+\begin_layout Standard
+The adoption of the Bayesian techniques would lead to an increase in literature
+ that would use TVP in modelling and forecasting (Canova, 1993; Cogley and
+ Sargent, 2001; Cogley and Sargent, 2002; Primiceri, 2005).
+ Canova asserts that due to the short-term changes in financial time series,
+ they are better described by stochastic processes that have leptokurtic
+ distributions (with heavy tails and a sharper peak) and are conditionally
+ heteroskedastic.
+ In that sense, the author proposes as a forecasting tool a Bayesian timevarying
+ coefficient (TVP-BVAR) model.
+ HAssessing forecasting in linear and non-linear Machine Learning models
+ for short-term inflation in Perue forecasted the U.S.
+ spot exchange rates and spot interest rates from 1986.1 to 1987.51 and concluded
+ that the TVP model improves upon RW forecasts at all horizons and for all
+ the exchange rates.
+ Similarly, Cogley and Sargent used a non-linear TVP-BVAR model to describe
+ inflation-unemployment dynamics in the post-war U.S.
+ economy.
+ They then extended the model to include stochastic volatility to capture
+ the drift in the persistence of inflation.
+ Primiceri also used a TVP model to capture policy changes in a structural
+ vector autoregression (TVP-SVAR) and found evidence of time variation in
+ the U.S.
+ monetary policy.
+\end_layout
+
+\begin_layout Standard
+Most of the research and breakthroughs in inflation estimation and forecasting
+ have been focused on developed countries.
+ However, in the last few decades, literature concerning forecasting in
+ the region has also implemented new techniques.
+ One example is Gil-Alana & Pestana Barros (2009) who used a Fractional-Cointegr
+ated VAR (FCVAR) with structural break to analyse inflation in 18 Latin
+ American countries.
+ They found out that most countries had a break date around the late 80s
+ and early 90s.
+ For the FCVAR model, they were inspired by Bos et al.
+ (2001), who reviewed the forecasting ability of fractional models.
+\end_layout
+
+\begin_layout Standard
+Similarly, the most recent work of Pincheira-Brown et al.
+ (2019) examines the ability of core inflation to predict consumer price
+ index (CPI) annual inflation in eight Latin American countries.
+ They used a sample period (January 1995–May 2017) where most countries
+ faced changes in their monetary regimes and different international and
+ domestic financial crisis.
+ Using two nested VAR models, they find out the core inflation is an important
+ predictor for headline inflation in the short-run, but does not add much
+ information for most countries in the long-run.
+\end_layout
+
+\begin_layout Standard
+In Peru, there is also literature that has used these innovative approaches
+ to forecast inflation.
+ Llosa et al.
+ (2006) were pioneers in the introduction of Bayesian techniques following
+ the methodology of Doan et al.
+ (1984) to forecast Peruvian inflation.
+ The authors used four specifications for BVARs (which included from five
+ (the simplest) to nine variables) using 6 lags for all models.
+ The evaluation of the predictive accuracy of each BVAR specification is
+ obtained by estimating and recursively predicting.
+ The estimation period ranges from August 1995 to November 2001 and the
+ forecast period goes from December 2001 to August 2004.
+ To evaluate the out-of-sample forecast of the different models, they used
+ both the mean square error (MSE) and the U-Theil statistic.
+\end_layout
+
+\begin_layout Standard
+In general, they find that all models except the BVAR 4 perform quite well
+ in predicting inflation in the first out-of-sample period and, on average,
+ the BVAR 1 has the best inflation forecasting performance with the lowest
+ U-Theil statistic (0.16).
+ When it comes to robustness, the BVAR 1 also outperforms all other models.
+ Therefore, they conclude that out-of-sample predictions made with BVARs
+ favour small BVAR specifications under different possible criteria.
+\end_layout
+
+\begin_layout Standard
+Vega et al.
+ (2009) and Wilkelried (2013) describe the quarterly macroeconometric model,
+ known as Modelo de Proyección Trimestral (MPT), used by the BCRP as a reference
+ to make policy simulations and projections of key macroeconomic variables
+ in Peru.
+ The MPT is a dynamic semi-structural model used to explain the aggregate
+ behaviour of a small open economy with partial dollarisation.
+ It uses linear behavioural equations obtained from non-linear equations
+ derived from the optimal behaviour of economic agents subject to preferences,
+ technologies, and market structures.
+ The MPT has four main blocks (1) Aggregate supply, (2) Aggregate demand,
+ (3) Uncovered interest rate parity and (4) Monetary policy rule.
+\end_layout
+
+\begin_layout Standard
+Apart from being used in forecasting, the main goal of the MPT is simulating
+ the response of the main macroeconomic variables (inflation, GDP gap, monetary
+ policy interest rate and exchange rate) to different shocks.
+ The MPT serves as a great tool for policymakers at the BCRP.
+ However, the great number of equations involving it makes it a non-parsimonious
+ model, as well as non-replicable for independent analysts and agents outside
+ the projection process.
+ 
+\end_layout
+
+\begin_layout Standard
+Barrera (2007) uses an Unaggregated Forecasting System (Sistema de Predicción
+ Desagregada or SPD) consisting in a Sparse VAR model approach to predict
+ Metropolitan Lima CPI.
+ A Sparse VAR model can handle a huge number of equations while maintaining
+ parsimony in the model by giving emphasis on identifying and modeling only
+ the most relevant relationships while ignoring or assigning low weights
+ to the rest of the relationships between variables.
+ Sparse VAR parameters are usually sensible to outliers.
+ However, Barrera proposes a robust multi-equation procedure that presents
+ a gain in accuracy in the presence of outliers.
+\end_layout
+
+\begin_layout Standard
+The author concludes that robust SparseVAR models improve the accuracy of
+ all vanilla SparseVAR models for intermediate horizons, especially in three
+ of the four types of SparseVAR models.
+ Robust projections are less sensitive to outlier data sequences such as
+ those experienced during the 1998 ENSO phenomenon and are thus suitably
+ designed for the eventual occurrence of this phenomenon in the future.
+\end_layout
+
+\begin_layout Standard
+Literature concerning inflation forecasting using ML models has mainly focused
+ on developed countries.
+ For instance, Ülke et al.
+ (2018) make inflation predictions using both time series and ML for the
+ USA with data between 1984 and 2014.
+ The study shows that ML prevails against the time series models in at least
+ seven out of the sixteen conditions used.
+ On the other hand, Medeiros et al.
+ (2022) contributed with a more detailed investigation that included a total
+ of 91 countries, with observations from January 1980 to December 2019.
+ They compared six models, three traditional models, and three ML models,
+ concluding that, overall, ML models, particularly non-linear ones, were
+ the best suited for forecasting inflation.
+ Although their research was conducted for a large group of countries, the
+ results were the same for developing economies like Brazil and Nigeria,
+ where the RF model had the best metrics, especially in horizons from three
+ to six months.
+\end_layout
+
+\begin_layout Standard
+One article centred around ML forecasting for a developing country was done
+ by Silva & Piazza (2020).
+ Their objective was to build accurate forecasts of the Brazilian consumer
+ price inflation (IPCA) at multiple horizons spanning from one to twelve
+ months (h = 1, ..., 12).
+ They used five different supervised ML algorithms: ridge regression, LASSO
+ regression, EN, RF, and quantile regression forest (QRF), as well as a
+ series of traditional econometric models: RW, VAR, and ARMA.
+ Additionally, they employed reduced-form structural models, factor models,
+ and survey forecasts.
+ The survey forecast was used as benchmark.
+ In the shortest horizon (h=1), the best model was the iterated factor model,
+ followed by the survey forecast.
+ In the third and fourth places were a reduced-form structural model (hybrid
+ Phillips curve model) and the VAR (34) model.
+ For longer horizons, the survey forecasts still outperformed other models
+ in terms of mean squared error (MSE), although very often with equal predictive
+ ability to the factor model and the random forest models.
+ ML forecasts showed superior predictive power and outperformed the inflation
+ forecasts of all traditional econometric approaches.
+\end_layout
+
+\begin_layout Standard
+Medeiros et al.
+ (2016) also published a work on inflation forecasting using ML for Brazil.
+ Specifically, the variable to forecast was the National Consumer Price
+ Index (IPCA) and the monthly inflation index (IGPM).
+ They used 102 monthly predictors, covering production, government debt,
+ price indexes, taxes, financial markets, import and export of goods and
+ services, government accounts, savings, investment, wages, and international
+ variables recovered from the Central Bank of Brazil (BCB), other government
+ databases (the FGV, the IBGE, the IPEADATA) and the Bloomberg database.
+ The selected period ranged from January 2000 to December 2013, after the
+ implementation of the inflation-targeting policy in Brazil.
+ The predictions were made using a rolling window.
+\end_layout
+
+\begin_layout Standard
+The models used in the paper were the autoregressive model (AR), the factor
+ model, the LASSO regression, and the adaLASSO specifications for all the
+ forecast horizons, which ranged from one to twelve months (h = 1, ..., 12).
+ The metrics used to compare the different methods were the root mean squared
+ error (RMSE) and the mean absolute error (MAE).
+ The results showed that adaLASSO was the best model to forecast the IPCA
+ inflation in the horizon from one to four months (h = 1, , 4).
+ On the other hand, for longer horizons (h = 5, , 12), the AR and the factor
+ models had better predictions.
+ Regarding the IGPM inflation, the adaLASSO was again the best model for
+ short-period forecasts, but the AR model was best suited for longer horizons.
+\end_layout
+
+\begin_layout Standard
+Similarly, Rodriguez-Vargas (2020) published another work focused on a developin
+g country.
+ The author chose the interannual variation rate of the Consumer Price Index
+ of Costa Rica as the variable to forecast for one, three, six, and twelve
+ months (h = 1, 3, 6, 12).
+ By using data from the Central Bank of Costa Rica (BCCR) from January 2003
+ to February 2019, he tested a univariate K-nearest neighbors (KNN) model,
+ a KNN with explanatory variables, extreme gradient boosting, an RF model,
+ and long short-term memory (LSTM) model.
+\end_layout
+
+\begin_layout Standard
+Using as metrics of comparion the MSE and the Theil index, the results showed
+ that at all horizons, the LSTM model produces the most accurate predictions,
+ followed by the average of the univariate methods, the forecasts of the
+ univariate KNN, and those of extreme gradient boosting and random forests.
+ He also concluded that a combination of forecasts can improve the performance
+ in comparison with individual forecasts at all horizons, and, most importantly,
+ outperforms the forecasts from univariate methods.
+\end_layout
+
+\begin_layout Standard
+In the next section, we will describe the theoretical framework that is
+ going to be used in this document for the in the evaluation and comparison
+ of the forecasts.
+ Then, we are going to present the methodology as well as the data and the
+ different models for modelling inflation, both econometric and machine
+ learning models.
+\end_layout
+
+\begin_layout Section
+Theoretical Framework
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Third-section"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section, we will describe the criteria of forecast evaluation and
+ forecast comparison.
+ In the section 3.1, we will describe the two main properties of a good forecast:
+ unbiasedness and efficiency.
+ In the section 3.2, we will develop the main procedures when comparing forecasts.
+ Given a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$X_t$
+\end_layout
+
+\end_inset
+
+vector of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$k$
+\end_layout
+
+\end_inset
+
+ explanatory variables for the variable 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$y_t$
+\end_layout
+
+\end_inset
+
+ for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$(t = 1, ..., T)$
+\end_layout
+
+\end_inset
+
+ we can construct the point forecast of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$y_{t+h}$
+\end_layout
+
+\end_inset
+
+ given the information 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_h$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{y}_{t+h}=f_{t+h}(X_{t+h}, I_h)$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We define the forecast error as
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$e_{t+h}=y_{t+h}-
+\backslash
+hat{y}_{t+h}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Fourth section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Fourth-section"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+A sub-section
+\end_layout
+
+\begin_layout Standard
+Proin venenatis eleifend leo, eget gravida mi vulputate eget.
+ Vivamus vel elit rhoncus, venenatis diam nec, rhoncus purus.
+ Sed semper quis quam ac porta.
+ Cras venenatis ipsum ornare enim dignissim ullamcorper.
+ Nulla luctus libero arcu, in sollicitudin quam dapibus quis.
+ Proin quis lorem commodo, varius neque sed, fermentum arcu.
+ Aliquam quis massa id enim malesuada pharetra varius egestas leo.
+ Sed pharetra massa nunc.
+ Suspendisse tempus mauris ante, et tincidunt tortor maximus ut.
+ 
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Standard
+%
+\backslash
+resizebox{1.3
+\backslash
+textheight}{!}{%
+\end_layout
+
+\begin_layout Standard
+%}
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+input{./input/external-table.tex}
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+end{center}Vestibulum congue nisi scelerisque ligula mattis ultricies.
+ Cras a nisi ligula.
+ Nulla bibendum mi nec molestie feugiat.
+ Sed eu lacus at nulla venenatis blandit.
+ Nam consectetur lorem nec eros pretium vulputate.
+ Fusce a urna ac tortor maximus rutrum.
+\end_layout
+
+\begin_layout Standard
+Interdum et malesuada fames ac ante ipsum primis in faucibus.
+ Phasellus ac felis laoreet, pharetra quam dignissim, venenatis ipsum.
+ Aliquam neque erat, eleifend vitae condimentum ac, fermentum a elit.
+ Mauris aliquet aliquam dolor, vitae venenatis est lobortis in.
+ Nullam tincidunt quis erat id lacinia.
+ Vivamus posuere urna ut urna imperdiet lobortis.
+ Maecenas eu tincidunt velit.
+ Vestibulum condimentum sollicitudin massa id venenatis.
+ Nullam vel metus sed nisi ultrices molestie.
+\end_layout
+
+\begin_layout Standard
+Quisque in gravida magna.
+ Integer vulputate dui eros, nec sodales tortor porta sit amet.
+ Ut pretium vitae velit ullamcorper vehicula.
+ Ut molestie magna vitae neque pretium venenatis.
+ Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+ ridiculus mus.
+ Aenean ultricies enim quis lectus pharetra, ut dapibus ipsum interdum.
+ Sed sit amet dui volutpat, iaculis felis tincidunt, lacinia tortor.
+\end_layout
+
+\begin_layout Subsection
+Embedded figures
+\end_layout
+
+\begin_layout Standard
+You can reference to tables and figures in your paper.
+ For instance, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figure 1"
+
+\end_inset
+
+ shows a node graph.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+This is a figure.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Figure 1"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A note on this figure.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../../input/figure1.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.69999999999999996
+
+\size footnotesize
+Notes: This is a description for the above figure.
+ Sed sed nulla non justo tempor efficitur finibus vitae erat.
+ Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+ ac turpis egestas.
+ Donec quis lacinia sapien.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Fifth section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Fifth-section"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Interdum et malesuada fames ac ante ipsum primis in faucibus.
+ In ut nunc nec urna tristique elementum.
+ Vivamus maximus tincidunt tellus sit amet feugiat.
+ Nam porta sagittis mollis.
+ Vivamus venenatis, libero eget pulvinar dignissim, elit ipsum maximus sem,
+ nec elementum lacus tortor at purus.
+ Aenean eget enim sed magna ornare faucibus.
+ Duis eu quam nec massa luctus dapibus.
+ Aenean sodales dui in lobortis gravida.
+ Cras maximus pulvinar suscipit.
+ Nulla a faucibus tortor.
+ Cras rutrum justo purus.
+ Vestibulum ac auctor ipsum, eget efficitur odio.
+ Aliquam erat volutpat.
+ Nam a rutrum risus.
+\end_layout
+
+\begin_layout Standard
+Nunc sed lectus consequat, commodo sapien a, tincidunt lacus.
+ Fusce venenatis lacus sit amet mauris accumsan, at sodales nisl placerat.
+ Nunc ultricies ornare nisl.
+ Vivamus euismod nulla eu magna imperdiet, at maximus nunc pulvinar.
+ Duis commodo metus sit amet diam lacinia consequat.
+ Suspendisse erat lacus, tempor vitae hendrerit sit amet, dapibus auctor
+ libero.
+ Donec congue aliquam libero et ultrices.
+ Donec sapien orci, bibendum ac malesuada eget, vestibulum vel justo.
+\end_layout
+
+\begin_layout Standard
+Quisque non dui hendrerit, dapibus justo sed, accumsan ex.
+ Aliquam vel molestie neque.
+ Maecenas egestas tempus vehicula.
+ Mauris iaculis, tellus non lacinia faucibus, nisi erat dapibus enim, id
+ mattis lectus est bibendum nisi.
+ Pellentesque vitae lorem id lectus hendrerit aliquet faucibus quis ipsum.
+ Aliquam tempus mattis sem, eu facilisis velit accumsan eget.
+ Aliquam elementum vitae turpis eu luctus.
+ Donec pharetra sapien vel eros congue, a condimentum arcu imperdiet.
+ Pellentesque quis urna ut metus tincidunt fermentum.
+\end_layout
+
+\begin_layout Section
+Sixth section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Sixth-section"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In commodo arcu id lectus fringilla semper.
+ Duis mollis sed tortor sed aliquet.
+ Sed malesuada augue risus, vestibulum molestie purus cursus et.
+ Integer viverra felis id elit congue, at sagittis felis convallis.
+ Donec nisl libero, vehicula non nibh at, congue vehicula mauris.
+ Duis placerat turpis diam, eu cursus magna mollis ut.
+ Nam odio erat, posuere sed pulvinar sit amet, luctus vitae ante.
+ Aenean nisl ipsum, malesuada eget nulla sit amet, dignissim congue risus.
+ Nam sed ex et magna varius commodo vel a ipsum.
+\end_layout
+
+\begin_layout Standard
+Etiam leo lacus, placerat et congue a, iaculis nec urna.
+ Nam tempor, leo in tempor laoreet, dui nunc bibendum tellus, a bibendum
+ dolor velit a nunc.
+ Praesent dignissim dignissim eros quis consectetur.
+ Maecenas lobortis bibendum orci, in ullamcorper ante sodales at.
+ Vestibulum ultrices auctor cursus.
+ Quisque nec placerat libero.
+ Vivamus in facilisis lacus, nec consectetur lacus.
+ Interdum et malesuada fames ac ante ipsum primis in faucibus.
+ Integer pharetra cursus est eu facilisis.
+ Integer nec odio elementum, dignissim nibh eget, condimentum elit.
+ Quisque non nisi venenatis, posuere mauris et, sodales erat.
+ Interdum et malesuada fames ac ante ipsum primis in faucibus.
+\end_layout
+
+\begin_layout Subsection
+Math equations and tables
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Math-tables"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You can add inline equations and math symbols like this: 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\log(1+sales_{t}^{1})-\log(1+sales_{t}^{0})$
+\end_inset
+
+.
+ But you can also have bigger (and numbered) equations:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\log(1+sales_{t})=\sum_{\tau=1}^{48}\beta_{\tau}lagGrp_{\tau,t}+\alpha_{h(t)}+\varepsilon_{t},\label{eq:baseline specification}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You may also want to add tables in your text.
+ Like Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Table 1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ You can create them directly in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+LyX
+\end_layout
+
+\end_inset
+
+, or you can import pre-formatted 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX 
+\end_layout
+
+\end_inset
+
+ ones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+This is a title.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Table 1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+resizebox{
+\backslash
+textwidth}{!}{%
+\end_layout
+
+\end_inset
+
+
+\lang english
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="12" columns="5">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+toprule{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(1)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(2)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(3)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(4)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+category 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+category 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+category 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+diff.
+ (3)-(2)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0171
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0137
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0178
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0041
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0008)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0012)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0012)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0017)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+B
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0125
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0122
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0140
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0018
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0011)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0018)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0016)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0024)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0062
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0065
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0096
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0030
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0010)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0018)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0015)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0023)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+D
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0003
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0012
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0009
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.0004
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0007)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0013)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0012)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0018)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+E
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0119
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0108
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0041
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0030
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0008)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0013)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0017)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0.0017)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline
+\backslash
+bottomrule%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace -20bp
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "73text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.69999999999999996
+
+\size footnotesize
+Notes: This is a caption for the above table.
+ Nunc quis maximus libero.
+ Nam tincidunt turpis sem, sit amet viverra ligula consequat vel.
+ Morbi quis mauris eget metus lacinia rutrum sit amet lacinia turpis.
+ Sed neque tellus, imperdiet sed enim et, consectetur porta dolor.
+ Etiam rhoncus ex rhoncus lorem ultrices ornare.
+ Morbi nec accumsan lectus, quis egestas tellus.
+ Nunc ullamcorper ut ante at condimentum.
+ Donec et luctus augue.
+ Pellentesque vel cursus purus, vel lacinia lacus.
+ Cras consectetur justo sem, id ullamcorper augue pharetra sit amet.
+ Pellentesque egestas, augue ut rhoncus mollis, libero urna gravida erat,
+ et sollicitudin ex sem id lorem.
+ Sed magna velit, maximus non pharetra eu, feugiat at sem.
+ Suspendisse iaculis malesuada dolor.
+ Nunc sed massa non sapien placerat accumsan.
+ Ut quis purus laoreet, ullamcorper nunc eu, imperdiet odio.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Concluding remarks
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Summary-and-concluding"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vestibulum commodo libero a pellentesque pellentesque.
+ Aliquam at sapien ante.
+ Integer congue libero sed porta facilisis.
+ In elementum neque dui, sit amet venenatis magna molestie placerat.
+ In ac ex at neque malesuada varius.
+ Proin pulvinar dictum nisl, nec elementum metus ultricies at.
+ Suspendisse suscipit id quam at euismod.
+ Ut vitae quam non eros mattis egestas sed ut metus.
+ Praesent pulvinar felis est, nec imperdiet tortor placerat a.
+ Maecenas faucibus nisi eu purus vehicula, in rutrum magna porta.
+ Ut elit sapien, hendrerit ac enim quis, dignissim pretium sapien.
+ Morbi at convallis nibh.
+ Cras ullamcorper nunc a porta aliquam.
+ Curabitur tincidunt, lacus venenatis facilisis vulputate, magna risus euismod
+ est, at vehicula ligula arcu aliquet risus.
+ Nullam maximus, lectus sed ultricies facilisis, justo libero sodales quam,
+ at venenatis nisi eros sit amet lacus.
+\end_layout
+
+\begin_layout Standard
+Morbi fermentum diam ut tellus mattis, vel scelerisque lorem tincidunt.
+ Curabitur molestie viverra scAssessing forecasting in linear and non-linear
+ Machine Learning models for short-term inflation in Peruelerisque.
+ Fusce vel faucibus odio.
+ Donec bibendum sem in tempus cursus.
+ Nunc eget sapien quam.
+ Fusce in lectus sem.
+ Fusce vitae rutrum nunc.
+ Proin posuere odio felis, a consequat nibh fermentum ac.
+ Vestibulum non odio nec orci maximus viverra.
+ Aliquam convallis augue nec justo sollicitudin, at ullamcorper justo vulputate.
+\end_layout
+
+\begin_layout Standard
+Quisque ullamcorper tellus in ultrices placerat.
+ Sed maximus placerat euismod.
+ Vestibulum faucibus, dui sed facilisis scelerisque, leo justo tempor nunc,
+ sed varius nisi ipsum sed massa.
+ Vivamus felis leo, facilisis at maximus et, aliquam vel ante.
+ Praesent ac tincidunt enim.
+ Sed ornare odio nec ultrices posuere.
+ Nulla commodo nisi ornare, tincidunt orci a, cursus ligula.
+\end_layout
+
+\begin_layout Standard
+Nulla quis mauris ante.
+ Donec blandit laoreet nisl ut aliquam.
+ Nulla feugiat augue arcu, ac condimentum elit dapibus a.
+ Fusce sed congue magna.
+ Pellentesque molestie lacinia semper.
+ Fusce consectetur maximus ante.
+ Aenean vitae magna nibh.
+ Ut laoreet leo ac quam viverra, id faucibus arcu pellentesque.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0.9
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "../../../bibliography"
+options "bibtotoc,chicagoa"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\start_of_appendix
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\backslash
+null
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size giant
+\begin_inset VSpace 5cm
+\end_inset
+
+Online Appendix
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\noindent
+At any point, you can include LaTeX commands for advanced customizations.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+thefootnote}{A
+\backslash
+arabic{footnote}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+thepage}{A
+\backslash
+arabic{page}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+thetable}{A
+\backslash
+arabic{table}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+thefigure}{A
+\backslash
+arabic{figure}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{footnote}{0} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{table}{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{figure}{0}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Appendix
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Appendix"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This is an external TeX table.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+An external TeX table.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "LaTeX-table"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\lang british
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+resizebox{1.3
+\backslash
+textheight}{!}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+%}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{./input/external-table.tex}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\lang english
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "92col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.69999999999999996
+
+\size footnotesize
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ Quisque nibh urna, egestas in ornare in, aliquet lobortis felis.
+ Donec vehicula tellus nec ipsum ornare dapibus.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Another figure.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Another-figure"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../../input/figure2.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.69999999999999996
+
+\size footnotesize
+Fusce eros sem, posuere et vestibulum at, tempor ac purus.
+ Quisque in efficitur lectus.
+ Etiam ligula diam, rhoncus convallis arcu at, aliquam maximus turpis.
+ Vivamus venenatis neque ligula.
+ Aenean consequat faucibus ipsum vitae fringilla.
+ Integer vitae varius lacus.
+ Maecenas id maximus quam.
+ Morbi neque augue, posuere in faucibus sed, interdum ac mi.
+ Mauris metus diam, vulputate posuere nulla id, gravida vestibulum ligula.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
