@@ -54,7 +54,7 @@ roof]{\textbf{#1.} }{\  \rule{0.5em}{0.5em}}
 \use_default_options true
 \maintain_unincluded_children false
 \language english
-\language_package none
+\language_package babel
 \inputencoding auto
 \fontencoding default
 \font_roman "default" "default"
@@ -173,7 +173,7 @@ Pontificia Universidad Católica del Perú
 \end_layout
 
 \begin_layout Date
-This Version: March 26, 2024
+This Version: April 4, 2024
 \end_layout
 
 \begin_layout Abstract
@@ -265,6 +265,16 @@ baselineskip
 \end_inset
 
 =14.4pt
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset Newpage newpage
 \end_inset
 
@@ -286,15 +296,8 @@ y, and advise macroeconomic policymakers.” In this thesis, we will focus
  Across the world, one thing that most central banks have in common is the
  goal to keep the steadiness of price levels.
  In Peru, for instance, the main purpose of the Central Bank of Reserve
- (BCRP) is “to preserve monetary stability” (
-\begin_inset CommandInset citation
-LatexCommand cite
-key "bcrp"
-literal "false"
-
-\end_inset
-
-), which translates into keeping inflation under control.
+ (BCRP) is “to preserve monetary stability” (BCRP, n/d), which translates
+ into keeping inflation under control.
  Similarly, monetary authorities of other countries in the region pursue
  the same objective.
 \end_layout
@@ -447,30 +450,6 @@ This is a footnote.
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-And this is a citation 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "surname2020placeholder"
-literal "true"
-
-\end_inset
-
-.
- You can reference to different sections in your paper, like this: See Section
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Third-section"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Section
@@ -669,8 +648,15 @@ ated VAR (FCVAR) with structural break to analyse inflation in 18 Latin
  American countries.
  They found out that most countries had a break date around the late 80s
  and early 90s.
- For the FCVAR model, they were inspired by Bos et al.
- (2001), who reviewed the forecasting ability of fractional models.
+ For the FCVAR model, they were inspired by 
+\begin_inset CommandInset citation
+LatexCommand nocite
+key "bos2001"
+literal "false"
+
+\end_inset
+
+, who reviewed the forecasting ability of fractional models.
 \end_layout
 
 \begin_layout Standard
@@ -2280,52 +2266,202 @@ Regarding the main predictors, we will discuss the ones elected by the best
  In Annex 1 we can see all 10 predictors for both models.
 \end_layout
 
+\begin_layout Subsubsection
+Forecasting from January 2019 to December 2019
+\end_layout
+
+\begin_layout Standard
+We observe the results for the RMSE for the second forecast in figure 5.
+ Again we observe the RF as the best model across all horizons.
+ It increases slightly in the second horizontal and then continues to decrease
+ until it stabilizes at 
+\begin_inset Formula $h=6$
+\end_inset
+
+ onwards.
+ The RF is followed closely by the linear ML models in second place.
+ The VAR model falls far behind with the higher RMSE.
+\end_layout
+
+\begin_layout Standard
+The MAPE for all models in this prediction in far greater than the 2009
+ forecast, exceeding 100% for all non-linear models.
+ The RF has the best MAPE across all horizons with less than 50%.
+ Both the linear ML and the VAR models follow the same pattern, with higher
+ MAPE for shorter and longer horizons.
+\end_layout
+
+\begin_layout Standard
+Regarding the predictors chosen, we are again centering in a linear and
+ a non-linear ML model.
+ EN chooses again typical variables used to predict inflation, such as the
+ lags of the Monetary Policy Reference Rate and commodity prices, while
+ RF opts for the lags of the index of the MLW.
+ In Annex 2 we can see all 10 predictors for both models.
+\end_layout
+
+\begin_layout Subsection
+Core inflation
+\end_layout
+
+\begin_layout Subsubsection
+Forecasting from January 2009 to December 2009
+\end_layout
+
+\begin_layout Standard
+Figure 7 shows the RMSE for the predictions of core inflation from January
+ 2009 to December 2009.
+ The results are similar to those shown for headline inflation.
+ RF outperforms all models for all horizons with the smaller RMSE.
+ The linear ML models follow the same pattern with an increasing their RMSE
+ as the horizon increases.
+ The VAR model has the worst performance, event worse than the RW model.
+\end_layout
+
+\begin_layout Standard
+In figure 8 we observe the results for the MAPE.
+ Here we find results inversed from all previous cases.
+ First, we observe that all models have a similar MAPE in the shortest horizons.
+ In the longer horizons (
+\begin_inset Formula $h=6$
+\end_inset
+
+ and onwards), the MAPE for the VAR is smaller than other models.
+ The RF is the second best model in terms of MAPE.
+ Finally, the linear ML models follow a similar pattern with the highest
+ MAPE.
+\end_layout
+
+\begin_layout Standard
+Regarding the most important covariates, the RF no longer chooses the MLW
+ index as its predictor.
+ Instead, it opts for different Underlying CPI indicators as well as commodity
+ prices (Wheat, Soybean oil).
+ The linear EN chooses traditional variables such as the lags of CPI and
+ the reserve requirement rate.
+ We can see all predictors in annex 3.
+\end_layout
+
+\begin_layout Subsubsection
+Forecasting from January 2019 to December 2019
+\end_layout
+
+\begin_layout Standard
+Again results from both figure 9 show outcomes different from previous forecasts.
+ It appears that the VAR model performs better at longer horizons, followed
+ by the non-linear RF.
+ This last model also has the worst performance during the first horizons.
+ The Ridge model has the best RMSE at the first horizons but it get continuously
+ worse as the horizons increase.
+\end_layout
+
+\begin_layout Standard
+Regarding the results from the MAPE, similarly to the results from the RMSE,
+ both the VAR and RF have a better performance, with the first one being
+ the best of the two models at all horizons.
+ The linear ML models behave following a similar pattern with an increasing
+ worse MAPE over time.
+\end_layout
+
+\begin_layout Standard
+When it comes to the predictors chosen by the best models, we center this
+ time in the Ridge linear model and the RF model.
+ Both the linear and the non-linear ML models choose typical variables used
+ to model and predict inflation.
+ This time, the RF model has no preference for the MLW index, and chooses
+ instead underlying inflation, as well as soybean oil and wheat prices to
+ predict core inflation.
+ The complete list is in annex 4.
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+Our main findings in this thesis are similar to those presented in other
+ researches, however, there are some unique findings regarding Peruvian
+ inflation.
+ First of all, ML clearly outperform the traditional VAR and RW models in
+ terms of RMSE and MAPE when it comes to headline inflation prediction for
+ all horizons.
+ It is also evident that the non-linear RF model has a better RMSE and MAPE
+ than linear ML models like Ridge, Lasso and EN.
+ It is true for both testing periods, 2009 and 2019.
+\end_layout
+
+\begin_layout Standard
+In both periods, the linear models followed a similar pattern, with a performanc
+e in- between the VAR and RF model.
+ It is also noticeable that, out of all linear models, the EN had better
+ results in both short and long term predictions, followed closely by the
+ Lasso model.
+\end_layout
+
+\begin_layout Standard
+However, results vary when forecasting core inflation.
+ In the period of 2009, While the RF is still the best model when measuring
+ RMSE for all horizons, surprisingly the VAR has a better MAPE than all
+ models at the longest horizons (
+\begin_inset Formula $h=5$
+\end_inset
+
+ and on-wards), leaving the RF at second place.
+ Additionally, linear ML models have better MAPE results in the shortest
+ horizons (
+\begin_inset Formula $h=1,2,3$
+\end_inset
+
+).
+ In the period of 2019, results completely change from those of headline
+ inflation, because the VAR model has better results in both the RMSE and
+ MAPE metrics, specially in longer horizons.
+\end_layout
+
+\begin_layout Standard
+This could be interpreted as follows: headline inflation has more non-linearity'
+s in the relationship between the variable and its covariates, while core
+ inflation has more linear and traditionally-modelled relations.
+ That explains why the VAR model fails to give better predictions for headline
+ inflation, but has better results for the core inflation.
+ This linear relationships are stronger in the shortest horizons, which
+ explains why linear ML models have better RMSE and MAPE metrics up to 
+\begin_inset Formula $h=5$
+\end_inset
+
+, but then are outperformed by the RF model.
+ It is worth mentioning that the non-linear RF still gives a fair fight,
+ particularly in the longest horizons.
+\end_layout
+
+\begin_layout Standard
+Finally, regarding the most important predictors chosen, we will focus and
+ those chosen by the best two models in each period.
+ For headline inflation, it is worth mentioning that, while the linear EN
+ model chooses typical variables for modelling inflation, such as other
+ CPI indicators, the reference rate and the lags of the prices of commodities,
+ the RF model selects the MLW index as its main predictors in both periods
+ (2009 and 2019).
+ This results imply that, while traditional variables have a linear relationship
+ with headline inflation, variables added to the model such as MLW have
+ a non-linear non-direct relationship with it.
+ For core inflation this results slightly change.
+ In the period of 2009 both EN and RF select traditional variables as their
+ main predictors, an the MLW index comes 10th for RF in terms of importance.
+ In 2019 the same happens, but this time with the Ridge and RF model.
+ It is also noticeable that the Ridge model chooses the lags of liquidity,
+ which is something that other models did not choose.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "key-1"
-literal "false"
-
-\end_inset
-
-Alami, Y., El Idrissi, I., Bousselhami, A., Raouf, R.
- and Boujettou, H.
- (2021).
- “Macroeconomic impacts of f
-\backslash
-input{./input/external-table.tex}iscal shocks on the Moroccan economy: a disaggreg
-ated SVAR analysis,”
-\begin_inset space \space{}
-\end_inset
-
-
-\shape italic
-Journal of Bussiness amd Socio-Economic
-\shape default
- 
-\series bold
-2(2)
-\series default
-, 137-152.
- doi: 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.1108/JBSED-08-2021-0112
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "anderson77"
-literal "false"
 
 \end_inset
 
@@ -2333,27 +2469,28 @@ Anderson, O.
  D.
  (1977).
  Time Series Analysis and forecasting: Another look at the box-jenkins approach.
- Journal of the Royal Statistical Society.
- Series D (The Statistician), 26(4), 285–303.
- doi: 
+\begin_inset Formula $\textit{ Journal of the Royal Statistical Society. Series D (The Statistician), 26(4)}$
+\end_inset
+
+, 285–303.
+ 
 \begin_inset Flex URL
 status open
 
 \begin_layout Plain Layout
 
-https://doi.org/10.2307/2987813 
+https://doi.org/10.2307/2987813
 \end_layout
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "bcrp"
-literal "false"
+key "key-3"
 
 \end_inset
 
@@ -2366,19 +2503,19 @@ status open
 
 \begin_layout Plain Layout
 
-https://www.bcrp.gob.pe/docs/sobre-el-bcrp/folleto/folleto-institucion al-00.pdf.
+https://www.bcrp.gob.pe/docs/sobre-el-bcrp/folleto/folleto-institucional-00.pdf
 \end_layout
 
 \end_inset
 
-
+.
+ 
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "bcrp2015"
-literal "false"
+key "key-49"
 
 \end_inset
 
@@ -2386,41 +2523,43 @@ Banco Central de la República del Perú.
  (2015).
  (rep.).
  
-\backslash
-textit{Inflation Report.
- Recent trends and macroeconomic forecasts 2015-2017.} Retrieved October
- 3, 2023, from 
+\begin_inset Formula $\textit{Inflation Report. Recent trends and macroeconomic forecasts 2015-2017.}$
+\end_inset
+
+ Retrieved October 3, 2023, from 
 \begin_inset Flex URL
 status open
 
 \begin_layout Plain Layout
 
 https://www.bcrp.gob.pe/eng-docs/Monetary-Policy/Inflation-Report/2015/inflation-re
-port-may-2015.pdf.
+port-may-2015.pdf
 \end_layout
 
 \end_inset
 
+.
  
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "bos2001"
-literal "false"
+key "key-48"
 
 \end_inset
 
 Bos, C.
  S., Franses, P.
- H., & Ooms, M.
+ H., 
+\backslash
+& Ooms, M.
  (2001).
  Inflation, forecast intervals and long memory regression models.
  
 \backslash
 textit{International Journal of Forecasting, 18(2)}, 243–264.
- doi: 
+ 
 \begin_inset Flex URL
 status open
 
@@ -2434,11 +2573,1035 @@ https://doi.org/10.1016/s0169-2070(01)00156-x
  
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-47"
+
+\end_inset
+
+Box, G.
+ E.
+ P., & Jenkins, G.
+ M.
+ (1976).
+ 
+\begin_inset Formula $\textit{Time series analysis, forecasting and control}$
+\end_inset
+
+.
+ Holden-Day.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-46"
+
+\end_inset
+
+Brown, T.
+ M.
+ (1954).
+ Standard errors of forecast of a complete econometric model.
+ 
+\begin_inset Formula $\textit{Econometrica, 22}$
+\end_inset
+
+, 178-192
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-45"
+
+\end_inset
+
+Carnot, N., Koen, V., & Tissot, B.
+ (2011).
+ Economic forecasting and policy (2nd ed.).
+ Palgrave Macmillan.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-44"
+
+\end_inset
+
+Clements, M.
+ P., & Hendry, D.
+ F.
+ (1998).
+ Forecasting economic time series.
+ Cambridge University Press.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-43"
+
+\end_inset
+
+Chan, J.
+ C.
+ C.
+ (2013).
+ Moving average stochastic volatility models with application to inflation
+ forecast.
+ 
+\backslash
+textit{Journal of Econometrics, 176(2)}, 162–172.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.1016/j.jeconom.2013.05.003
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-42"
+
+\end_inset
+
+Dancourt, O.
+ (2014).
+ (working paper).
+\begin_inset Formula $\textit{ Inflation Targeting in Peru: The Reasons for the Success}$
+\end_inset
+
+ (pp.
+ 1–55).
+ Lima: Departamento de Economía.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-41"
+
+\end_inset
+
+Doan, T., Litterman, R., & Sims, C.
+ (1983).
+ 
+\begin_inset Formula $\textit{Forecasting and conditional projection using realistic prior distributions.}$
+\end_inset
+
+ (Working Paper).
+ National Bureau of Economic Research.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.3386/w1202
+\end_layout
+
 \end_inset
 
 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-40"
+
+\end_inset
+
+Ghysels, E., & Marcellino, M.
+ (2018).
+ Applied Economic Forecasting using time series methods.
+ Oxford University Press.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-39"
+
+\end_inset
+
+Granger, C.
+ W.
+ J.
+ & Newbold, P.
+ (1973).
+ Some comments on the evaluation of economic forecasts.
+ 
+\begin_inset Formula $\textit{Applied Economics, 5}$
+\end_inset
+
+, 35-47.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-38"
+
+\end_inset
+
+Granger, C.
+ W.
+ J., & Newbold, P.
+ (1986).
+ 
+\begin_inset Formula $\textit{Forecasting economic time series }$
+\end_inset
+
+(2nd ed.).
+ Academic Press.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-37"
+
+\end_inset
+
+Haavelmo, T.
+ (1944).
+ The Probability Approach in Econometrics.
+ 
+\begin_inset Formula $\textit{Econometrica, 12}$
+\end_inset
+
+, iii.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.2307/1906935
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-36"
+
+\end_inset
+
+Heesterman, A.
+ R.
+ G.
+ (1970).
+ Forecasting models for national economic planning.
+ Springer.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-35"
+
+\end_inset
+
+Heeren, S.
+ (2020).
+ 
+\begin_inset Formula $\textit{Forecasting Inflation using Machine Learning for an Emerging Economy}$
+\end_inset
+
+ (thesis).
+ Erasmus University Rotterdam.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-34"
+
+\end_inset
+
+International Monetary Fund.
+ (2008).
+ 
+\begin_inset Formula $\textit{World Economic Outlook}$
+\end_inset
+
+.
+ Retrieved October 3, 2023, from 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.imf.org/en/Publications/WEO/Issues/2016/12/31/Global-slowdown-and-risi
+ng-inflation
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-33"
+
+\end_inset
+
+Klein, L.
+ R.
+ (1950).
+ 
+\begin_inset Formula $\textit{Economic Fluctuations in the United States, 1921-41}$
+\end_inset
+
+.
+ Cowles Comission Monograph.
+ New York: John Wiley
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-32"
+
+\end_inset
+
+Litterman, R.
+ B.
+ (1980).
+ 
+\begin_inset Formula $\textit{A Bayesian Procedure for Forecasting with Vector Auto-Regression.}$
+\end_inset
+
+ (Working Paper) Massachusetts Institute of Technology, Department of Economics.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-31"
+
+\end_inset
+
+Litterman, R.
+ B.
+ (1986).
+ Forecasting with bayesian vector autoregressions five years of experience.
+ 
+\begin_inset Formula $\textit{Journal of Business \& Economic Statistics, 4(1)}$
+\end_inset
+
+, 25–38.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.21034/wp.274 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-30"
+
+\end_inset
+
+Llosa, G., Tuesta, V., & Vega, M.
+ (2006).
+ Un modelo de proyección BVAR para la inflación peruana.
+ 
+\begin_inset Formula $\textit{Revista Estudios Económicos, (13). }$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-29"
+
+\end_inset
+
+Maravall, A.
+ (1994).
+ Use and misuse of unobserved components in economic forecasting.
+ 
+\begin_inset Formula $\textit{Journal of Forecasting, 13(2)}$
+\end_inset
+
+, 157–178.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.1002/for.3980130209 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-28"
+
+\end_inset
+
+Martin, V., Hurn, S., & Harris, D.
+ (2013).
+ Latent Factor Models.
+ In 
+\begin_inset Formula $\textit{Econometric modelling with time series: specification, estimation and testing }$
+\end_inset
+
+(2nd ed., pp.
+ 544–580).
+ Cambridge University Press.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-27"
+
+\end_inset
+
+Marget, A.
+ W.
+ (1929).
+ Morgenstern on the methodology of economic forecasting.
+\begin_inset Formula $\textit{Journal of Political Economy, 37}$
+\end_inset
+
+, 312-339.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-26"
+
+\end_inset
+
+Medeiros, M., Schütte, E.
+ C., & Soussi, T.
+ S.
+ (2022).
+ Global inflation forecasting: Benefits from Machine Learning Methods.
+\begin_inset Formula $\textit{ SSRN Electronic Journal}$
+\end_inset
+
+.
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+ https://doi.org/10.2139/ssrn.4145665 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-25"
+
+\end_inset
+
+Medeiros, M.
+ C., Vasconcelos, G.
+ F., Veiga, Á., & Zilberman, E.
+ (2019).
+ Forecasting inflation in a data-rich environment: The benefits of Machine
+ Learning Methods.
+ 
+\begin_inset Formula $\textit{Journal of Business \& Economic Statistics, 39(1)}$
+\end_inset
+
+, 98–119.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.1080/07350015.2019.1637745
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-24"
+
+\end_inset
+
+Medeiros, M.
+ C., Vasconcelos, G., & Freitas, E.
+ (2016).
+ Forecasting Brazilian inflation with high-dimensional models.
+ 
+\begin_inset Formula $\textit{Brazilian Review of Econometrics, 36(2)}$
+\end_inset
+
+, 223–254.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.12660/bre.v99n992016.52273
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-23"
+
+\end_inset
+
+Morgentsten, O.
+ (1928).
+ 
+\begin_inset Formula $\textit{Wirtschaftsprognose: eine Untersuchung ihrer Voraussetzungen und Möglichkiten.}$
+\end_inset
+
+Vienna: Julius Springer.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-22"
+
+\end_inset
+
+Pincheira-Brown, P., Selaive, J., 
+\backslash
+& Nolazco, J.
+ L.
+ (2019).
+ Forecasting inflationhttps://doi.org/10.1016/s0169-2070(01)00156-x in Latin
+ America with core measures.
+ International Journal of Forecasting, 35(3), 1060–1071.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.1016/j.ijforecast.2019.04.011 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-21"
+
+\end_inset
+
+Pindyck, R.
+ S., & Rubinfeld, D.
+ L.
+ (1981).
+ Econometric models and economic forecasts.
+ McGraw-Hill.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-20"
+
+\end_inset
+
+Rodríguez-Vargas, A.
+ (2020).
+ Forecasting Costa Rican inflation with machine learning methods.
+ 
+\begin_inset Formula $\textit{Latin American Journal of Central Banking, 1(1-4)}$
+\end_inset
+
+.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.1016/j.latcb.2020.100012
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-19"
+
+\end_inset
+
+Shiller, R.
+ J.
+ (1973).
+ A distributed lag estimator derived from smoothness priors.
+ 
+\begin_inset Formula $\textit{Econometrica, 41(4)}$
+\end_inset
+
+, 775–788.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.2307/1914096
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-18"
+
+\end_inset
+
+Silva, G., & Piazza, W.
+ (2020).
+ Machine learning methods for inflation forecasting in Brazil: new contenders
+ versus classical models.
+ 
+\begin_inset Formula $\textit{Banco Central Do Brasil.}$
+\end_inset
+
+ Retrieved February 24, 2023, from 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.bcb.gov.br/pec/wps/ingl/wps561.pdf
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-17"
+
+\end_inset
+
+Stein, C.
+ (1960).
+ Multiple Regressions.
+ In 
+\begin_inset Formula $\textit{Contributions to Probability and Statistics: Essays in Honor of Harold Hotelling}$
+\end_inset
+
+.
+ Standford Univeristy Press.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-16"
+
+\end_inset
+
+Stock, J.
+ H., & Watson, M.
+ W.
+ (1988).
+ Variable Trends in Economic Time Series.
+ 
+\begin_inset Formula $\textit{Journal of Economic Perspectives, 2(3),}$
+\end_inset
+
+ 147–174.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.1257/jep.2.3.147
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-15"
+
+\end_inset
+
+Stock, J.
+ H., & Watson, M.
+ W.
+ (1989).
+ New Indexes of Coincident and Leading Economic Indicators.
+ 
+\begin_inset Formula $\textit{NBER Macroeconomics Annual, 4}$
+\end_inset
+
+, 351–394.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.1086/654119 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-14"
+
+\end_inset
+
+Stock, J.
+ H., & Watson, M.
+ W.
+ (1993).
+ A procedure for predicting recessions with leading indicators: econometric
+ issues and recent performance.
+ In 
+\begin_inset Formula $\textit{New Business Cycle Indicators and Forecasting.}$
+\end_inset
+
+ Chicago University Press.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-13"
+
+\end_inset
+
+Stock, J.
+ H., & Watson, M.
+ W.
+ (2001).
+ Vector Autoregressions.
+ 
+\begin_inset Formula $\textit{Journal of Economic Perspectives, 15(4)}$
+\end_inset
+
+, 101–115.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-12"
+
+\end_inset
+
+Stock, J.
+ H., & Watson, M.
+ W.
+ (2003).
+ 
+\begin_inset Formula $\textit{A probability model of the coincident economic indicators. In Leading economic indicators: new approaches and forecasting records.}$
+\end_inset
+
+ Cambridge University Press.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-11"
+
+\end_inset
+
+Stock, J.
+ H., & Watson, M.
+ W.
+ (2007).
+ Why has U.S.
+ inflation become harder to forecast? 
+\begin_inset Formula $\textit{Journal of Money, Credit and Banking, 39}$
+\end_inset
+
+, 3–33.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.1111/j.1538-4616.2007.00014.x
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-10"
+
+\end_inset
+
+Svensson, L.
+ (2005).
+ Monetary policy with judgment : forecast targeting.
+ 
+\begin_inset Formula $\textit{International Journal of Central Banking, 1}$
+\end_inset
+
+, 1–54.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-9"
+
+\end_inset
+
+Theil, H.
+ (1961).
+ 
+\begin_inset Formula $\textit{Economic forecast and policy}$
+\end_inset
+
+ (2nd ed.).
+ North-Holland.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-8"
+
+\end_inset
+
+Tinbergen, J.
+ (1939).
+ 
+\begin_inset Formula $\textit{Statistical Testing of Business-Cycle Theories.}$
+\end_inset
+
+ Geneva: League of Nations.
+ Vol I:
+\begin_inset Formula $\textit{A method and its application to Investment Activity}$
+\end_inset
+
+; Vol II: 
+\begin_inset Formula $\textit{Business Cycles in the United States of America, 1919-1932}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-7"
+
+\end_inset
+
+Ülke, V., Sahin, A., & Subasi, A.
+ (2018).
+ A comparison of time series and machine learning models for inflation forecasti
+ng: empirical evidence from the USA.
+ 
+\begin_inset Formula $\textit{Neural Computing \& Applications, 30(5)}$
+\end_inset
+
+, 1519–1527.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi-org.ezproxybib.pucp.edu.pe/10.1007/s00521-016-2766-x
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-6"
+
+\end_inset
+
+Vega, M., Bigio, S., Florián, D., Llosa, G., Miller, S., Ramírez, N., Rodríguez,
+ D., Salas, J., & Winkelried, D.
+ (2009).
+ Un Modelo Semi-estructural de Proyección para la Economía Peruana.
+\begin_inset Formula $\textit{Revista Estudios Económicos, (19).}$
+\end_inset
+
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.bcrp.gob.pe/docs/Publicaciones/Revista-Estudios-Economicos/ 17/Estudios
+-Economicos-17-2.pdf 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-5"
+
+\end_inset
+
+Winkelried, D.
+ (2013).
+ Modelo de Proyección Trimestral del BCRP: Actualización y novedades.
+\begin_inset Formula $\textit{Revista Estudios Económicos, (26)}$
+\end_inset
+
+, 9–60.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+Wright, J.
+ H.
+ (2009).
+ Forecasting US inflation by bayesian model averaging.
+\begin_inset Formula $\textit{Journal of Forecasting, 28(2)}$
+\end_inset
+
+, 131–144.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://doi.org/10.1002/for.1088
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\start_of_appendix
 \begin_inset ERT
 status open
 
@@ -2446,14 +3609,12 @@ status open
 
 
 \backslash
-setcounter{page}{1}
+pagenumbering{arabic}
 \end_layout
 
-\end_inset
+\begin_layout Plain Layout
 
-
-\begin_inset ERT
-status open
+\end_layout
 
 \begin_layout Plain Layout
 
@@ -2461,25 +3622,74 @@ status open
 \backslash
 renewcommand{
 \backslash
-thepage}{F-
+thefootnote}{A
+\backslash
+arabic{footnote}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+thepage}{A
 \backslash
 arabic{page}}
 \end_layout
 
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+renewcommand{
+\backslash
+thetable}{A
+\backslash
+arabic{table}}
 \end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-begin{landscape}
+renewcommand{
+\backslash
+thefigure}{A
+\backslash
+arabic{figure}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{footnote}{0} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{table}{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{figure}{0}
 \end_layout
 
 \end_inset
@@ -2487,66 +3697,1327 @@ begin{landscape}
 
 \end_layout
 
+\begin_layout Section
+Appendix
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Appendix"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Predictors of Headline Inflation
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \align center
-Figure 1.
- Time Series in Annual Growth Rates (1993Q1-2019Q4).
+\begin_inset Graphics
+	filename input/plot_variables_h19.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.69999999999999996
+Variables used for the prediction of Headline Inflation (2002-2019)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Predictors of Core Inflation
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename input/plot_variables_c19.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.69999999999999996
+Variables used for the prediction of Core Inflation (2002-2019)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Heatmap of variables
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename input/heatmap_c19.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.69999999999999996
+Heatmap correlation of headline inflation all variables
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Heatmap of variables including lags
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-4"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename input/heatmap_lags_h19.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.69999999999999996
+Heatmap correlation of headline inflation all variables including lags
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Heatmap of variables
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-5"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename input/heatmap_c19.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.69999999999999996
+Heatmap correlation of core inflation with all variables
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+RMSE for Headline Inflation (2008)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-6"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename input/headline_RMSE_graph_2008.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+RMSE for Headline Inflation as a percentage of RW RMSE (2008)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MAPE for Headline Inflation (2008)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-7"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename input/headline_MAPE_graph_2008.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+MAPE for Headline Inflation as a percentage of RW RMSE (2008)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+RMSE for Headline Inflation (2019)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-8"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename input/headline_RMSE_graph_2019.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+RMSE for Headline Inflation as a percentage of RW RMSE (2019)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MAPE for Headline Inflation (2019)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-9"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename input/headline_MAPE_graph_2019.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+MAPE for Headline Inflation as a percentage of RW RMSE (2019)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+RMSE for Core Inflation (2009)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-10"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename input/core_RMSE_graph_2008.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+RMSE for Core Inflation as a percentage of RW RMSE (2008)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MAPE for Core Inflation (2008)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-11"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename input/core_RMSE_graph_2008.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+MAPE for Core Inflation as a percentage of RW RMSE (2008)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+RMSE for Core Inflation (2019)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-12"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename input/core_RMSE_graph_2008.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+RMSE for Core Inflation as a percentage of RW RMSE (2019)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MAPE for Core Inflation (2019)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-13"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+IPC Transables_rezago_Aceite Soya - EEUU (US$ por ton)_rezago_2
+\begin_inset Graphics
+	filename input/core_MAPE_graph_2019.png
+	lyxscale 45
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+MAPE for Core Inflation as a percentage of RW RMSE (2019)
+\end_layout
+
+\end_inset
+
+Aceite Soya - EEUU (US$ por ton)_rezago_2
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
 
+\end_layout
 
-\backslash
-end{landscape}
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Predictors for Headline Inflation 2009
 \end_layout
 
 \end_inset
 
 
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
 
-
-\backslash
-begin{landscape}
 \end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $EN$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $RF$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CPI Tradables (lag 1)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RMW (lag 1)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Soybean Oil (US$ per ton) (lag 2)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CPI Non Tradables (lag 1)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Reserve Requirement Rate (lag 2)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CPI Food and Beverages (lag 1)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Monetary Policy Rate (lag 1)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CPI Food and Beverages (lag 2)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Monetary Policy Rate (lag 2)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CPI Food and Energy (lag 2)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wheat (US$ per ton) (lag 1)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CPI Excluding Food and Beverages (lag 1)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{1t}=0\,\forall\text{t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CPI Food and Energy (lag 1)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
 
-
-\backslash
-end{landscape}
 \end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wholesale price index (lag 1)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RMW (lag 2)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Soybean Oil (US$ per ton) (lag 1)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 

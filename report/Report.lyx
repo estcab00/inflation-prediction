@@ -6,113 +6,91 @@
 \origin unavailable
 \textclass article
 \begin_preamble
-%2multibyte Version: 5.50.0.2890 CodePage: 932
-\usepackage{amsfonts}
-\usepackage{lscape}
-\usepackage{graphicx}
-\usepackage{accents}
-\usepackage{setspace}
-\setcounter{MaxMatrixCols}{30}
-%TCIDATA{OutputFilter=latex2.dll}
-%TCIDATA{Version=5.50.0.2890}
-%TCIDATA{Codepage=932}
-%TCIDATA{CSTFile=article.cst}
-%TCIDATA{Created=Sunday, August 23, 2015 23:07:57}
-%TCIDATA{LastRevised=Wednesday, August 16, 2023 19:20:34}
-%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
-%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
-%TCIDATA{BibliographyScheme=Manual}
-%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Standard LaTeX Article">}
-%TCIDATA{Language=American English}
-%TCIDATA{PageSetup=43,43,43,43,0}
-%TCIDATA{Counters=arabic,1}
-%TCIDATA{AllPages=
-%H=36
-%F=36
-%}
-%BeginMSIPreambleData
-\providecommand{\U}[1]{\protect \rule{.1in}{.1in}}
-%EndMSIPreambleData
-\topmargin -1pt
-\advance \topmargin by -\headheight
-\advance \topmargin by -\headsep
-\textheight 9in
-\oddsidemargin -0pt
-\evensidemargin \oddsidemargin
-\marginparwidth 0.5in
-\textwidth 6.5in
-\let \large=\normalsize
-\let \Large=\large
-\let \tilde=\widetilde
-\newtheorem{theorem}{Theorem}\newtheorem{Assumption}{Assumption}\newtheorem{lemma}{Lemma}\newtheorem{problem}{Property}\newtheorem{proposition}{Proposition}\newtheorem{corollary}{Corollary}\renewcommand{\arraystretch}{1.25}
-\newenvironment{proof}[1][P
-roof]{\textbf{#1.} }{\  \rule{0.5em}{0.5em}}
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,          % color of internal links
+    citecolor=blue,        % color of links to bibliography
+    filecolor=blue,      % color of file links
+    urlcolor=blue,           % color of external links
+    breaklinks=true
+}
 
+\usepackage{booktabs}
+\usepackage{longtable}
+%\usepackage{breakurl}
+%\setlength{\bibsep}{6pt plus 0.2ex}
+\setlength{\bibsep}{2pt plus 0.05ex}
+\usepackage{breakurl}
 
-\setlength{\tabcolsep}{1.75pt}
+\usepackage{pdflscape}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
-\language_package babel
+\language_package default
 \inputencoding auto
-\fontencoding default
-\font_roman "default" "default"
+\fontencoding global
+\font_roman "times" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
-\font_default_family default
+\font_default_family rmdefault
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
-\use_dash_ligatures true
+\use_dash_ligatures false
 \graphics default
 \default_output_format default
 \output_sync 0
 \bibtex_command default
 \index_command default
-\paperfontsize 11
-\spacing single
+\paperfontsize 12
+\spacing onehalf
 \use_hyperref true
-\pdf_bookmarks false
+\pdf_title "Use Lyx for typesetting: A template for empirical research projects"
+\pdf_author "First Author and Second Author"
+\pdf_bookmarks true
 \pdf_bookmarksnumbered false
 \pdf_bookmarksopen false
 \pdf_bookmarksopenlevel 1
 \pdf_breaklinks false
 \pdf_pdfborder false
-\pdf_colorlinks true
-\pdf_backref section
+\pdf_colorlinks false
+\pdf_backref false
 \pdf_pdfusetitle false
-\pdf_quoted_options "linkcolor=blue,filecolor=blue,citecolor=black,urlcolor=blue"
-\papersize default
-\use_geometry false
-\use_package amsmath 2
-\use_package amssymb 0
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
 \use_package cancel 0
 \use_package esint 1
-\use_package mathdots 0
+\use_package mathdots 1
 \use_package mathtools 0
-\use_package mhchem 0
+\use_package mhchem 1
 \use_package stackrel 0
 \use_package stmaryrd 0
 \use_package undertilde 0
-\cite_engine basic
-\cite_engine_type default
-\biblio_style plain
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
 \justification true
-\use_refstyle 0
+\use_refstyle 1
 \use_minted 0
 \index Index
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -173,7 +151,7 @@ Pontificia Universidad Católica del Perú
 \end_layout
 
 \begin_layout Date
-This Version: April 4, 2024
+This Version: March 26, 2024
 \end_layout
 
 \begin_layout Abstract
@@ -265,16 +243,6 @@ baselineskip
 \end_inset
 
 =14.4pt
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \begin_inset Newpage newpage
 \end_inset
 
@@ -296,8 +264,15 @@ y, and advise macroeconomic policymakers.” In this thesis, we will focus
  Across the world, one thing that most central banks have in common is the
  goal to keep the steadiness of price levels.
  In Peru, for instance, the main purpose of the Central Bank of Reserve
- (BCRP) is “to preserve monetary stability” (BCRP, n/d), which translates
- into keeping inflation under control.
+ (BCRP) is “to preserve monetary stability” (
+\begin_inset CommandInset citation
+LatexCommand keyonly
+key "bcrp2015"
+literal "false"
+
+\end_inset
+
+), which translates into keeping inflation under control.
  Similarly, monetary authorities of other countries in the region pursue
  the same objective.
 \end_layout
@@ -650,7 +625,7 @@ ated VAR (FCVAR) with structural break to analyse inflation in 18 Latin
  and early 90s.
  For the FCVAR model, they were inspired by 
 \begin_inset CommandInset citation
-LatexCommand nocite
+LatexCommand keyonly
 key "bos2001"
 literal "false"
 
@@ -2455,1142 +2430,16 @@ Finally, regarding the most important predictors chosen, we will focus and
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing other 0.9
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "../../../bibliography"
+options "bibtotoc,chicagoa"
 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-1"
-
-\end_inset
-
-Anderson, O.
- D.
- (1977).
- Time Series Analysis and forecasting: Another look at the box-jenkins approach.
-\begin_inset Formula $\textit{ Journal of the Royal Statistical Society. Series D (The Statistician), 26(4)}$
-\end_inset
-
-, 285–303.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.2307/2987813
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-3"
-
-\end_inset
-
-Banco Central de la República del Perú.
- (n.d.).
- Sobre el BCRP.
- Retrieved September 9, 2023, from 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.bcrp.gob.pe/docs/sobre-el-bcrp/folleto/folleto-institucional-00.pdf
-\end_layout
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-49"
-
-\end_inset
-
-Banco Central de la República del Perú.
- (2015).
- (rep.).
- 
-\begin_inset Formula $\textit{Inflation Report. Recent trends and macroeconomic forecasts 2015-2017.}$
-\end_inset
-
- Retrieved October 3, 2023, from 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.bcrp.gob.pe/eng-docs/Monetary-Policy/Inflation-Report/2015/inflation-re
-port-may-2015.pdf
-\end_layout
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-48"
-
-\end_inset
-
-Bos, C.
- S., Franses, P.
- H., 
-\backslash
-& Ooms, M.
- (2001).
- Inflation, forecast intervals and long memory regression models.
- 
-\backslash
-textit{International Journal of Forecasting, 18(2)}, 243–264.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.1016/s0169-2070(01)00156-x
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-47"
-
-\end_inset
-
-Box, G.
- E.
- P., & Jenkins, G.
- M.
- (1976).
- 
-\begin_inset Formula $\textit{Time series analysis, forecasting and control}$
-\end_inset
-
-.
- Holden-Day.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-46"
-
-\end_inset
-
-Brown, T.
- M.
- (1954).
- Standard errors of forecast of a complete econometric model.
- 
-\begin_inset Formula $\textit{Econometrica, 22}$
-\end_inset
-
-, 178-192
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-45"
-
-\end_inset
-
-Carnot, N., Koen, V., & Tissot, B.
- (2011).
- Economic forecasting and policy (2nd ed.).
- Palgrave Macmillan.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-44"
-
-\end_inset
-
-Clements, M.
- P., & Hendry, D.
- F.
- (1998).
- Forecasting economic time series.
- Cambridge University Press.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-43"
-
-\end_inset
-
-Chan, J.
- C.
- C.
- (2013).
- Moving average stochastic volatility models with application to inflation
- forecast.
- 
-\backslash
-textit{Journal of Econometrics, 176(2)}, 162–172.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.1016/j.jeconom.2013.05.003
-\end_layout
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-42"
-
-\end_inset
-
-Dancourt, O.
- (2014).
- (working paper).
-\begin_inset Formula $\textit{ Inflation Targeting in Peru: The Reasons for the Success}$
-\end_inset
-
- (pp.
- 1–55).
- Lima: Departamento de Economía.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-41"
-
-\end_inset
-
-Doan, T., Litterman, R., & Sims, C.
- (1983).
- 
-\begin_inset Formula $\textit{Forecasting and conditional projection using realistic prior distributions.}$
-\end_inset
-
- (Working Paper).
- National Bureau of Economic Research.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.3386/w1202
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-40"
-
-\end_inset
-
-Ghysels, E., & Marcellino, M.
- (2018).
- Applied Economic Forecasting using time series methods.
- Oxford University Press.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-39"
-
-\end_inset
-
-Granger, C.
- W.
- J.
- & Newbold, P.
- (1973).
- Some comments on the evaluation of economic forecasts.
- 
-\begin_inset Formula $\textit{Applied Economics, 5}$
-\end_inset
-
-, 35-47.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-38"
-
-\end_inset
-
-Granger, C.
- W.
- J., & Newbold, P.
- (1986).
- 
-\begin_inset Formula $\textit{Forecasting economic time series }$
-\end_inset
-
-(2nd ed.).
- Academic Press.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-37"
-
-\end_inset
-
-Haavelmo, T.
- (1944).
- The Probability Approach in Econometrics.
- 
-\begin_inset Formula $\textit{Econometrica, 12}$
-\end_inset
-
-, iii.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.2307/1906935
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-36"
-
-\end_inset
-
-Heesterman, A.
- R.
- G.
- (1970).
- Forecasting models for national economic planning.
- Springer.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-35"
-
-\end_inset
-
-Heeren, S.
- (2020).
- 
-\begin_inset Formula $\textit{Forecasting Inflation using Machine Learning for an Emerging Economy}$
-\end_inset
-
- (thesis).
- Erasmus University Rotterdam.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-34"
-
-\end_inset
-
-International Monetary Fund.
- (2008).
- 
-\begin_inset Formula $\textit{World Economic Outlook}$
-\end_inset
-
-.
- Retrieved October 3, 2023, from 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.imf.org/en/Publications/WEO/Issues/2016/12/31/Global-slowdown-and-risi
-ng-inflation
-\end_layout
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-33"
-
-\end_inset
-
-Klein, L.
- R.
- (1950).
- 
-\begin_inset Formula $\textit{Economic Fluctuations in the United States, 1921-41}$
-\end_inset
-
-.
- Cowles Comission Monograph.
- New York: John Wiley
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-32"
-
-\end_inset
-
-Litterman, R.
- B.
- (1980).
- 
-\begin_inset Formula $\textit{A Bayesian Procedure for Forecasting with Vector Auto-Regression.}$
-\end_inset
-
- (Working Paper) Massachusetts Institute of Technology, Department of Economics.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-31"
-
-\end_inset
-
-Litterman, R.
- B.
- (1986).
- Forecasting with bayesian vector autoregressions five years of experience.
- 
-\begin_inset Formula $\textit{Journal of Business \& Economic Statistics, 4(1)}$
-\end_inset
-
-, 25–38.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.21034/wp.274 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-30"
-
-\end_inset
-
-Llosa, G., Tuesta, V., & Vega, M.
- (2006).
- Un modelo de proyección BVAR para la inflación peruana.
- 
-\begin_inset Formula $\textit{Revista Estudios Económicos, (13). }$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-29"
-
-\end_inset
-
-Maravall, A.
- (1994).
- Use and misuse of unobserved components in economic forecasting.
- 
-\begin_inset Formula $\textit{Journal of Forecasting, 13(2)}$
-\end_inset
-
-, 157–178.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.1002/for.3980130209 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-28"
-
-\end_inset
-
-Martin, V., Hurn, S., & Harris, D.
- (2013).
- Latent Factor Models.
- In 
-\begin_inset Formula $\textit{Econometric modelling with time series: specification, estimation and testing }$
-\end_inset
-
-(2nd ed., pp.
- 544–580).
- Cambridge University Press.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-27"
-
-\end_inset
-
-Marget, A.
- W.
- (1929).
- Morgenstern on the methodology of economic forecasting.
-\begin_inset Formula $\textit{Journal of Political Economy, 37}$
-\end_inset
-
-, 312-339.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-26"
-
-\end_inset
-
-Medeiros, M., Schütte, E.
- C., & Soussi, T.
- S.
- (2022).
- Global inflation forecasting: Benefits from Machine Learning Methods.
-\begin_inset Formula $\textit{ SSRN Electronic Journal}$
-\end_inset
-
-.
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
- https://doi.org/10.2139/ssrn.4145665 
-\end_layout
-
 \end_inset
 
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-25"
-
-\end_inset
-
-Medeiros, M.
- C., Vasconcelos, G.
- F., Veiga, Á., & Zilberman, E.
- (2019).
- Forecasting inflation in a data-rich environment: The benefits of Machine
- Learning Methods.
- 
-\begin_inset Formula $\textit{Journal of Business \& Economic Statistics, 39(1)}$
-\end_inset
-
-, 98–119.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.1080/07350015.2019.1637745
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-24"
-
-\end_inset
-
-Medeiros, M.
- C., Vasconcelos, G., & Freitas, E.
- (2016).
- Forecasting Brazilian inflation with high-dimensional models.
- 
-\begin_inset Formula $\textit{Brazilian Review of Econometrics, 36(2)}$
-\end_inset
-
-, 223–254.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.12660/bre.v99n992016.52273
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-23"
-
-\end_inset
-
-Morgentsten, O.
- (1928).
- 
-\begin_inset Formula $\textit{Wirtschaftsprognose: eine Untersuchung ihrer Voraussetzungen und Möglichkiten.}$
-\end_inset
-
-Vienna: Julius Springer.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-22"
-
-\end_inset
-
-Pincheira-Brown, P., Selaive, J., 
-\backslash
-& Nolazco, J.
- L.
- (2019).
- Forecasting inflationhttps://doi.org/10.1016/s0169-2070(01)00156-x in Latin
- America with core measures.
- International Journal of Forecasting, 35(3), 1060–1071.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.1016/j.ijforecast.2019.04.011 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-21"
-
-\end_inset
-
-Pindyck, R.
- S., & Rubinfeld, D.
- L.
- (1981).
- Econometric models and economic forecasts.
- McGraw-Hill.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-20"
-
-\end_inset
-
-Rodríguez-Vargas, A.
- (2020).
- Forecasting Costa Rican inflation with machine learning methods.
- 
-\begin_inset Formula $\textit{Latin American Journal of Central Banking, 1(1-4)}$
-\end_inset
-
-.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.1016/j.latcb.2020.100012
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-19"
-
-\end_inset
-
-Shiller, R.
- J.
- (1973).
- A distributed lag estimator derived from smoothness priors.
- 
-\begin_inset Formula $\textit{Econometrica, 41(4)}$
-\end_inset
-
-, 775–788.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.2307/1914096
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-18"
-
-\end_inset
-
-Silva, G., & Piazza, W.
- (2020).
- Machine learning methods for inflation forecasting in Brazil: new contenders
- versus classical models.
- 
-\begin_inset Formula $\textit{Banco Central Do Brasil.}$
-\end_inset
-
- Retrieved February 24, 2023, from 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.bcb.gov.br/pec/wps/ingl/wps561.pdf
-\end_layout
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-17"
-
-\end_inset
-
-Stein, C.
- (1960).
- Multiple Regressions.
- In 
-\begin_inset Formula $\textit{Contributions to Probability and Statistics: Essays in Honor of Harold Hotelling}$
-\end_inset
-
-.
- Standford Univeristy Press.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-16"
-
-\end_inset
-
-Stock, J.
- H., & Watson, M.
- W.
- (1988).
- Variable Trends in Economic Time Series.
- 
-\begin_inset Formula $\textit{Journal of Economic Perspectives, 2(3),}$
-\end_inset
-
- 147–174.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.1257/jep.2.3.147
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-15"
-
-\end_inset
-
-Stock, J.
- H., & Watson, M.
- W.
- (1989).
- New Indexes of Coincident and Leading Economic Indicators.
- 
-\begin_inset Formula $\textit{NBER Macroeconomics Annual, 4}$
-\end_inset
-
-, 351–394.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.1086/654119 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-14"
-
-\end_inset
-
-Stock, J.
- H., & Watson, M.
- W.
- (1993).
- A procedure for predicting recessions with leading indicators: econometric
- issues and recent performance.
- In 
-\begin_inset Formula $\textit{New Business Cycle Indicators and Forecasting.}$
-\end_inset
-
- Chicago University Press.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-13"
-
-\end_inset
-
-Stock, J.
- H., & Watson, M.
- W.
- (2001).
- Vector Autoregressions.
- 
-\begin_inset Formula $\textit{Journal of Economic Perspectives, 15(4)}$
-\end_inset
-
-, 101–115.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-12"
-
-\end_inset
-
-Stock, J.
- H., & Watson, M.
- W.
- (2003).
- 
-\begin_inset Formula $\textit{A probability model of the coincident economic indicators. In Leading economic indicators: new approaches and forecasting records.}$
-\end_inset
-
- Cambridge University Press.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-11"
-
-\end_inset
-
-Stock, J.
- H., & Watson, M.
- W.
- (2007).
- Why has U.S.
- inflation become harder to forecast? 
-\begin_inset Formula $\textit{Journal of Money, Credit and Banking, 39}$
-\end_inset
-
-, 3–33.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.1111/j.1538-4616.2007.00014.x
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-10"
-
-\end_inset
-
-Svensson, L.
- (2005).
- Monetary policy with judgment : forecast targeting.
- 
-\begin_inset Formula $\textit{International Journal of Central Banking, 1}$
-\end_inset
-
-, 1–54.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-9"
-
-\end_inset
-
-Theil, H.
- (1961).
- 
-\begin_inset Formula $\textit{Economic forecast and policy}$
-\end_inset
-
- (2nd ed.).
- North-Holland.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-8"
-
-\end_inset
-
-Tinbergen, J.
- (1939).
- 
-\begin_inset Formula $\textit{Statistical Testing of Business-Cycle Theories.}$
-\end_inset
-
- Geneva: League of Nations.
- Vol I:
-\begin_inset Formula $\textit{A method and its application to Investment Activity}$
-\end_inset
-
-; Vol II: 
-\begin_inset Formula $\textit{Business Cycles in the United States of America, 1919-1932}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-7"
-
-\end_inset
-
-Ülke, V., Sahin, A., & Subasi, A.
- (2018).
- A comparison of time series and machine learning models for inflation forecasti
-ng: empirical evidence from the USA.
- 
-\begin_inset Formula $\textit{Neural Computing \& Applications, 30(5)}$
-\end_inset
-
-, 1519–1527.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi-org.ezproxybib.pucp.edu.pe/10.1007/s00521-016-2766-x
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-6"
-
-\end_inset
-
-Vega, M., Bigio, S., Florián, D., Llosa, G., Miller, S., Ramírez, N., Rodríguez,
- D., Salas, J., & Winkelried, D.
- (2009).
- Un Modelo Semi-estructural de Proyección para la Economía Peruana.
-\begin_inset Formula $\textit{Revista Estudios Económicos, (19).}$
-\end_inset
-
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.bcrp.gob.pe/docs/Publicaciones/Revista-Estudios-Economicos/ 17/Estudios
--Economicos-17-2.pdf 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-5"
-
-\end_inset
-
-Winkelried, D.
- (2013).
- Modelo de Proyección Trimestral del BCRP: Actualización y novedades.
-\begin_inset Formula $\textit{Revista Estudios Económicos, (26)}$
-\end_inset
-
-, 9–60.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-4"
-
-\end_inset
-
-Wright, J.
- H.
- (2009).
- Forecasting US inflation by bayesian model averaging.
-\begin_inset Formula $\textit{Journal of Forecasting, 28(2)}$
-\end_inset
-
-, 131–144.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://doi.org/10.1002/for.1088
-\end_layout
-
-\end_inset
 
-.
- 
 \end_layout
 
 \begin_layout Standard
@@ -3602,6 +2451,67 @@ https://doi.org/10.1002/for.1088
 
 \begin_layout Standard
 \start_of_appendix
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\backslash
+null
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size giant
+\begin_inset VSpace 5cm
+\end_inset
+
+Online Appendix
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\noindent
+At any point, you can include LaTeX commands for advanced customizations.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -3709,965 +2619,35 @@ name "sec:Appendix"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Predictors of Headline Inflation
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-1"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/plot_variables_h19.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-\paragraph_spacing other 0.69999999999999996
-Variables used for the prediction of Headline Inflation (2002-2019)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Predictors of Core Inflation
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-2"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/plot_variables_c19.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-\paragraph_spacing other 0.69999999999999996
-Variables used for the prediction of Core Inflation (2002-2019)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage clearpage
-\end_inset
-
-
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Heatmap of variables
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-3"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/heatmap_c19.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-\paragraph_spacing other 0.69999999999999996
-Heatmap correlation of headline inflation all variables
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Heatmap of variables including lags
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-4"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/heatmap_lags_h19.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-\paragraph_spacing other 0.69999999999999996
-Heatmap correlation of headline inflation all variables including lags
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage clearpage
-\end_inset
-
-
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Heatmap of variables
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-5"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/heatmap_c19.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-\paragraph_spacing other 0.69999999999999996
-Heatmap correlation of core inflation with all variables
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-RMSE for Headline Inflation (2008)
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-6"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/headline_RMSE_graph_2008.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-RMSE for Headline Inflation as a percentage of RW RMSE (2008)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage clearpage
-\end_inset
-
-
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-MAPE for Headline Inflation (2008)
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-7"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/headline_MAPE_graph_2008.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-MAPE for Headline Inflation as a percentage of RW RMSE (2008)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-RMSE for Headline Inflation (2019)
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-8"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/headline_RMSE_graph_2019.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-RMSE for Headline Inflation as a percentage of RW RMSE (2019)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage clearpage
-\end_inset
-
-
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-MAPE for Headline Inflation (2019)
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-9"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/headline_MAPE_graph_2019.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-MAPE for Headline Inflation as a percentage of RW RMSE (2019)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-RMSE for Core Inflation (2009)
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-10"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/core_RMSE_graph_2008.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-RMSE for Core Inflation as a percentage of RW RMSE (2008)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage clearpage
-\end_inset
-
-
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-MAPE for Core Inflation (2008)
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-11"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/core_RMSE_graph_2008.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-MAPE for Core Inflation as a percentage of RW RMSE (2008)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-RMSE for Core Inflation (2019)
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-12"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/core_RMSE_graph_2008.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-RMSE for Core Inflation as a percentage of RW RMSE (2019)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage clearpage
-\end_inset
-
-
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-MAPE for Core Inflation (2019)
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "figure-13"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename input/core_MAPE_graph_2019.png
-	lyxscale 45
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "80col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-MAPE for Core Inflation as a percentage of RW RMSE (2019)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
+\begin_inset Note Note
+status open
 
 \begin_layout Plain Layout
+This is an external TeX table.
+\end_layout
+
+\end_inset
+
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Predictors for Headline Inflation 2009
+An external TeX table.
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "LaTeX-table"
 
 \end_inset
 
@@ -4676,327 +2656,162 @@ Predictors for Headline Inflation 2009
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="8" columns="3">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell multirow="3" alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
+
+\lang british
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
 
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+resizebox{1.3
+\backslash
+textheight}{!}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+%}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{./input/external-table.tex}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
 \end_layout
 
 \end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
+
+
+\lang english
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "92col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
 
 \begin_layout Plain Layout
-\begin_inset Formula $EN$
-\end_inset
+\paragraph_spacing other 0.69999999999999996
 
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $RF$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-IPC Transables_rezago_1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\beta_{11}=\beta_{21}=1$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\beta_{12}=\beta_{22}=1$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Primiceri (2005)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $K_{1t}=1\,\forall\text{t}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $K_{2t}=1\,\forall\text{t}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Benchmark 
-\begin_inset Formula $A_{t}$
-\end_inset
-
- constant
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\beta_{11}=\beta_{21}=1$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\beta_{12}=\beta_{22}=1$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Benchmark
-\series bold
+\size footnotesize
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ Quisque nibh urna, egestas in ornare in, aliquet lobortis felis.
+ Donec vehicula tellus nec ipsum ornare dapibus.
  
-\begin_inset Formula $A_{t},\Sigma_{t}$
-\end_inset
-
-
-\series default
-constant
 \end_layout
 
 \end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
-\begin_inset Formula $\beta_{11}=\beta_{21}=1$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-\begin_inset Formula $K_{2t}=0\,\forall\text{t}$
+Another figure.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Another-figure"
+
 \end_inset
 
 
 \end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
 
 \begin_layout Plain Layout
-Benchmark
-\series bold
- 
-\begin_inset Formula $B_{t}$
+\align center
+\begin_inset Graphics
+	filename ../../../input/figure2.png
+	lyxscale 45
+	width 80text%
+
 \end_inset
 
 
-\series default
- constant
 \end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $K_{1t}=0\,\forall\text{t}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\beta_{12}=\beta_{22}=1$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
 
 \begin_layout Plain Layout
-Benchmark
-\series bold
- 
-\begin_inset Formula $B_{t}$
-\end_inset
+\paragraph_spacing other 0.69999999999999996
 
-,
-\begin_inset Formula $A_{t}$
-\end_inset
-
-
-\series default
- constant
+\size footnotesize
+Fusce eros sem, posuere et vestibulum at, tempor ac purus.
+ Quisque in efficitur lectus.
+ Etiam ligula diam, rhoncus convallis arcu at, aliquam maximus turpis.
+ Vivamus venenatis neque ligula.
+ Aenean consequat faucibus ipsum vitae fringilla.
+ Integer vitae varius lacus.
+ Maecenas id maximus quam.
+ Morbi neque augue, posuere in faucibus sed, interdum ac mi.
+ Mauris metus diam, vulputate posuere nulla id, gravida vestibulum ligula.
 \end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $K_{1t}=0\,\forall\text{t}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\beta_{12}=\beta_{22}=1$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-CVAR
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $K_{1t}=0\,\forall\text{t}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $K_{2t}=0\,\forall\text{t}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
 
 \end_inset
 
