@@ -1,11 +1,43 @@
+# Warnings
 import warnings
 warnings.filterwarnings("ignore")
 
+# Basic Libraries
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import requests
+import seaborn as sns
 from scipy import stats
+from functools import reduce
+
+# Statsmodels
+import statsmodels.api as sm
+import pmdarima as pmd
+from pmdarima.arima import auto_arima
+from statsmodels.tsa.api import VAR
+from statsmodels.tsa.vector_ar.var_model import VARResults
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+from statsmodels.tsa.arima.model import ARIMA
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.seasonal import STL
+
+# Machine Learning models
+from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+from sklearn.model_selection import train_test_split, GridSearchCV, TimeSeriesSplit
+from sklearn.linear_model import Ridge, Lasso, ElasticNet, ElasticNetCV, LinearRegression
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import (
+    mean_absolute_error,
+    mean_squared_error,
+    mean_absolute_percentage_error,
+    median_absolute_error,
+    r2_score,
+    precision_score
+
+)
+
+from xgboost import XGBRegressor
 
 def bcrp_dataframe( series , start_date , end_date, freq):
     '''
@@ -185,4 +217,104 @@ def get_metrics(results, model='model'):
     
     MAPE = pd.DataFrame(get_MAPE(results), columns = [f'MAPE_{model}'], index = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
         
-    return RMSE, MAPE  
+    return RMSE, MAPE
+
+def highlight_min(df_results):
+    '''
+    Objective:
+        This function highlights the minimum RMSE in each row of a dataframe.
+        
+    Input:
+        df_results (dataframe) = A dataframe
+        
+    Output:
+        A pandas Style object        
+    '''
+    
+    is_min = df_results == df_results.min()
+    return ['background-color: lightgray' if v else '' for v in is_min]
+
+
+def graph_models(df_results, metric = "RMSE",lim=1.5):
+    '''
+    Objective:
+        This function graphs the errors (RMSE of MAPE) of the different models.
+        
+    Input:
+        df_results (dataframe) = A dataframe
+        
+        lim (float)            = Indicates the limit of the y-axis
+        
+    Output:
+        A matplotlib.pyplot plot      
+    '''
+    
+    df_results.plot()
+
+    plt.xlabel("Horizons")
+
+    plt.ylabel(metric + ' as % of the benchmark')
+    
+    plt.ylim(0, lim)
+    
+    plt.show()
+
+def graph_coefficients(vars_df, value = "Coefficient"):
+    '''
+    Objective:
+        This function graphs the coefficients with their respective score.
+        
+    Input:
+        vars_df (dataframe) = A dataframe
+        
+        value (str)            = Either "Coefficient" or "Importance Score"
+        
+    Output:
+        A matplotlib.pyplot plot      
+    '''
+
+    plt.bar(vars_df["Var"], vars_df[value])
+    
+    plt.tick_params(axis = "x", rotation=90, labelsize=8)
+    
+    plt.show()
+    
+
+def get_trend(df, period=12):
+    '''
+    Objective:
+        This function removes the seasonal component of a each column of the timeseries dataframe.
+        
+    Input:
+        df (dataframe)          = A dataframe where each column represents a different time series
+        
+        period (int)            = The peridiocity of the series. by default it is 12
+        
+    Output:
+        A dataframe where the seasonal component has been eliminated      
+    '''
+    
+    trend_df = pd.DataFrame()
+
+    for col in df.columns:
+        stl_result = STL(df[col], period=period).fit()
+        trend_df[col] = stl_result.trend
+
+    return trend_df
+
+
+def lags(data, lag, raw=False):
+   
+   if raw == True:
+       lag_range = range(1, lag)
+   else:
+       lag_range = range(0, lag)
+
+   # Shift the data 
+   data = pd.concat([data.shift(i+1) for i in lag_range],axis=1)
+
+   # Name columns
+   data.columns = ['lag_%d' %i for i in lag_range]
+    
+   # Drop rows with NaN values 
+   return data.dropna()
