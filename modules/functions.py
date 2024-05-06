@@ -235,7 +235,7 @@ def highlight_min(df_results):
     return ['background-color: lightgray' if v else '' for v in is_min]
 
 
-def graph_models(df_results, metric = "RMSE",lim=1.5, colors = None):
+def graph_models(df_results, metric = "RMSE",lim=1.5, colors = None, path=None):
     '''
     Objective:
         This function graphs the errors (RMSE of MAPE) of the different models.
@@ -246,6 +246,8 @@ def graph_models(df_results, metric = "RMSE",lim=1.5, colors = None):
         lim (float)            = Indicates the limit of the y-axis
 
         colors (dict)          = A dictionary with column names as keys and colors as values
+        
+        path   (str)           = Output path of the figure  
         
     Output:
         A matplotlib.pyplot plot      
@@ -267,9 +269,11 @@ def graph_models(df_results, metric = "RMSE",lim=1.5, colors = None):
     
     ax.legend()
     
+    plt.savefig(path, bbox_inches='tight', dpi=300)
+    
     plt.show()
 
-def graph_coefficients(vars_df, value = "Coefficient"):
+def graph_coefficients(vars_df, value = "Coefficient", path=None):
     '''
     Objective:
         This function graphs the coefficients with their respective score.
@@ -288,6 +292,8 @@ def graph_coefficients(vars_df, value = "Coefficient"):
     plt.ylabel(value)
     
     plt.tick_params(axis = "x", rotation=90, labelsize=8)
+    
+    plt.savefig(path, bbox_inches='tight', dpi=300)
     
     plt.show()
     

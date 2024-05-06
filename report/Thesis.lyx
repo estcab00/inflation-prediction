@@ -311,7 +311,6 @@ Inflation forecasting is key to dictating an accurate monetary policy.
  policy, the primary tool to target inflation.
  Forecasting also contributes to macroeconomic stabilization, as it helps
  private agents make better and more informed decisions (Carnot et al., 2011).
- 
 \end_layout
 
 \begin_layout Standard
@@ -427,7 +426,8 @@ noprefix "false"
 status open
 
 \begin_layout Plain Layout
-This is a footnote.
+These are preliminary conclusions, subject to change.
+ 
 \end_layout
 
 \end_inset
@@ -1401,8 +1401,8 @@ Models will we rank based on their RMSFE and their MAPE for each period
 \end_layout
 
 \begin_layout Standard
-We are considering the three econometric models (RW, VAR, ARIMA) and four
- machine learning models (LASSO, Ridge, EN and RF).
+We are considering the two econometric models (RW, VAR) and four machine
+ learning models (LASSO, Ridge, EN and RF).
 \end_layout
 
 \begin_layout Subsection
@@ -1410,12 +1410,12 @@ Data
 \end_layout
 
 \begin_layout Standard
-Our analysis employs twelve distinct series, notably featuring the Metropolitan
+Our analysis employs nine distinct series, notably featuring the Metropolitan
  Lima Price Index represented in monthly percentage change over a twelve-month
- period (CPI).
- Additionally, we incorporate the following indices: Food and Energy CPI,
- CPI Excluding Food and Energy, Core CPI, Non-core CPI, Food and Beverages
- CPI, Imported CPI, and the Multilateral real exchange rate.
+ period (CPI) as our outcome variable.
+ Our main predictors are national variables such as the monetary policy
+ rate, the exchange rate, the money supply (M1), the international net reserves
+ and the real minimum wage index.
  Furthermore, our model integrates external variables such as Maize (US$
  per tonne), Wheat (US$ per tonne), Soybean oil (US$ per tonne), and Crude
  Oil (US$ per barrel).
@@ -1427,67 +1427,19 @@ Our analysis employs twelve distinct series, notably featuring the Metropolitan
 The graphical representations in Figure A1 and A2 depict the plotted trajectorie
 s of these variables over time.
  Notably, the graphs reveal three distinct periods characterized by heightened
- volatility: the periods of 2007-2008, 2014-2015, and most recently, 2022-2023.
- For the purpose of our forecasting analysis, we specifically include the
- initial and most recent periods of heightened volatility within our designated
- forecasting windows.
-\end_layout
-
-\begin_layout Subsubsection
-Predictors for headline inflation
-\end_layout
-
-\begin_layout Standard
-In examining predictors for Headline Inflation (CPI), our analysis encompasses
- a comprehensive set of variables, including but not limited to: CPI tradables,
- CPI non-tradables, CPI Core, CPI Non-Core, CPI Food and Energy, CPI excluding
- Food and Energy, CPI Food and Beverages, CPI excluding Food and Beverages,
- CPI Core excluding Food and Beverages, CPI Imported, Wholesale Price Index,
- Reserve Requirement Rate, Monetary Policy Rate, Circulating Currency, Net
- International Reserves, and Minimum Wage.
-\end_layout
-
-\begin_layout Standard
-Figure A3 and Figure A4 present the correlation analysis among these variables,
- depicted in heatmap format.
- As delineated in Figure A3, headline inflation exhibits pronounced correlations
- with CPI Non-Tradables, CPI Food and Energy, CPI Food and Beverages, and
- to a lesser extent, with other CPI components.
- Notably, the correlation with the Monetary Policy Rate appears relatively
- modest.
- Upon incorporating lagged variables, depicted in Figure A4, headline inflation
- manifests a robust correlation with its own lagged values.
- Conversely, the correlation between CPI and lagged values of other variables
- appears generally weak and statistically non-significant.
-\end_layout
-
-\begin_layout Subsubsection
-Predictors for Core Inflation
-\end_layout
-
-\begin_layout Standard
-For the prediction of Core Inflation, we consider an array of potential
- predictors encompassing various dimensions of consumer price dynamics.
- These predictors include, but are not limited to: CPI tradables, CPI non-tradab
-les, overall CPI, CPI Non-Core, CPI Food and Energy, CPI excluding Food
- and Energy, CPI Food and Beverages, CPI excluding Food and Beverages, CPI
- Core excluding Food and Beverages, CPI Imported, Wholesale Price Index,
- Reserve Requirement Rate, Monetary Policy Rate, Circulating Currency, Net
- International Reserves, and Minimum Wage.
-\end_layout
-
-\begin_layout Standard
-In Figure 3, we present the correlation analysis between CPI Core and its
- predictors.
- Notably, the correlation appears strongest with CPI Excluding Food and
- Energy, CPI Core Excluding Food and Beverages, and CPI Non-Tradables.
- Furthermore, we observe comparatively lower correlations with other CPI
- variables.
- Upon incorporating lagged variables, as illustrated in Figure A5, the correlati
-on analysis reveals additional insights.
- Specifically, CPI Core demonstrates correlations with lagged values of
- CPI Non-Tradables and overall CPI, and notably, in contrast to Headline
- Inflation, with the lagged values of the Monetary Policy Rate.
+ volatility: the periods of 2007-2008, 2014-2015, and most recently, 2020-2022.
+ For the purpose of our forecasting analysis, we are focusing only in the
+ most recent period of high volatility.
+ The idea is to compare the performance of all the models under different
+ circumstances.
+ First, a low-volatility period, during 2019.
+ In second and third place, we will see how the models behaved during the
+ pandemic shock and in the subsequent recovery, which was characterized
+ by a huge increase in volatility.
+ Finally, in the fourth and fifth forecast we look at the performance of
+ the models in recent years, characterized by external shocks, as well as
+ a strong central bank response.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -2177,7 +2129,7 @@ In this section we will present the main results after running the models.
 \end_layout
 
 \begin_layout Subsection
-Headline inflation
+2019
 \end_layout
 
 \begin_layout Subsubsection
@@ -2431,10 +2383,6 @@ Finally, regarding the most important predictors chosen, we will focus and
  It is also noticeable that the Ridge model chooses the lags of liquidity,
  which is something that other models did not choose.
  
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Bibliography
@@ -3718,7 +3666,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Predictors of Headline Inflation
+Headline Inflation
 \end_layout
 
 \end_inset
@@ -3736,7 +3684,7 @@ name "figure-1"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename input/plot_variables_h19.png
+	filename C:/Users/estca/OneDrive/Documentos/Github/inflation-prediction/output/2_DataVisualization/plot_outcome.png
 	lyxscale 45
 	width 80text%
 
@@ -3767,7 +3715,7 @@ status open
 
 \begin_layout Plain Layout
 \paragraph_spacing other 0.69999999999999996
-Variables used for the prediction of Headline Inflation (2002-2019)
+Headline Inflation (2003M9-2023M12)
 \end_layout
 
 \end_inset
@@ -3788,7 +3736,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Predictors of Core Inflation
+Predictors for Headline Inflation
 \end_layout
 
 \end_inset
@@ -3806,7 +3754,7 @@ name "figure-2"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename input/plot_variables_c19.png
+	filename C:/Users/estca/OneDrive/Documentos/Github/inflation-prediction/output/2_DataVisualization/plot_variables_h19.png
 	lyxscale 45
 	width 80text%
 
@@ -3837,7 +3785,7 @@ status open
 
 \begin_layout Plain Layout
 \paragraph_spacing other 0.69999999999999996
-Variables used for the prediction of Core Inflation (2002-2019)
+Variables used for the prediction of Headline Inflation (2003M9-2023M12)
 \end_layout
 
 \end_inset
@@ -3883,7 +3831,7 @@ name "figure-3"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename input/heatmap_c19.png
+	filename C:/Users/estca/OneDrive/Documentos/Github/inflation-prediction/output/2_DataVisualization/heatmap_test.png
 	lyxscale 45
 	width 80text%
 
@@ -3914,7 +3862,7 @@ status open
 
 \begin_layout Plain Layout
 \paragraph_spacing other 0.69999999999999996
-Heatmap correlation of headline inflation all variables
+Heatmap correlation of headline inflation with all variables
 \end_layout
 
 \end_inset
@@ -3953,7 +3901,7 @@ name "figure-4"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename input/heatmap_lags_h19.png
+	filename C:/Users/estca/OneDrive/Documentos/Github/inflation-prediction/output/2_DataVisualization/heatmap_lags_test.png
 	lyxscale 45
 	width 80text%
 
@@ -4012,7 +3960,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Heatmap of variables
+Comparison of forecasts for 2019
 \end_layout
 
 \end_inset
@@ -4030,7 +3978,7 @@ name "figure-5"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename input/heatmap_c19.png
+	filename C:/Users/estca/OneDrive/Documentos/Github/inflation-prediction/output/3_Regression/h19_test/model_comparison_h19.png
 	lyxscale 45
 	width 80text%
 
@@ -4061,7 +4009,8 @@ status open
 
 \begin_layout Plain Layout
 \paragraph_spacing other 0.69999999999999996
-Heatmap correlation of core inflation with all variables
+The orange line represents the actual inflation from 2019M1 to 2019M12.
+ 
 \end_layout
 
 \end_inset
@@ -4072,7 +4021,7 @@ Heatmap correlation of core inflation with all variables
 \end_inset
 
 
-\begin_inset Float figure
+\begin_inset Float table
 placement p
 wide false
 sideways false
@@ -4082,7 +4031,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-RMSE for Headline Inflation (2008)
+RMSE of forecasts (2019)
 \end_layout
 
 \end_inset
@@ -4090,7 +4039,7 @@ RMSE for Headline Inflation (2008)
 
 \begin_inset CommandInset label
 LatexCommand label
-name "figure-6"
+name "table-1"
 
 \end_inset
 
@@ -4099,10 +4048,761 @@ name "figure-6"
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename input/headline_RMSE_graph_2008.png
-	lyxscale 45
-	width 80text%
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="13">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+horizon
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Benchmark
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.007
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.012 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.017 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.021
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.024 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.026 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.027 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.028 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.029 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.030 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.031 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.032 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VAR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.378 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+3.258 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.083 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.519 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.218 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+1.038 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+0.926 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+0.863 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+0.830 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+0.808 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+0.781 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+0.744 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ridge
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.022 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.375 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.914 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.664 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.312 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.989 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.761 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.608 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.482 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.396 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.324 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.243 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lasso
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.233 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.945 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.750 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.204 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.929 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.775 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.684 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.634 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.600 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.565 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.516 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.451 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+2.008 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.945 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+1.598 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+1.350 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+1.182 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.086 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.058 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.048 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.054 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.099 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.113 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.101 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
@@ -4112,11 +4812,11 @@ name "figure-6"
 \begin_layout Plain Layout
 \align center
 \begin_inset Box Frameless
-position "t"
+position "b"
 hor_pos "c"
 has_inner_box 1
 inner_pos "t"
-use_parbox 0
+use_parbox 1
 use_makebox 0
 width "80col%"
 special "none"
@@ -4130,7 +4830,10 @@ backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
-RMSE for Headline Inflation as a percentage of RW RMSE (2008)
+RMSE for Headline Inflation.
+ The RMSE of other models is divided by the RMSE of the benchmark RW model.
+ The best model is outlined in bold.
+ 
 \end_layout
 
 \end_inset
@@ -4158,7 +4861,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-MAPE for Headline Inflation (2008)
+MAPE of forecasts (2019)
 \end_layout
 
 \end_inset
@@ -4332,7 +5035,7 @@ name "figure-9"
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Box Frameless
+\begin_inset Box ovalbox
 position "t"
 hor_pos "c"
 has_inner_box 1
