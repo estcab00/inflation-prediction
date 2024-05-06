@@ -235,7 +235,7 @@ def highlight_min(df_results):
     return ['background-color: lightgray' if v else '' for v in is_min]
 
 
-def graph_models(df_results, metric = "RMSE",lim=1.5):
+def graph_models(df_results, metric = "RMSE",lim=1.5, colors = None):
     '''
     Objective:
         This function graphs the errors (RMSE of MAPE) of the different models.
@@ -244,18 +244,28 @@ def graph_models(df_results, metric = "RMSE",lim=1.5):
         df_results (dataframe) = A dataframe
         
         lim (float)            = Indicates the limit of the y-axis
+
+        colors (dict)          = A dictionary with column names as keys and colors as values
         
     Output:
         A matplotlib.pyplot plot      
     '''
     
-    df_results.plot()
+    fig, ax = plt.subplots()
 
-    plt.xlabel("Horizons")
-
-    plt.ylabel(metric + ' as % of the benchmark')
+    for column in df_results.columns:
+        if colors and column in colors:
+            ax.plot(df_results.index, df_results[column], label=column, color=colors[column])
+        else:
+            # Plot with a default color if no color specified for a column
+            ax.plot(df_results.index, df_results[column], label=column)
     
-    plt.ylim(0, lim)
+    ax.set_xlabel("Horizons")
+    ax.set_ylabel(metric + ' as % of the benchmark')
+    
+    ax.set_ylim(0, lim)
+    
+    ax.legend()
     
     plt.show()
 
