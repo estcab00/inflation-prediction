@@ -173,7 +173,7 @@ Pontificia Universidad Católica del Perú
 \end_layout
 
 \begin_layout Date
-This Version: April 4, 2024
+This Version: April 8, 2024
 \end_layout
 
 \begin_layout Abstract
@@ -330,18 +330,11 @@ In 2001, the BCRP adopted the reference interest rate as its main policy
 \end_layout
 
 \begin_layout Standard
-The BCRP uses the dynamic semi-structural model known as Modelo de Proyección
- Trimestral (MPT) as its main forecasting and policymakingQuisque a enim
- blandit, tristique libero ac, dignissim nibh.
- In pellentesque leo eget placerat dapibus.
- Vestibulum iaculis, enim sodales aliquet pretium, mi mi feugiat diam, eu
- dignissim ante ipsum dignissim eros.
- Nullam et mollis lacus, sed fermentum enim.
- Duis tempus condimentum faucibus.
- Sed sodales placerat orci, vel fringilla nunc porta id.
- Ut vitae fermentum enim.
- Nam ultricies tempor velit, in convallis dolor dictum ac.
- tool.
+The BCRP uses the dynamic semi-structural model known as 
+\shape italic
+Modelo de Proyección Trimestral 
+\shape default
+(MPT) as its main forecasting and policymaking tool.
  However, it has been pointed out that the model lacks parsimony, as it
  is composed by hundreds of equations.
  Llosa et al.
@@ -361,16 +354,19 @@ Machine Learning (ML) is a relatively new approach to inflation forecasting.
  (Ülke et al., 2018; Medeiros et al., 2022).
  In particular, the find out that non-linear models, like Random Forest,
  are way better at predicting inflation than other models.
+ The recent increase in volatility of inflation, due to shocks of different
+ nature, such as the pandemic in 2020, the war in Ukraine.
+ 
 \end_layout
 
 \begin_layout Standard
 Across the region, there have been articles that have compared traditional
  univariate and multivariate econometric models with ML methods in terms
- of forecasting (Rodriguez- Vargas, 2020; Silva & Piazza, 2020).
+ of forecasting (Rodriguez-Vargas, 2020; Silva & Piazza, 2020).
  However, there has not been a proper comparison against more potent econometric
- methods, like Bayesian Vector Autoregressions.
- Furthermore, such an analysis with ML models has not yet been done for
- Peru.
+ methods.
+ Furthermore, such an analysis with ML models has been just recently done
+ in Peru (Flores & Grandez, 2023).
 \end_layout
 
 \begin_layout Standard
@@ -427,19 +423,6 @@ noprefix "false"
 
  portrays the data and describes the models; Section 5 comprises the discussion
  of the main results, followed by the concluding section.
-\end_layout
-
-\begin_layout Standard
-Vivamus lobortis convallis hendrerit.
- Aliquam pharetra luctus nisl, quis sollicitudin ante fermentum et.
- Nunc efficitur enim id urna posuere vehicula.
- Nullam dui diam, ultrices vel enim non, imperdiet sagittis lectus.
- Curabitur elementum faucibus cursus.
- Donec eget posuere sapien, dapibus sagittis nulla.
- Etiam bibendum, tellus sit amet mollis egestas, urna eros egestas quam,
- a sagittis tellus purus id ante.
- Praesent vitae facilisis ante.
- 
 \begin_inset Foot
 status open
 
@@ -648,15 +631,8 @@ ated VAR (FCVAR) with structural break to analyse inflation in 18 Latin
  American countries.
  They found out that most countries had a break date around the late 80s
  and early 90s.
- For the FCVAR model, they were inspired by 
-\begin_inset CommandInset citation
-LatexCommand nocite
-key "bos2001"
-literal "false"
-
-\end_inset
-
-, who reviewed the forecasting ability of fractional models.
+ For the FCVAR model, they were inspired by Bos et.
+ al (2001), who reviewed the forecasting ability of fractional models.
 \end_layout
 
 \begin_layout Standard
@@ -2720,6 +2696,26 @@ https://doi.org/10.3386/w1202
 \end_inset
 
 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+Jairo, F., & Rodrigo, G.
+ (2023).
+ 
+\shape italic
+Proyectando la Inflación de Perú con Métodos de Machine Learning.
+ Encuentro de Economistas.
+
+\shape default
+ Lima; Universidad del Pacífico.
+ https://www.bcrp.gob.pe/docs/Proyeccion-Institucional/Encuentro-de-Economistas/202
+3/ee-2023-s20-p41-flores-grandez.pdf
 \end_layout
 
 \begin_layout Bibliography
