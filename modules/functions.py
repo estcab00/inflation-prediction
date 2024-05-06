@@ -285,6 +285,8 @@ def graph_coefficients(vars_df, value = "Coefficient"):
 
     plt.bar(vars_df["Var"], vars_df[value])
     
+    plt.ylabel(value)
+    
     plt.tick_params(axis = "x", rotation=90, labelsize=8)
     
     plt.show()
