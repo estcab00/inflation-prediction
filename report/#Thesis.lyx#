@@ -8148,7 +8148,7 @@ Main predictors chosen by the LASSO regression model for the 2020 forecast.
 placement p
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -10190,8 +10190,7 @@ backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
-\paragraph_spacing other 0.69999999999999996
-The orange line represents the actual inflation from 2021M1 to 2021M12.
+Main predictors chosen by the ridge regression model for the 2021 forecast.
 \end_layout
 
 \end_inset
@@ -10236,6 +10235,158 @@ name "figure-14"
 	filename C:/Users/estca/OneDrive/Documentos/Github/inflation-prediction/output/3_Regression/h19_test/h21_coef_lasso.png
 	lyxscale 45
 	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+Main predictors chosen by the LASSO regression model for the 2021 forecast.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Main predictors of random forest regression
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-15"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/estca/OneDrive/Documentos/Github/inflation-prediction/output/3_Regression/h19_test/h21_coef_rf.png
+	lyxscale 45
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+Main predictors chosen by the random forest regression model for the 2021
+ forecast.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison of forecasts for 2021
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-16"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/estca/OneDrive/Documentos/Github/inflation-prediction/output/3_Regression/h19_test/model_comparison_h21.png
+	lyxscale 45
+	width 80text%
 
 \end_inset
 
