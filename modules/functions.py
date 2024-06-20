@@ -68,7 +68,7 @@ def bcrp_dataframe( series , start_date , end_date, freq):
     month_d_mensual = ['01-01-','01-02-','01-03-','01-04-','01-05-','01-06-','01-07-','01-08-','01-09-','01-10-','01-11-','01-12-']
 
     month_s_trimestral = ['T1.','T2.','T3.','T4.']
-    month_d_trimestral = ['31-03-','30-06-','30-09-','31-12-']
+    month_d_trimestral = ['01-03-','01-06-','01-09-','01-12-']
     
     form_out = '/json'
     
