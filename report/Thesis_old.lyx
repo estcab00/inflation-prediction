@@ -424,8 +424,7 @@ Therefore,
  We will compare econometric models such as a Vector Autoregression (VAR),
  while the ML methods will be a LASSO regression,
  ridge regression,
- elastic net (EN),
- random forest (RF) and support vector regression (SVM).
+ and random forest (RF).
  We will see which models perform better during five main forecasting periods within a twelve-month forecast horizon,
  January to December,
  spanning the years 2019 to 2023.
@@ -510,33 +509,11 @@ name "sec:Second-section"
 \end_layout
 
 \begin_layout Standard
-Contrary to appearances,
- ML has an extensive history in macroeconometrics.
- Early works of Lee et al.
- (1993) and Kuan and White (1994) show the aplication of neural networks and other ML methods to macroeconomic series.
- When it comes to forecasting,
- Stock and Watson (1999) summarize the results of time series forecasting with multiple linear and nonlinear models with different specifications,
- with a total of 49 different methods,
- including simple autoregressions,
- exponential smoothing,
- artificial neural networks (ANN) and logistic smooth transition autoregressions (LSTAR).
- They conclude that non-linear methods like ANN and LSTAR operate optimizing a local optima,
- which do not necessarily translate into a global optima.
- Furthermore,
- improving an in-sample loss function does not result in an accurate out-of-sample forecast.
- Therefore,
- non-linear models are easily be surpassed by the autoregressions.
- Swanson and White (1997) compare multivariate ANN models with vector autoregressions,
- similarly concluding that the latter ones have lower mean square errors (MSE).
- On the other hand,
- Nakamura (2005) compares ANN with autoregressions in a pseudo-out-of-sample forecasting with US data,
- finding that ANNs outperform autoregressions,
- especially in short horizons.
- 
+ML 
 \end_layout
 
 \begin_layout Standard
-The application of ML to inflation forecasting has focused on developed countries.
+The application of ML to the forecast of macroeconomic variables has mainly focused on developed countries.
  For instance,
  Ülke et al.
  (2018) make inflation predictions using both time series and ML for the USA with data between 1984 and 2014.
@@ -545,18 +522,8 @@ The application of ML to inflation forecasting has focused on developed countrie
 \end_layout
 
 \begin_layout Standard
-Recently,
- ML literature has popularized among developing countries.
- In India,
- Pratap & Sengupta (2019) compare the inflation series forecast of ML algorithms with standard statistical models,
- finding that ML methods are generally able to outperform standard models.
- Pradhan (2011) uses ANN and univariate models to forecast Indian inflation,
- concluding that multivariate ANN models outperform univariate models in mean squared errors and mean absolute deviation.
- Özgür & Akkoç (2021) 
-\end_layout
-
-\begin_layout Standard
-Medeiros et al.
+On the other hand,
+ Medeiros et al.
  (2022) contributed with a more detailed investigation that included a total of 91 countries,
  with observations from January 1980 to December 2019.
  They compared six models,
@@ -631,15 +598,275 @@ Similarly,
  
 \end_layout
 
+\begin_layout Subsection
+Empirical Literature
+\end_layout
+
+\begin_layout Standard
+Based on the framework developed by Box and Jenkins (1976),
+ most literature on forecasting in the post-war period focused on ARMA and ARIMA models (Anderson,
+ 1977;
+ Harvey & Todd,
+ 1983).
+ The Wold decomposition theorem (Wold,
+ 1938) postulates that a purely deterministic covariance stationary process can have an infinite moving-average (MA) representation.
+ Furthermore,
+ any MA(∞) can be represented in accuracy by an ARMA(p,q) model.
+ Due to the stochastic nature of most economic time series,
+ they require differencing at least once in order to be stationary.
+ For this reason,
+ the integrated autoregressive moving average (ARIMA(p,d,q)) models,
+ in which the d indicates the number of times the series has been differentiated to be stationary,
+ became dominant in modelling and forecasting.
+\end_layout
+
+\begin_layout Standard
+Time series have also taken the form proposed by Kalman (1960),
+ who designed a technique to identify and extract latent factors in state-space models.
+ These models are useful since they relax the assumption that the explanatory variable is observable,
+ which can help to explain the behaviour of some economic and financial time series.
+ This allows for an easy way to model dynamic multivariate time series and avoids the need for proxy variables (Martin et al.,
+ 2013).
+ The unobserved components approach has been proven to be a good fit for modelling and forecasting,
+ competing and outperforming ARIMA models (Harvey & Todd,
+ 1983;
+ Stock & Watson,
+ 1988,
+ 1989,
+ 1993,
+ 2003).
+ However,
+ it has also been pointed out that when using UC models,
+ there can be issues both in the specification of the models and in the inferences drawn from the distribution of the unobserved components (Maravelli,
+ 1994).
+\end_layout
+
+\begin_layout Standard
+A more recent approach of the unobserved components model with stochastic volatility (UC-SV) has been used to forecast inflation (Stock & Watson,
+ 2007).
+ Considering that inflation has both a permanent stochastic trend component that has suffered large changes in its variance since the post-war period and a serially uncorrelated transitory component with a relatively constant variance,
+ Stock & Watson compare different models,
+ including a univariate AR model,
+ an Atkeson–Ohanian (2001) random walk,
+ an integrated moving-average IMA(1,1),
+ multiple multivariate Backward-looking Phillips curve (PC) and a UC-SV model.
+ They divide the US inflation data into two samples (1970Q1- 1983Q4 and 1984Q1-2004Q4) to produce pseudo-out-of-sample forecasts.
+ They concluded that in the second period,
+ MSFE has declined substantially,
+ meaning that inflation has become relatively easier to forecast.
+ However,
+ the traditional AR and PC models have reduced their performance,
+ whereas the UC-SV and IMA models appear to hold the upper hand in forecasting.
+\end_layout
+
+\begin_layout Standard
+Another approach to forecasting was developed in the 80s,
+ embracing Bayesian methods for estimating vector autoregressions (Litterman,
+ 1980;
+ Litterman,
+ 1986;
+ Doan et al.,
+ 1984;
+ Sims,
+ 1993) showing that the Bayesian vector autoregression (BVAR) approach had better results than their univariate counterparts.
+ Litterman was a pioneer in forecasting macroeconomic variables based on Bayesian shrinkage estimation techniques developed in previous decades (Shiller,
+ 1970;
+ Stein,
+ 1960).
+ Doan,
+ Litterman,
+ and Sims provided unconditional forecasts 1982:12-1983:3 for the U.S.
+ Congressional Budget Office and described how these Bayesian techniques with time-varying parameters could be useful for conditional projections and to discuss policy alternatives.
+ Sims modified Litterman’s model to allow for conditional heteroskedasticity and non-normality of disturbances and used it to forecast nine macroeconomic variables.
+ His model worked pretty well with unconditional predictions,
+ but it felt short with conditional predictions,
+ therefore,
+ was not as useful to analyze policy interventions.
+\end_layout
+
+\begin_layout Standard
+The adoption of the Bayesian techniques would lead to an increase in literature that would use TVP in modelling and forecasting (Canova,
+ 1993;
+ Cogley and Sargent,
+ 2001;
+ Cogley and Sargent,
+ 2002;
+ Primiceri,
+ 2005).
+ Canova asserts that due to the short-term changes in financial time series,
+ they are better described by stochastic processes that have leptokurtic distributions (with heavy tails and a sharper peak) and are conditionally heteroskedastic.
+ In that sense,
+ the author proposes as a forecasting tool a Bayesian timevarying coefficient (TVP-BVAR) model.
+ HAssessing forecasting in linear and non-linear Machine Learning models for short-term inflation in Perue forecasted the U.S.
+ spot exchange rates and spot interest rates from 1986.1 to 1987.51 and concluded that the TVP model improves upon RW forecasts at all horizons and for all the exchange rates.
+ Similarly,
+ Cogley and Sargent used a non-linear TVP-BVAR model to describe inflation-unemployment dynamics in the post-war U.S.
+ economy.
+ They then extended the model to include stochastic volatility to capture the drift in the persistence of inflation.
+ Primiceri also used a TVP model to capture policy changes in a structural vector autoregression (TVP-SVAR) and found evidence of time variation in the U.S.
+ monetary policy.
+\end_layout
+
+\begin_layout Standard
+On the other hand,
+ Medeiros et al.
+ (2022) contributed with a more detailed investigation that included a total of 91 countries,
+ with observations from January 1980 to December 2019.
+ They compared six models,
+ three traditional models,
+ and three ML models,
+ concluding that,
+ overall,
+ ML models,
+ particularly non-linear ones,
+ were the best suited for forecasting inflation.
+ Although their research was conducted for a large group of countries,
+ the results were the same for developing economies like Brazil and Nigeria,
+ where the RF model had the best metrics,
+ especially in horizons from three to six months.
+\end_layout
+
+\begin_layout Standard
+Most of the research and breakthroughs in inflation estimation and forecasting have been focused on developed countries.
+ However,
+ in the last few decades,
+ literature concerning forecasting in the region has also implemented new techniques.
+ One example is Gil-Alana & Pestana Barros (2009) who used a Fractional-Cointegrated VAR (FCVAR) with structural break to analyse inflation in 18 Latin American countries.
+ They found out that most countries had a break date around the late 80s and early 90s.
+ For the FCVAR model,
+ they were inspired by Bos et.
+ al (2001),
+ who reviewed the forecasting ability of fractional models.
+\end_layout
+
+\begin_layout Standard
+Similarly,
+ the most recent work of Pincheira-Brown et al.
+ (2019) examines the ability of core inflation to predict consumer price index (CPI) annual inflation in eight Latin American countries.
+ They used a sample period (January 1995–May 2017) where most countries faced changes in their monetary regimes and different international and domestic financial crisis.
+ Using two nested VAR models,
+ they find out the core inflation is an important predictor for headline inflation in the short-run,
+ but does not add much information for most countries in the long-run.
+\end_layout
+
+\begin_layout Standard
+One article centred around ML forecasting for a country in the region was done by Silva & Piazza (2020).
+ Their objective was to build accurate forecasts of the Brazilian consumer price inflation (IPCA) at multiple horizons spanning from one to twelve months (h = 1,
+ ...,
+ 12).
+ The used the survey forecast as a benchmark.
+ In the shortest horizon (h=1),
+ the best model was the iterated factor model,
+ followed by the survey forecast.
+ In the third and fourth places were a reduced-form structural model (hybrid Phillips curve model) and the VAR (34) model.
+ For longer horizons,
+ the survey forecasts still outperformed other models in terms of mean squared error (MSE),
+ although very often with equal predictive ability to the factor model and the random forest models.
+ 
+\end_layout
+
+\begin_layout Standard
+Medeiros et al.
+ (2016) also published a work on inflation forecasting using ML for Brazil.
+ Specifically,
+ the variable to forecast was the National Consumer Price Index (IPCA) and the monthly inflation index (IGPM).
+ The results showed that adaLASSO was the best model to forecast the IPCA inflation in the horizon from one to four months (h = 1,
+ ,
+ 4).
+ On the other hand,
+ for longer horizons (h = 5,
+ ,
+ 12),
+ the AR and the factor models had better predictions.
+ Regarding the IGPM inflation,
+ the adaLASSO was again the best model for short-period forecasts,
+ but the AR model was best suited for longer horizons.
+ 
+\end_layout
+
+\begin_layout Standard
+Similarly,
+ Rodriguez-Vargas (2020) published another work focused on a developing country.
+ The author chose the interannual variation rate of the Consumer Price Index of Costa Rica as the variable to forecast for one,
+ three,
+ six,
+ and twelve months (h = 1,
+ 3,
+ 6,
+ 12).
+ Using as metrics of comparion the MSE and the Theil index,
+ the results showed that at all horizons,
+ the LSTM model produces the most accurate predictions,
+ followed by the average of the univariate methods,
+ the forecasts of the univariate KNN,
+ and those of extreme gradient boosting and random forests.
+ He also concluded that a combination of forecasts can improve the performance in comparison with individual forecasts at all horizons,
+ and,
+ most importantly,
+ outperforms the forecasts from univariate methods.
+ 
+\end_layout
+
 \begin_layout Standard
 In Peru,
  there is also literature that has used these innovative approaches to forecast inflation.
- Barrera (2007) uses an Unaggregated Forecasting System (Sistema de Predicción Desagregada or SPD) consisting in a Sparse VAR model approach to predict Metropolitan Lima CPI.
+ Llosa et al.
+ (2006) were pioneers in the introduction of Bayesian techniques following the methodology of Doan et al.
+ (1984) to forecast Peruvian inflation.
+ The authors used four specifications for BVARs (which included from five (the simplest) to nine variables) using 6 lags for all models.
+ The evaluation of the predictive accuracy of each BVAR specification is obtained by estimating and recursively predicting.
+ The estimation period ranges from August 1995 to November 2001 and the forecast period goes from December 2001 to August 2004.
+ To evaluate the out-of-sample forecast of the different models,
+ they used both the mean square error (MSE) and the U-Theil statistic.
+\end_layout
+
+\begin_layout Standard
+In general,
+ they find that all models except the BVAR 4 perform quite well in predicting inflation in the first out-of-sample period and,
+ on average,
+ the BVAR 1 has the best inflation forecasting performance with the lowest U-Theil statistic (0.16).
+ When it comes to robustness,
+ the BVAR 1 also outperforms all other models.
+ Therefore,
+ they conclude that out-of-sample predictions made with BVARs favour small BVAR specifications under different possible criteria.
+\end_layout
+
+\begin_layout Standard
+Vega et al.
+ (2009) and Wilkelried (2013) describe the quarterly macroeconometric model,
+ known as Modelo de Proyección Trimestral (MPT),
+ used by the BCRP as a reference to make policy simulations and projections of key macroeconomic variables in Peru.
+ The MPT is a dynamic semi-structural model used to explain the aggregate behaviour of a small open economy with partial dollarisation.
+ It uses linear behavioural equations obtained from non-linear equations derived from the optimal behaviour of economic agents subject to preferences,
+ technologies,
+ and market structures.
+ The MPT has four main blocks (1) Aggregate supply,
+ (2) Aggregate demand,
+ (3) Uncovered interest rate parity and (4) Monetary policy rule.
+\end_layout
+
+\begin_layout Standard
+Apart from being used in forecasting,
+ the main goal of the MPT is simulating the response of the main macroeconomic variables (inflation,
+ GDP gap,
+ monetary policy interest rate and exchange rate) to different shocks.
+ The MPT serves as a great tool for policymakers at the BCRP.
+ However,
+ the great number of equations involving it makes it a non-parsimonious model,
+ as well as non-replicable for independent analysts and agents outside the projection process.
+ 
+\end_layout
+
+\begin_layout Standard
+Barrera (2007) uses an Unaggregated Forecasting System (Sistema de Predicción Desagregada or SPD) consisting in a Sparse VAR model approach to predict Metropolitan Lima CPI.
  A Sparse VAR model can handle a huge number of equations while maintaining parsimony in the model by giving emphasis on identifying and modeling only the most relevant relationships while ignoring or assigning low weights to the rest of the relationships between variables.
  Sparse VAR parameters are usually sensible to outliers.
  However,
  Barrera proposes a robust multi-equation procedure that presents a gain in accuracy in the presence of outliers.
- The author concludes that robust SparseVAR models improve the accuracy of all vanilla SparseVAR models for intermediate horizons,
+\end_layout
+
+\begin_layout Standard
+The author concludes that robust SparseVAR models improve the accuracy of all vanilla SparseVAR models for intermediate horizons,
  especially in three of the four types of SparseVAR models.
  Robust projections are less sensitive to outlier data sequences such as those experienced during the 1998 ENSO phenomenon and are thus suitably designed for the eventual occurrence of this phenomenon in the future.
 \end_layout
@@ -654,6 +881,14 @@ Literature on inflation forecasting using ML for Peru is quite recent,
  and that the combination of forecasts (simple and weighted) outperforms across most prediction horizon.
 \end_layout
 
+\begin_layout Standard
+In the next section,
+ we will describe the theoretical framework that is going to be used in this document for the in the evaluation and comparison of the forecasts.
+ Then,
+ we are going to present the methodology as well as the data and the different models for modelling inflation,
+ both econometric and machine learning models.
+\end_layout
+
 \begin_layout Section
 Forecast Evaluation Framework
 \begin_inset CommandInset label
@@ -665,6 +900,291 @@ name "sec:Third-section"
 
 \end_layout
 
+\begin_layout Standard
+In this section,
+ we will describe the criteria of forecast evaluation and forecast comparison.
+ In the section 3.1,
+ we will describe the two main properties of a good forecast:
+ unbiasedness and efficiency.
+ In the section 3.2,
+ we will develop the main procedures when comparing forecasts.
+ 
+\end_layout
+
+\begin_layout Standard
+Given a 
+\begin_inset Formula $X_{t}$
+\end_inset
+
+vector of 
+\begin_inset Formula $k$
+\end_inset
+
+ explanatory variables for the variable 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+ for 
+\begin_inset Formula $(t=1,...,T)$
+\end_inset
+
+ we can construct the point forecast of 
+\begin_inset Formula $y_{t+h}$
+\end_inset
+
+ given the information 
+\begin_inset Formula $I_{h}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{y}_{t+h}=f_{t+h}(X_{t+h},I_{h})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+we define the forecast error as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $e_{t+h}=y_{t+h}-\hat{y}_{t+h}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Forecast evaluation
+\end_layout
+
+\begin_layout Standard
+Following Granger & Newbold (1986) and Clements & Henry (1998) on forecast evaluation,
+ we identify unbiasedness and efficiency as the two main properties of a good prediction.
+\end_layout
+
+\begin_layout Subsubsection
+Unbiasedness
+\end_layout
+
+\begin_layout Standard
+Unbiasedness can be interpreted as the fact that the optimal forecast under a MSFE loss function is the conditional expectation of the variable.
+ 
+\end_layout
+
+\begin_layout Standard
+We first introduce the idea of a cost (loss) function given the size of the error 
+\begin_inset Formula $C(e)$
+\end_inset
+
+,
+ then as a natural criterion,
+ given such loss function,
+ we will choose the point forecast that minimizes it:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{t+h}=minC(e)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then,
+ an unbiased forecast fulfills
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{t+h}=E_{c}(X_{t+h}|I_{h})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or,
+ equivalently 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E_{t}(y_{t+h})=\hat{y}_{t+h|t}=f_{t+h}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $E_{t}(.)$
+\end_inset
+
+ is the conditional expectation given information at time 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The result of the expected forecast error should be equal to zero,
+ which means that,
+ on average,
+ the forecast should be correct.
+\end_layout
+
+\begin_layout Standard
+To test for unbiasedness,
+ we should consider the regression 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\hat{y}=\alpha+\beta\hat{y}_{t+h}+\epsilon_{t+h}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+for 
+\begin_inset Formula $t=T,...,T+H-h$
+\end_inset
+
+ where 
+\begin_inset Formula $h$
+\end_inset
+
+ is the forecast horizon and 
+\begin_inset Formula $T,...,T+H-h$
+\end_inset
+
+ is the evaluation sample.
+\end_layout
+
+\begin_layout Standard
+For the forecasts
+\begin_inset Formula $\hat{y}_{t+h}$
+\end_inset
+
+$ to be unbiased we can use a robust F-test to test the condition 
+\begin_inset Formula $\alpha=0,\beta=1$
+\end_inset
+
+.
+ We can also write the following equation:
+ 
+\begin_inset Formula 
+\begin{equation}
+e_{t+h}=y_{t+h}-\hat{y}_{t+h}=\epsilon_{t+h}+\tau
+\end{equation}
+
+\end_inset
+
+ and test for 
+\begin_inset Formula $\tau=0$
+\end_inset
+
+ with a robust t-test for 
+\begin_inset Formula $\hat{y}_{t+h}$
+\end_inset
+
+ to be unbiased.
+\end_layout
+
+\begin_layout Subsubsection
+Efficiency
+\end_layout
+
+\begin_layout Standard
+This criterion refers to the efficient use of all the available information.
+ If the forecast is inefficient,
+ then it can be improved upon with a better specification in the forecasting model.
+ We can test weak or strong efficiency.
+ Weak efficiency means that the optimal 
+\begin_inset Formula $h$
+\end_inset
+
+-steps forecast error 
+\begin_inset Formula $(e_{t+h})$
+\end_inset
+
+ should be correlated,
+ across time,
+ at most of order 
+\begin_inset Formula $h-1$
+\end_inset
+
+ and should be uncorrelated with available information at the time the forecast was made.
+ This property can be evaluated by fitting a moving-average of order $h-1$ to the 
+\begin_inset Formula $h$
+\end_inset
+
+-steps ahead forecast error 
+\begin_inset Formula $(e_{t+h})$
+\end_inset
+
+ and then testing if the residuals are white noise.
+\end_layout
+
+\begin_layout Standard
+Strong efficiency can be easily assessed by testing 
+\begin_inset Formula $\gamma=0$
+\end_inset
+
+ in 
+\begin_inset Formula 
+\begin{equation}
+e_{t+h}=\gamma'z_{t}+\epsilon_{t+h}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $z_{t}$
+\end_inset
+
+ are potentially relevant variables for the explanation of forecast errors.
+ If the 
+\begin_inset Formula $h-$
+\end_inset
+
+steps ahead forecast errors 
+\begin_inset Formula $(e_{t+h})$
+\end_inset
+
+ are strongly efficient,
+ then no indicators 
+\begin_inset Formula $z_{t}$
+\end_inset
+
+ at the time the forecast was formulated can improve them and,
+ therefore,
+ explain the 
+\begin_inset Formula $h-$
+\end_inset
+
+step forecast error.
+\end_layout
+
 \begin_layout Subsection
 Forecast comparison
 \end_layout
@@ -673,7 +1193,7 @@ Forecast comparison
 The most common approach when ranking forecasts is to compare their accuracy.
  That is,
  the measure of how accurately a given forecast matches actual values.
- In this subsection we first portray deterministic comparison methods such as the root mean squared forecast error (RMSFE) and the mean absolute percentage error (MAPE).
+ In this subsection we will first portray deterministic comparison methods such as the root mean squared forecast error (RMSFE) and the mean absolute percentage error (MAPE).
  Then,
  following Ghysels & Marcellino (2018) we will outline a forecast comparison test that evaluates whether the difference between forecasts is statistically significant,
  namely the Diebold-Mariano test.
@@ -873,26 +1393,20 @@ name "sec:Forth-section"
 \end_layout
 
 \begin_layout Standard
-In this section we present the data and discuss the models that are going to be compared as well as the methodology to assess the models’ performance.
- Models are ranked based on their RMSE and their MAPE for each period in all three horizons.
- We then use the Diebold-Mariano test to compare each model against the benchmark RW and see how each model competes it.
+In this section we will first present the data and discuss the models that are going to be compared as well as the methodology to assess the models’ performance.
+ Models will we rank based on their RMSE and their MAPE for each period in all three horizons.
+ We will then use the Diebold-Mariano test to compare each model against the benchmark RW and see how each model competes it.
 \end_layout
 
 \begin_layout Standard
 We are considering the two econometric models (RW,
- VAR) and six machine learning models (LASSO,
+ VAR) and four machine learning models (LASSO,
  Ridge,
- LARS,
- EN,
- RF and SVR).
+ EN and RF).
 \end_layout
 
 \begin_layout Subsection
 Data
-\end_layout
-
-\begin_layout Standard
-Our analysis employs 
 \end_layout
 
 \begin_layout Standard
@@ -1165,16 +1679,16 @@ The least absolute shrinkage and selection operator (LASSO) was first developed 
 \end_layout
 
 \begin_layout Standard
-Given the following multivariate linear regression model 
+Given the following linear regression model 
 \begin_inset Formula 
 \[
-Y=Xβ+ϵ
+y_{t}=\beta x_{t}+\epsilon_{t}
 \]
 
 \end_inset
 
  where 
-\begin_inset Formula $Y$
+\begin_inset Formula $y$
 \end_inset
 
  is an 
@@ -1182,11 +1696,7 @@ Y=Xβ+ϵ
 \end_inset
 
  vector of dependant variables,
- 
-\begin_inset Formula $X$
-\end_inset
-
- is an 
+ X is an 
 \begin_inset Formula $N\times K$
 \end_inset
 
@@ -1195,75 +1705,11 @@ Y=Xβ+ϵ
 \begin_inset Formula $\beta=(\beta_{1},...,\beta_{k})$
 \end_inset
 
- is a 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $K\times1$
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\nospellcheck default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- vector regression coefficients and 
+ is a vector regression coefficients and 
 \begin_inset Formula $\epsilon$
 \end_inset
 
- is an 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $N\times1$
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\nospellcheck default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- vector of errors.
+ is a vector of errors.
  It is possible that 
 \begin_inset Formula $K$
 \end_inset
@@ -1275,12 +1721,9 @@ Y=Xβ+ϵ
 .
  In those cases,
  the LASSO estimates are chosen to minimize
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-LASSO=\min_{\beta}\left\{ (y-X\beta)^{T}(y-X\beta)+\lambda\sum_{j=1}^{p}|\beta_{j}|\right\} 
+LASSO=\min_{\beta}(\sum_{i=1}^{N}(y_{i}-\sum_{j=1}^{K}\beta_{j}x_{i}j)^{2}+\lambda\sum_{i=1}^{K}|\beta_{i}|)
 \end{equation}
 
 \end_inset
@@ -1291,57 +1734,20 @@ LASSO=\min_{\beta}\left\{ (y-X\beta)^{T}(y-X\beta)+\lambda\sum_{j=1}^{p}|\beta_{
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-LASSO=\min_{\beta}\left\{ \|y-X\beta\|^{2}+\lambda\|\beta\|_{1}\right\} 
+LASSO=\min_{\beta}(RSS+\lambda\sum_{i=1}^{K}|\beta_{i}|)
 \end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-where 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $\|y-X\beta\|^{2}$
+ where RSS is the residual sum of squares and the second term 
+\begin_inset Formula $\lambda\sum_{i=1}^{K}|\beta_{i}|$
 \end_inset
 
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\nospellcheck default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-is the residual sum of squares (RSS) and the second term 
-\begin_inset Formula $\lambda\|\beta\|_{1}$
-\end_inset
-
- is the 
+ is called the shrinkage penalty and is a regularization type 
 \begin_inset Formula $\ell_{1}$
 \end_inset
 
- regularization penalty term,
- also known as the shrinkage penalty.
+.
  It is null when
 \begin_inset Formula $\beta_{1},...,\beta_{k}$
 \end_inset
@@ -1369,6 +1775,12 @@ is the residual sum of squares (RSS) and the second term
 \end_inset
 
  will be equaled to zero.
+ Following the literature,
+ 
+\begin_inset Formula $\lambda=0.5$
+\end_inset
+
+ for this document.
  LASSO yields sparse models,
  which are models that involve only a subset of the variables.
 \end_layout
@@ -1399,16 +1811,16 @@ Consider the same linear regression model as in LASSO,
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Ridge=\min_{\beta}\left\{ \|y-X\beta\|^{2}+\lambda\|\beta\|_{2}^{2}\right\} 
+Ridge=\min_{\beta}(RSS+\lambda\sum_{i=1}^{K}\beta_{i}^{2})
 \end{equation}
 
 \end_inset
 
  where the term 
-\begin_inset Formula $\lambda\|\beta\|_{2}^{2}$
+\begin_inset Formula $\lambda\sum_{i=1}^{K}\beta_{i}^{2}$
 \end_inset
 
- is a regularization of type 
+ is a regularization of type
 \begin_inset Formula $\ell_{2}$
 \end_inset
 
@@ -1430,6 +1842,11 @@ As
 \end_inset
 
  will approach zero.
+ 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ will be set to 0.5 in this document.
  Notice that,
  unlike the LASSO regression,
  the estimates cannot be zero.
@@ -1444,179 +1861,6 @@ As
  the k-fold cross validation and the train-test split begins.
  The ML is trained k times and then we start with the forecast procedure.
  
-\end_layout
-
-\begin_layout Subsubsection
-Least Angle Regression
-\end_layout
-
-\begin_layout Standard
-Least Angle Regression (LARS) is an alternative method for feature selection and regularization introduced by Efron et al.
- (2004).
- Similarly to other regularization methods,
- it is particularly useful with high-dimensional data where the number of predictors is relatively large compared to the number of observations.
- This algorithm is also more computationally efficient compared with LASSO.
-\end_layout
-
-\begin_layout Subparagraph*
-
-\series bold
-Initialization:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\beta^{(0)}=0,\quad\text{residual}=\mathbf{Y}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subparagraph*
-
-\series bold
-Iteration:
-\end_layout
-
-\begin_layout Enumerate
-At each step 
-\begin_inset Formula $k$
-\end_inset
-
-,
- find the predictor 
-\begin_inset Formula $x_{j}$
-\end_inset
-
- most correlated with the current residuals.
- This involves finding the predictor 
-\begin_inset Formula $x_{j}$
-\end_inset
-
- that has the highest absolute correlation with the residuals 
-\begin_inset Formula $\mathbf{Y}-\mathbf{X}\beta^{(k)}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Move the coefficient 
-\begin_inset Formula $\beta_{j}$
-\end_inset
-
- in the direction that reduces the RSS.
- Continue this movement until another predictor 
-\begin_inset Formula $x_{k}$
-\end_inset
-
- achieves the same absolute correlation with the residuals.
-\end_layout
-
-\begin_layout Enumerate
-Once another predictor 
-\begin_inset Formula $\ensuremath{x_{k}}$
-\end_inset
-
-has the same correlation with the residuals,
- move the coefficients 
-\begin_inset Formula $\beta_{j}$
-\end_inset
-
- and 
-\begin_inset Formula $\beta_{k}$
-\end_inset
-
- in a direction that keeps the current residuals equally correlated with both predictors.
-\end_layout
-
-\begin_layout Enumerate
-Continue steps 1-3 until all predictors have been considered or until the desired number of predictors have been included in the model.
-\end_layout
-
-\begin_layout Subsubsection
-Elastic Net
-\end_layout
-
-\begin_layout Standard
-Elastic Net is another regularization technique used in linear regressions.
- It combines both 
-\begin_inset Formula $\ell_{1}$
-\end_inset
-
- and 
-\begin_inset Formula $\ell_{2}$
-\end_inset
-
- regularization's.
- That means that the estimates will be chosen by 
-\begin_inset Formula 
-\begin{equation}
-Elastic\ Net=\min_{\beta}(RSS+\lambda(\alpha\sum_{i=1}^{K}|\beta_{i}|+(1-\alpha)\sum_{i=1}^{K}\beta_{i}^{2}))
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-Elastic\ Net=\min_{\beta}(RSS+\lambda(\alpha\ell_{1}+(1-\alpha)\ell_{2})
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-where 
-\begin_inset Formula $\ell_{1}$
-\end_inset
-
- and 
-\begin_inset Formula $\ell_{2}$
-\end_inset
-
- correspond to their specific regularization and 
-\begin_inset Formula $\alpha$
-\end_inset
-
- is a tuning parameter that will measure the weight of the
-\begin_inset Formula $\ell_{1}$
-\end_inset
-
- penalty.
- If 
-\begin_inset Formula $\alpha=0$
-\end_inset
-
-,
- then we will have a Ridge regression.
- If it is 1,
- then the EN transforms to a LASSO regression.
- By convention,
- we will use 
-\begin_inset Formula $\alpha=0.5$
-\end_inset
-
- which will give an equal proportion to each regularization technique.
- The other tuning parameter 
-\begin_inset Formula $\lambda$
-\end_inset
-
- presents the weight of the combined penalties.
- It is also set to 0.5.
- 
-\end_layout
-
-\begin_layout Standard
-After the selection of the variables,
- the k-fold cross-validation starts the train-test split is executed.
- Once the ML model has been trained k times,
- we can start the forecasting procedure.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2907,32 +3151,6 @@ https://doi.org/10.3386/w1202
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "key-3"
-
-\end_inset
-
-Efron,
- B.,
- Hastie,
- T.,
- Johnstone,
- I.,
- & Tibshirani,
- R.
- (2004).
- Least angle regression.
- 
-\shape italic
-Annals Of Statistics,
- 32(2)
-\shape default
-.
- https://doi.org/10.1214/009053604000000067
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
 key "key-1"
 
 \end_inset
@@ -3132,56 +3350,6 @@ Klein,
  Cowles Comission Monograph.
  New York:
  John Wiley
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-10"
-
-\end_inset
-
-Lee,
- T.
- H.,
- White,
- H.,
- and Granger,
- C.
- W.
- J.
- (1993).
- Testing for neglected nonlinearity in time series models.
- A comparison of neural network methods and alternative tests.
- 
-\shape italic
-Journal of Econometrics
-\shape default
-,
- 56(3):269–290.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-5"
-
-\end_inset
-
- Kuan,
- C.
- M.
- and White,
- H.
- (1994).
- Artificial neural networks:
- An econometric perspective.
- 
-\shape italic
-Econometric Reviews
-\shape default
-,
- 13(1).
 \end_layout
 
 \begin_layout Bibliography
@@ -3447,89 +3615,19 @@ https://doi.org/10.12660/bre.v99n992016.52273
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "key-16"
+key "key-23"
 
 \end_inset
 
-Nakamura,
- E.
- (2005).
- Inflation forecasting using a neural network.
+Morgentsten,
+ O.
+ (1928).
  
-\shape italic
-Economics Letters,
- 86(3)
-\shape default
-,
- 373-378.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-2"
-
+\begin_inset Formula $\textit{Wirtschaftsprognose: eine Untersuchung ihrer Voraussetzungen und Möglichkiten.}$
 \end_inset
 
-Özgür,
- Ö.,
- & Akkoç,
- U.
- (2021).
- Inflation forecasting in an emerging economy:
- selecting variables with machine learning algorithms.
- 
-\shape italic
-International Journal Of Emerging Markets,
- 17(8)
-\shape default
-,
- 1889-1908.
- https://doi.org/10.1108/ijoem-05-2020-0577
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-18"
-
-\end_inset
-
-Pradhan,
- R.
- P.
- (2011).
- Forecasting Inflation in India.
-
-\shape italic
- International Journal Of Asian Business And Information Management,
- 2(2)
-\shape default
-,
- 64-73.
- https://doi.org/10.4018/jabim.2011040105
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-17"
-
-\end_inset
-
-Pratap,
- B.,
- & Sengupta,
- S.
- (2019).
- Macroeconomic Forecasting in India:
- Does Machine Learning Hold the Key to Better Forecasts?
- 
-\shape italic
-Social Science Research Network
-\shape default
-.
- https://doi.org/10.2139/ssrn.3852945
+Vienna:
+ Julius Springer.
 \end_layout
 
 \begin_layout Bibliography
@@ -3544,20 +3642,14 @@ Pincheira-Brown,
  Selaive,
  J.,
  
-\begin_inset Formula $\&$
-\end_inset
-
- Nolazco,
+\backslash
+& Nolazco,
  J.
  L.
  (2019).
- Forecasting inflation in Latin America with core measures.
- 
-\shape italic
-International Journal of Forecasting,
- 35(3)
-\shape default
-,
+ Forecasting inflationhttps://doi.org/10.1016/s0169-2070(01)00156-x in Latin America with core measures.
+ International Journal of Forecasting,
+ 35(3),
  1060–1071.
  
 \begin_inset Flex URL
@@ -3799,49 +3891,6 @@ Stock,
 
  Chicago University Press.
  
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-14"
-
-\end_inset
-
-Stock,
- J.
- H.
- and Watson,
- M.
- W.
- (1999).
- A Comparison of Linear and Nonlinear Univariate Models for Forecasting Macroeconomic Time Series.
- In Engle,
- R.
- F.
- and White,
- H.,
- editors,
- 
-\shape italic
-Cointegration,
- Causality and Forecasting:
- A Festschrift for Clive W.J.
- Granger
-\shape default
-,
- pages 1–44.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-13"
-
-\end_inset
-
-Oxford University Press,
- Oxford.
 \end_layout
 
 \begin_layout Bibliography
