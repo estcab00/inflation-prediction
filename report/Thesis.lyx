@@ -552,7 +552,9 @@ Recently,
  finding that ML methods are generally able to outperform standard models.
  Pradhan (2011) uses ANN and univariate models to forecast Indian inflation,
  concluding that multivariate ANN models outperform univariate models in mean squared errors and mean absolute deviation.
- Özgür & Akkoç (2021) 
+ Özgür & Akkoç (2021) compare ML models with univariate models in the forecast of Turkish inflation,
+ arriving to the conclusion that the former models reduce errors more.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -655,18 +657,228 @@ Literature on inflation forecasting using ML for Peru is quite recent,
 \end_layout
 
 \begin_layout Section
-Forecast Evaluation Framework
+Methodology 
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Third-section"
+name "sec:Forth-section"
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Standard
+In this section we present the methodology to assess the models’ performance.
+ Models are ranked based on their RMSE and their MAPE for each period in all three horizons.
+ We then use the Diebold-Mariano test to compare each model against the benchmark RW and see how each model competes it.
+ We are considering the two econometric models (RW,
+ VAR) and six machine learning models (LASSO,
+ Ridge,
+ LARS,
+ EN,
+ RF and SVR).
+\end_layout
+
 \begin_layout Subsection
-Forecast comparison
+Data
+\end_layout
+
+\begin_layout Standard
+Our analysis employs 
+\end_layout
+
+\begin_layout Standard
+Our analysis employs nine distinct series,
+ notably featuring the Metropolitan Lima Price Index represented in monthly percentage change over a twelve-month period (CPI) as our outcome variable.
+ Our main predictors are national variables such as the monetary policy rate,
+ the exchange rate,
+ the money supply (M1),
+ the international net reserves and the real minimum wage index.
+ Furthermore,
+ our model integrates external variables such as Maize (US$ per tonne),
+ Wheat (US$ per tonne),
+ Soybean oil (US$ per tonne),
+ and Crude Oil (US$ per barrel).
+ All data utilized in this study is sourced from the database of the Central Reserve Bank of Peru (BCRP),
+ with a consistent monthly frequency.
+\end_layout
+
+\begin_layout Standard
+The graphical representations in Figure A1 and A2 depict the plotted trajectories of these variables over time.
+ Notably,
+ the graphs reveal three distinct periods characterized by heightened volatility:
+ the periods of 2007-2008,
+ 2014-2015,
+ and most recently,
+ 2020-2022.
+ For the purpose of our forecasting analysis,
+ we are focusing only in the most recent period of high volatility.
+ The idea is to compare the performance of all the models under different circumstances.
+ First,
+ a low-volatility period,
+ during 2019.
+ In second and third place,
+ we will see how the models behaved during the pandemic shock and in the subsequent recovery,
+ which was characterized by a huge increase in volatility.
+ Finally,
+ in the fourth and fifth forecast we look at the performance of the models in recent years,
+ characterized by external shocks,
+ as well as a strong central bank response.
+ 
+\end_layout
+
+\begin_layout Subsection
+General Framework
+\end_layout
+
+\begin_layout Standard
+Given the monthly price level 
+\begin_inset Formula $P_{t}$
+\end_inset
+
+,
+ we define the monthly inflation as 
+\begin_inset Formula $\pi_{t}=100\times(ln(P_{t})-ln(P_{t-1}))$
+\end_inset
+
+.
+ Let's assume a 
+\begin_inset Formula $K\times1$
+\end_inset
+
+ vector 
+\begin_inset Formula $X_{t}$
+\end_inset
+
+ of predictors.
+ Our objective is to predict inflation 
+\begin_inset Formula $h$
+\end_inset
+
+ periods forwards 
+\begin_inset Formula $\pi_{t+h}$
+\end_inset
+
+,
+ which can we viewed as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pi_{t+h}=F_{h}(X_{t},\gamma)+\epsilon_{t+h}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $h=1,...,H$
+\end_inset
+
+ is the forecast horizon.
+ 
+\begin_inset Formula $F(.)$
+\end_inset
+
+ is the relationship between inflation and its predictors,
+ which could either linear or non-linear,
+ depending on the model being used,
+ 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ represents both parameters and hyperpameters of the ML models and 
+\begin_inset Formula $\epsilon_{t+h}$
+\end_inset
+
+ is the forecast error.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Forecasting Procedure
+\end_layout
+
+\begin_layout Standard
+To perform the analysis of the predictive power of the different ML models,
+ we first standardize the data to ensure all features are on the same scale.
+ We divide our data into two consecutive sub-samples:
+ training and testing.
+ In the training sample we will both fit the model and calibrate the hyperparameters.
+ To do that we implement a time series cross-validation,
+ which,
+ unlike other forms of cross-validation,
+ considers the structure of the time series.
+ The data is split into 
+\begin_inset Formula $k$
+\end_inset
+
+-folds.
+ Each iteration,
+ the 
+\begin_inset Formula $j$
+\end_inset
+
+-fold is used as the validation set,
+ and the remaining 
+\begin_inset Formula $j-1$
+\end_inset
+
+ folds are used as the training set.
+ The optimization parameters in 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\gamma$
+\end_inset
+
+ are choose to minimize a metric
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+,
+ in this case the mean square error.
+ The process is repeated until all folds have been used to calibrate the tuning parameters.
+ The final hyperpameters are those that on average minimized the metrics across the different folds.
+ This means that the ML model is trained a total of 
+\begin_inset Formula $k$
+\end_inset
+
+ times.
+ Once the model has been calibrated,
+ we use it to do out-of-sample forecasting in the testing sample.
+ Ultimately,
+ we rank the models based in their performance in the out-of-sample forecast.
+ 
+\end_layout
+
+\begin_layout Subsection
+Forecast Evaluation
 \end_layout
 
 \begin_layout Standard
@@ -675,7 +887,7 @@ The most common approach when ranking forecasts is to compare their accuracy.
  the measure of how accurately a given forecast matches actual values.
  In this subsection we first portray deterministic comparison methods such as the root mean squared forecast error (RMSFE) and the mean absolute percentage error (MAPE).
  Then,
- following Ghysels & Marcellino (2018) we will outline a forecast comparison test that evaluates whether the difference between forecasts is statistically significant,
+ following Ghysels & Marcellino (2018) we outline a forecast comparison test that evaluates whether the difference between forecasts is statistically significant,
  namely the Diebold-Mariano test.
 \end_layout
 
@@ -747,7 +959,7 @@ MAPE=\frac{1}{T}\sum_{t=1}^{T}|\frac{e_{t+h}}{y_{t+h}}|
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Diebold-Mariano test
 \end_layout
 
@@ -861,88 +1073,13 @@ DM=H^{1/2}\frac{\sum_{j=1}^{H}d_{j}/H}{\sigma_{d}}=H^{1/2}\frac{\bar{d}}{\sigma_
  can be used.
 \end_layout
 
-\begin_layout Section
-Methodology and data
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Forth-section"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In this section we present the data and discuss the models that are going to be compared as well as the methodology to assess the models’ performance.
- Models are ranked based on their RMSE and their MAPE for each period in all three horizons.
- We then use the Diebold-Mariano test to compare each model against the benchmark RW and see how each model competes it.
-\end_layout
-
-\begin_layout Standard
-We are considering the two econometric models (RW,
- VAR) and six machine learning models (LASSO,
- Ridge,
- LARS,
- EN,
- RF and SVR).
-\end_layout
-
-\begin_layout Subsection
-Data
-\end_layout
-
-\begin_layout Standard
-Our analysis employs 
-\end_layout
-
-\begin_layout Standard
-Our analysis employs nine distinct series,
- notably featuring the Metropolitan Lima Price Index represented in monthly percentage change over a twelve-month period (CPI) as our outcome variable.
- Our main predictors are national variables such as the monetary policy rate,
- the exchange rate,
- the money supply (M1),
- the international net reserves and the real minimum wage index.
- Furthermore,
- our model integrates external variables such as Maize (US$ per tonne),
- Wheat (US$ per tonne),
- Soybean oil (US$ per tonne),
- and Crude Oil (US$ per barrel).
- All data utilized in this study is sourced from the database of the Central Reserve Bank of Peru (BCRP),
- with a consistent monthly frequency.
-\end_layout
-
-\begin_layout Standard
-The graphical representations in Figure A1 and A2 depict the plotted trajectories of these variables over time.
- Notably,
- the graphs reveal three distinct periods characterized by heightened volatility:
- the periods of 2007-2008,
- 2014-2015,
- and most recently,
- 2020-2022.
- For the purpose of our forecasting analysis,
- we are focusing only in the most recent period of high volatility.
- The idea is to compare the performance of all the models under different circumstances.
- First,
- a low-volatility period,
- during 2019.
- In second and third place,
- we will see how the models behaved during the pandemic shock and in the subsequent recovery,
- which was characterized by a huge increase in volatility.
- Finally,
- in the fourth and fifth forecast we look at the performance of the models in recent years,
- characterized by external shocks,
- as well as a strong central bank response.
- 
-\end_layout
-
 \begin_layout Subsection
 Econometric models
 \end_layout
 
 \begin_layout Standard
 In this subsection we will describe two frequentist approaches to inflation forecasting:
- an univariate random walk and a multivariate vector autoregression,
- as well as Bayesian vector autoregression.
+ an univariate random walk and a multivariate vector autoregression.
 \end_layout
 
 \begin_layout Subsubsection
@@ -964,7 +1101,11 @@ y_{t}=y_{t-1}+\epsilon_{t}
 \end_layout
 
 \begin_layout Standard
-For any $h$ periods ahead being forecasted it assumes that the inflation rate is predicted with the last observation of itself.
+For any 
+\begin_inset Formula $h$
+\end_inset
+
+ periods ahead being forecasted it assumes that the inflation rate is predicted with the last observation of itself.
 \end_layout
 
 \begin_layout Standard
@@ -1042,7 +1183,7 @@ y_{t}=\mu+\Phi_{1}y_{t-1}+...+\Phi_{p}y_{t-p}+\epsilon_{t}
 \begin_inset Formula $(k\times k)$
 \end_inset
 
-variance-covariance matrix and 
+ variance-covariance matrix and 
 \begin_inset Formula 
 \[
 \epsilon_{t}=(\epsilon_{1t},...,\epsilon_{kt})'
@@ -1371,20 +1512,9 @@ is the residual sum of squares (RSS) and the second term
  will be equaled to zero.
  LASSO yields sparse models,
  which are models that involve only a subset of the variables.
-\end_layout
-
-\begin_layout Standard
-The process of reducing variables is called feature selection.
- Once it is completed,
- we realize a k-fold cross-validation that splits the data into test and training samples.
- Each iteration,
- the k-fold is used as the testing set,
- and the remaining k-1 folds are used as the training set.
- This means that the ML model is trained k times,
- each time using a different fold.
+ This process of reducing variables is called feature selection.
  Upon completion,
  we proceed to do the point forecasts.
- 
 \end_layout
 
 \begin_layout Subsubsection
@@ -1436,13 +1566,12 @@ As
  That means that given a model with a large number of parameters,
  the ridge regression will always generate a model involving all predictors,
  but will reduce their magnitudes by making the coefficients are very small.
- After the estimation with the 
+ After the estimation of the the 
 \begin_inset Formula $\ell_{2}$
 \end_inset
 
  penalty,
- the k-fold cross validation and the train-test split begins.
- The ML is trained k times and then we start with the forecast procedure.
+ we proceed with the point forecasts.
  
 \end_layout
 
@@ -1464,7 +1593,9 @@ Least Angle Regression (LARS) is an alternative method for feature selection and
 Initialization:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
+We start with all coefficients equal to zero and compute the initial residuals,
+ which are just the observed values
 \begin_inset Formula 
 \[
 \beta^{(0)}=0,\quad\text{residual}=\mathbf{Y}
@@ -1501,6 +1632,55 @@ At each step
 \end_inset
 
 .
+ We first compute the correlation 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $c_{j}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ between each predictor and the residuals and find the predictor with the highest absolute correlation.
+\begin_inset Formula 
+\[
+c_{j}=\mathbf{X}_{j}^{T}(\mathbf{Y}-\mathbf{X}\beta^{(k)})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+j=\arg\max_{j}|c_{j}|
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -1508,12 +1688,25 @@ Move the coefficient
 \begin_inset Formula $\beta_{j}$
 \end_inset
 
- in the direction that reduces the RSS.
+ in the direction that reduces the RSS (in the direction of the sign of 
+\begin_inset Formula $c_{j}$
+\end_inset
+
+).
+ Update the residuals as the coefficient changes.
  Continue this movement until another predictor 
 \begin_inset Formula $x_{k}$
 \end_inset
 
  achieves the same absolute correlation with the residuals.
+\begin_inset Formula 
+\[
+\beta_{j}^{(k+1)}=\beta_{j}^{(k)}+\gamma,\quad\text{residual}=\mathbf{Y}-\mathbf{X}\beta
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -1531,10 +1724,59 @@ has the same correlation with the residuals,
 \end_inset
 
  in a direction that keeps the current residuals equally correlated with both predictors.
+\series bold
+
+\begin_inset Formula 
+\[
+\beta_{j}^{(k+1)}=\beta_{j}^{(k)}+\gamma_{j},\quad\beta_{k}^{(k+1)}=\beta_{k}^{(k)}+\gamma_{k}
+\]
+
+\end_inset
+
+
+\series default
+
+\begin_inset Formula 
+\[
+|\mathbf{X}_{j}^{T}(\mathbf{Y}-\mathbf{X}\beta)|=|\mathbf{X}_{k}^{T}(\mathbf{Y}-\mathbf{X}\beta)|
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
 Continue steps 1-3 until all predictors have been considered or until the desired number of predictors have been included in the model.
+\end_layout
+
+\begin_layout Standard
+In the LARS model,
+ the hyperparameter used is the number 
+\begin_inset Formula $\eta$
+\end_inset
+
+ of non-zero coefficients.
+ This number will determine the desired number of predictors that are included.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\eta$
+\end_inset
+
+ is chosen to minimize the mean square error.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1555,15 +1797,7 @@ Elastic Net is another regularization technique used in linear regressions.
  That means that the estimates will be chosen by 
 \begin_inset Formula 
 \begin{equation}
-Elastic\ Net=\min_{\beta}(RSS+\lambda(\alpha\sum_{i=1}^{K}|\beta_{i}|+(1-\alpha)\sum_{i=1}^{K}\beta_{i}^{2}))
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-Elastic\ Net=\min_{\beta}(RSS+\lambda(\alpha\ell_{1}+(1-\alpha)\ell_{2})
+Elastic\ Net=\min_{\beta}\left\{ \|y-X\beta\|_{2}^{2}+\lambda\left(\rho\|\beta\|_{1}+(1-\rho)\|\beta\|_{2}^{2}\right)\right\} 
 \end{equation}
 
 \end_inset
@@ -1573,15 +1807,15 @@ Elastic\ Net=\min_{\beta}(RSS+\lambda(\alpha\ell_{1}+(1-\alpha)\ell_{2})
 
 \begin_layout Standard
 where 
-\begin_inset Formula $\ell_{1}$
+\begin_inset Formula $\|\beta\|_{1}$
 \end_inset
 
  and 
-\begin_inset Formula $\ell_{2}$
+\begin_inset Formula $\|\beta\|_{2}^{2}$
 \end_inset
 
  correspond to their specific regularization and 
-\begin_inset Formula $\alpha$
+\begin_inset Formula $\rho$
 \end_inset
 
  is a tuning parameter that will measure the weight of the
@@ -1596,10 +1830,10 @@ where
 ,
  then we will have a Ridge regression.
  If it is 1,
- then the EN transforms to a LASSO regression.
+ then the EN transforms into a LASSO regression.
  By convention,
- we will use 
-\begin_inset Formula $\alpha=0.5$
+ we use 
+\begin_inset Formula $\rho=0.5$
 \end_inset
 
  which will give an equal proportion to each regularization technique.
@@ -1608,15 +1842,8 @@ where
 \end_inset
 
  presents the weight of the combined penalties.
- It is also set to 0.5.
+ It is chosen during the cross-validation step to minimize the mean square error.
  
-\end_layout
-
-\begin_layout Standard
-After the selection of the variables,
- the k-fold cross-validation starts the train-test split is executed.
- Once the ML model has been trained k times,
- we can start the forecasting procedure.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1638,9 +1865,15 @@ y=\sum_{i=1}^{p}X_{i}\beta_{i}
 \end_inset
 
  where there is linearity in the coefficients.
- That means that the relationship between the dependant and the independent variables is a linear combination of $x$ and $
-\backslash
-beta$ .
+ That means that the relationship between the dependant and the independent variables is a linear combination of 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta$
+\end_inset
+
+ .
  Now let us assume a regression tree model in the form 
 \begin_inset Formula 
 \begin{equation}
@@ -1765,174 +1998,8 @@ If the relationship between the predictor
  then the RF model will outperform all linear econometric and ML models.
 \end_layout
 
-\begin_layout Subsection
-Model implementation
-\end_layout
-
-\begin_layout Standard
-All models are implemented using the Scikit-Learn package in Python.
- Linear models are imported with the Lasso,
- Ridge,
- and ElasticNet functions respectively.
- Non-linear models are imported from RandomForestRegressor.
- All models are implemented with a random state = 2024.
- A cross validation followed by a grid-search is implemented using the TimeSeriesSplit and GridSearchCV modules from Scikit-Learn.
- The models best parameters using the grid-search are as follows:
-\end_layout
-
-\begin_layout Subsubsection*
-2019
-\end_layout
-
-\begin_layout Itemize
-Ridge:
- 
-\begin_inset Formula $\lambda:0.01$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-Lasso:
- 
-\begin_inset Formula $\lambda:0.076168$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Random Forest:
- 
-\begin_inset Formula $max\_depth:30,max\_features:sqrt,min\_samples\_leaf:2,min\_samples\_split:5,n\_estimators:200$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-2020
-\end_layout
-
-\begin_layout Itemize
-Ridge:
- 
-\begin_inset Formula $\lambda:0.017927$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-Lasso:
- 
-\begin_inset Formula $\lambda:0.02$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Random Forest:
- 
-\begin_inset Formula $max\_depth:10,max\_features:sqrt,min\_samples\_leaf:1,min\_samples\_split:5,n\_estimators:200$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-2021
-\end_layout
-
-\begin_layout Itemize
-Ridge:
- 
-\begin_inset Formula $\lambda:0.1$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-Lasso:
- 
-\begin_inset Formula $\lambda:0.2$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Random Forest:
- 
-\begin_inset Formula $max\_depth:30,max\_features:sqrt,min\_samples\_leaf:1,min\_samples\_split:5,n\_estimators:100$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-2022
-\end_layout
-
-\begin_layout Itemize
-Ridge:
- 
-\begin_inset Formula $\lambda:0.1$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-Lasso:
- 
-\begin_inset Formula $\lambda:0.01$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Random Forest:
- 
-\begin_inset Formula $max\_depth:20,max\_features:sqrt,min\_samples\_leaf:2,min\_samples\_split:2,n\_estimators:100$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-2023
-\end_layout
-
-\begin_layout Itemize
-Ridge:
- 
-\begin_inset Formula $\lambda:0.01$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-Lasso:
- 
-\begin_inset Formula $\lambda:0.1$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Random Forest:
- 
-\begin_inset Formula $max\_depth:30,max\_features:sqrt,min\_samples\_leaf:2,min\_samples\_split:2,n\_estimators:100$
-\end_inset
-
-
+\begin_layout Subsubsection
+Support Vector Machine Regression (SVM)
 \end_layout
 
 \begin_layout Section
