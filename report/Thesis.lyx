@@ -1173,7 +1173,7 @@ Note that the total number of parameters grows very fast as the number of variab
 
 \begin_layout Standard
 Using the Wold decomposition theorem,
- Equation (12) can be represented as VMA(
+ equation (6) can be represented as VMA(
 \begin_inset Formula $\infty$
 \end_inset
 
@@ -2168,46 +2168,42 @@ name "sec:Forth-section"
 \end_layout
 
 \begin_layout Standard
-Our analysis employs a total of 63 macroeconomic variables 
-\end_layout
-
-\begin_layout Standard
-Our analysis employs nine distinct series,
- notably featuring the Metropolitan Lima Price Index represented in monthly percentage change over a twelve-month period (CPI) as our outcome variable.
+Our analysis employs a total of 64 macroeconomic variables which can be grouped in the following categories:
+ Prices,
+ Credit,
+ Production,
+ Spending,
+ Commodities,
+ Exchange Rate,
+ Rate,
+ Lima Stock Exchange,
+ Tax Revenues,
+ Expectations and Employment.
+ The Metropolitan Lima Price Index represented in monthly percentage change over a twelve-month period (CPI) as our outcome variable.
  Our main predictors are national variables such as the monetary policy rate,
  the exchange rate,
  the money supply (M1),
- the international net reserves and the real minimum wage index.
- Furthermore,
- our model integrates external variables such as Maize (US$ per tonne),
+ the international net reserves and the real minimum wage index or external variables such as Maize (US$ per tonne),
  Wheat (US$ per tonne),
  Soybean oil (US$ per tonne),
  and Crude Oil (US$ per barrel).
+ A list with all variables is included in the annex.
  All data utilized in this study is sourced from the database of the Central Reserve Bank of Peru (BCRP),
  with a consistent monthly frequency.
-\end_layout
+ A total of three lags is being used for each variable following the both the AIC and BIC criteria of a VAR model,
+ with a total of 189 predictors.
+ Given that we have approximately 190 observations,
+ we are in an scenario where 
+\begin_inset Formula $K$
+\end_inset
 
-\begin_layout Standard
-The graphical representations in Figure A1 and A2 depict the plotted trajectories of these variables over time.
- Notably,
- the graphs reveal three distinct periods characterized by heightened volatility:
- the periods of 2007-2008,
- 2014-2015,
- and most recently,
- 2020-2022.
- For the purpose of our forecasting analysis,
- we are focusing only in the most recent period of high volatility.
- The idea is to compare the performance of all the models under different circumstances.
- First,
- a low-volatility period,
- during 2019.
- In second and third place,
- we will see how the models behaved during the pandemic shock and in the subsequent recovery,
- which was characterized by a huge increase in volatility.
- Finally,
- in the fourth and fifth forecast we look at the performance of the models in recent years,
- characterized by external shocks,
- as well as a strong central bank response.
+ is relatively large compared with 
+\begin_inset Formula $N$
+\end_inset
+
+,
+ and therefore,
+ ML models are useful.
  
 \end_layout
 
@@ -2223,9 +2219,13 @@ name "sec:Fifth-section"
 \end_layout
 
 \begin_layout Standard
-In this section we will present the main results after running the models.
+In this section we present the main results after running the models.
  We are comparing both the RMSE and the MAPE through horizons 1 to 12 for five different periods.
- We are using the first to fourth lags of the other variables as predictors for headline inflation.
+ We are using the first to third lags of the other variables as predictors for headline inflation.
+ We present the results for both 2019,
+ a low-volatility period,
+ and 2023,
+ a post-pandemic period.
  
 \end_layout
 
@@ -2365,7 +2365,7 @@ nolink "false"
 \end_layout
 
 \begin_layout Subsection
-2020 
+2023 
 \end_layout
 
 \begin_layout Standard
@@ -2463,189 +2463,6 @@ nolink "false"
  including the multiple lags of the wheat price,
  the crude oil price and the money supply,
  the same features chosen in 2019.
-\end_layout
-
-\begin_layout Subsection
-2021
-\end_layout
-
-\begin_layout Standard
-The third period corresponds to the post-pandemic recovery.
- It is distinguished by an increase in volatility in the exchange rate and other external variables,
- many of which reached their highest point halfway through the year and continue increasing the following months.
- There was also a response of the central bank to the inflation spike which greatly increased the interest rate.
- The recovery period also saw a downfall in the performance of the traditional VAR method,
- as it is surpassed by both linear and non-linear ML methods.
- Between the linear and non–linear methods,
- the former ones show an advantage,
- mainly the ridge algorithm,
- which has the lowest RMSE and MAPE from 
-\begin_inset Formula $h=5$
-\end_inset
-
- until the end of the forecast,
- as we see in table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "table-7"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "table-8"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- In figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "figure-12"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- we can compare the different forecasts of each model againts the actual inflation (in orange).
- The VAR model again does a poorly job in predicting the movements of the the outcome variable.
-\end_layout
-
-\begin_layout Standard
-In figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "figure-13"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- to 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "figure-15"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- we see the predictors selected by each model.
- This time,
- the ridge and LASSO algorithms had different selections,
- with the ridge method choosing a wider set of features.
- The LASSO model chose the same three features as in 2019.
- Meanwhile,
- the ridge model selected as its main predictor the first of the moneraty policy,
- followed by the lags of the external variables (wheat and soybean oil prices).
- It also captures a positive relation between the lags of the exchange rate and inflation,
- and a negative one between the third and fourth lag of the policy rate.
- The RF model was again the one that selected the most predictors,
- being the most important features (as indicated in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "figure-15"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-) the lags the wheat price and the money supply,
- followed by other external variables.
- 
-\end_layout
-
-\begin_layout Subsection
-2022
-\end_layout
-
-\begin_layout Standard
-The fourth period,
- from January to December 2022,
- was marked by the continuous increase of the monetary policy,
- as well as a persistent high volatility in both inflation and the prices of the commodities.
- In figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "figure-16"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- we can observe the forecasts of each different model.
- The VAR again shows a poor performance,
- compared with the ML models,
- predicting a rapid fall which did not occur.
- The linear models (LASSO and ridge) capture the fluctuations of inflation but missed the actual values.
- The RF model had a good performance in the near-term horizon.
- In terms of RMSE and MAPE,
- the best models are RF from 
-\begin_inset Formula $h=1$
-\end_inset
-
- to 
-\begin_inset Formula $h=5$
-\end_inset
-
- and ridge from 
-\begin_inset Formula $h=6$
-\end_inset
-
- onwards.
- 
-\end_layout
-
-\begin_layout Standard
-The predictors elected by the ridge model are mainly the lags of commodities and the monetary policy rate,
- as shown in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "figure-17"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- The LASSO model .
- The RF technique picked the lags of commodities,
- as well as the exchange rate and the currency in circulation,
- which is shown in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "figure-19"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- 
 \end_layout
 
 \begin_layout Subsection
@@ -2949,7 +2766,6 @@ key "key-49"
 
 Banco Central de la República del Perú.
  (2015).
- (rep.).
  
 \begin_inset Formula $\textit{Inflation Report. Recent trends and macroeconomic forecasts 2015-2017.}$
 \end_inset
@@ -2985,16 +2801,19 @@ Bos,
  P.
  H.,
  
-\backslash
-& Ooms,
+\begin_inset Formula $\&$
+\end_inset
+
+ Ooms,
  M.
  (2001).
  Inflation,
  forecast intervals and long memory regression models.
  
-\backslash
-textit{International Journal of Forecasting,
- 18(2)},
+\begin_inset Formula $\textit{International Journal of Forecasting, 18(2)}$
+\end_inset
+
+,
  243–264.
  
 \begin_inset Flex URL
@@ -3106,9 +2925,10 @@ Chan,
  (2013).
  Moving average stochastic volatility models with application to inflation forecast.
  
-\backslash
-textit{Journal of Econometrics,
- 176(2)},
+\begin_inset Formula $\textit{Journal of Econometrics, 176(2)}$
+\end_inset
+
+,
  162–172.
  
 \begin_inset Flex URL
