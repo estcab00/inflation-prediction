@@ -463,7 +463,7 @@ nolink "false"
  Section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Forth-section"
+reference "sec:Third-section"
 plural "false"
 caps "false"
 noprefix "false"
@@ -660,7 +660,7 @@ Literature on inflation forecasting using ML for Peru is quite recent,
 Methodology 
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Forth-section"
+name "sec:Third-section"
 
 \end_inset
 
@@ -677,54 +677,6 @@ In this section we present the methodology to assess the models’ performance.
  LARS,
  EN,
  RF and SVR).
-\end_layout
-
-\begin_layout Subsection
-Data
-\end_layout
-
-\begin_layout Standard
-Our analysis employs 
-\end_layout
-
-\begin_layout Standard
-Our analysis employs nine distinct series,
- notably featuring the Metropolitan Lima Price Index represented in monthly percentage change over a twelve-month period (CPI) as our outcome variable.
- Our main predictors are national variables such as the monetary policy rate,
- the exchange rate,
- the money supply (M1),
- the international net reserves and the real minimum wage index.
- Furthermore,
- our model integrates external variables such as Maize (US$ per tonne),
- Wheat (US$ per tonne),
- Soybean oil (US$ per tonne),
- and Crude Oil (US$ per barrel).
- All data utilized in this study is sourced from the database of the Central Reserve Bank of Peru (BCRP),
- with a consistent monthly frequency.
-\end_layout
-
-\begin_layout Standard
-The graphical representations in Figure A1 and A2 depict the plotted trajectories of these variables over time.
- Notably,
- the graphs reveal three distinct periods characterized by heightened volatility:
- the periods of 2007-2008,
- 2014-2015,
- and most recently,
- 2020-2022.
- For the purpose of our forecasting analysis,
- we are focusing only in the most recent period of high volatility.
- The idea is to compare the performance of all the models under different circumstances.
- First,
- a low-volatility period,
- during 2019.
- In second and third place,
- we will see how the models behaved during the pandemic shock and in the subsequent recovery,
- which was characterized by a huge increase in volatility.
- Finally,
- in the fourth and fifth forecast we look at the performance of the models in recent years,
- characterized by external shocks,
- as well as a strong central bank response.
- 
 \end_layout
 
 \begin_layout Subsection
@@ -1851,8 +1803,28 @@ Random Forest
 \end_layout
 
 \begin_layout Standard
-RF is a non-linear technique that can be used to create a large number of regression trees.
- This regressions trees divide the observations into regions where the predictor values are similar.
+RF is a non-linear technique that combines multiple decision trees to make predictions.
+ Each tree is built from a random sample of the data,
+ and the final prediction is made by averaging the predictions of all the trees.
+ In a decision tree,
+ we split the data into different regions (or groups) based on certain rules.
+ For example,
+ if we have data points with values 
+\begin_inset Formula $x_{1},x_{2},\ldots,x_{p}$
+\end_inset
+
+,
+ we can split these into regions 
+\begin_inset Formula $R_{1},R_{2},\ldots,R_{M}$
+\end_inset
+
+.
+ Each region 
+\begin_inset Formula $R_{m}$
+\end_inset
+
+ will have its own prediction,
+ which is the average value of the data points in that region.
  The choice of the splitting points is done by minimizing a loss function.
  In this way the overall variance is reduce by averaging many of these regression trees.
  To understand the concept better,
@@ -1865,7 +1837,7 @@ y=\sum_{i=1}^{p}X_{i}\beta_{i}
 \end_inset
 
  where there is linearity in the coefficients.
- That means that the relationship between the dependant and the independent variables is a linear combination of 
+ That means that the relationship between the dependent and the independent variables is a linear combination of 
 \begin_inset Formula $x$
 \end_inset
 
@@ -1901,6 +1873,7 @@ y=\sum_{m=1}^{M}c_{m}\cdot1_{(x\in R_{m})}
 \end_inset
 
 .
+ Nodes in the tree indicate how the data is split into these different regions based on the values of specific features.
  Then,
  for every observation that falls into the region 
 \begin_inset Formula $R_{m}$
@@ -1913,6 +1886,8 @@ y=\sum_{m=1}^{M}c_{m}\cdot1_{(x\in R_{m})}
 \end_inset
 
 .
+ The endpoints of the tree are called leaf nodes (or leaves),
+ representing the final prediction for each region.
 \end_layout
 
 \begin_layout Standard
@@ -1965,7 +1940,7 @@ In the context of RF,
 
 ,
  meaning 
-\begin_inset Formula $m=\sqrt{M}$
+\begin_inset Formula $m\approx\sqrt{M}$
 \end_inset
 
 ,
@@ -1977,6 +1952,42 @@ In the context of RF,
  each time.
  The RF way of splitting predictors will typically be useful when we have a large number of correlated predictors in our dataset,
  which could be the case of inflation.
+ The hyperparameters chosen during the tuning are the number of predictors 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $m$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\nospellcheck default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ in each split,
+ the total number of trees,
+ the maximum depth of each tree,
+ the minimum number of samples required to split each node and the minimum number of samples required to be at a leaf.
 \end_layout
 
 \begin_layout Standard
@@ -1989,17 +2000,215 @@ If the relationship between the predictor
 \end_inset
 
  is linear,
- then (18) will be the ideal model to use,
+ then (16) will be the ideal model to use,
  as it will outperform the regression tree.
  However,
  in the presence of non-linearity's in the features and the response,
- then the model (19) will have better results.
+ then the model (17) will have better results.
  If there is a presence of non-linear relationships between inflation and its predictors during the analyzed period,
  then the RF model will outperform all linear econometric and ML models.
 \end_layout
 
 \begin_layout Subsubsection
-Support Vector Machine Regression (SVM)
+Support Vector Regression 
+\end_layout
+
+\begin_layout Standard
+Support Vector Regression (SVR) is a type of Support Vector Machine (SVM) adapted for regression tasks.
+ Unlike traditional regression models,
+ which aim to minimize the error between predicted and actual values,
+ SVR seeks to find a function that fits the data within a specified margin of tolerance balancing between model complexity and prediction accuracy.
+ SVR attempts to find a linear function 
+\begin_inset Formula $f(x)=w⋅x+b$
+\end_inset
+
+ that approximates the target values 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ The optimization problem is defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\min_{\mathbf{w},b}\frac{1}{2}\|\mathbf{w}\|^{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+subject to:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{i}-(\mathbf{w}\cdot\mathbf{x}_{i}+b)\leq\alpha
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(\mathbf{w}\cdot\mathbf{x}_{i}+b)-y_{i}\leq\alpha
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\mathbf{w}$
+\end_inset
+
+ is the weight vector,
+ 
+\begin_inset Formula $b$
+\end_inset
+
+ is the bias term,
+ and 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is a hyperparameter representing the margin of tolerance.
+ The goal is to keep the function 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ as flat as possible while allowing deviations within the 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ margin.
+\end_layout
+
+\begin_layout Standard
+To handle data points outside this margin,
+ slack variables 
+\begin_inset Formula $\xi_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\xi_{i}^{*}$
+\end_inset
+
+ are introduced,
+ leading to the soft margin SVR:
+\begin_inset Formula 
+\[
+\min_{\mathbf{w},b,\xi,\xi^{*}}\frac{1}{2}\|\mathbf{w}\|^{2}+C\sum_{i=1}^{n}(\xi_{i}+\xi_{i}^{*})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+subject to:
+\begin_inset Formula 
+\[
+y_{i}-(\mathbf{w}\cdot\mathbf{x}_{i}+b)\leq\alpha+\xi_{i}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+(\mathbf{w}\cdot\mathbf{x}_{i}+b)-y_{i}\leq\alpha+\xi_{i}^{*}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\xi_{i},\xi_{i}^{*}\geq0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $C$
+\end_inset
+
+ is a regularization parameter that controls the trade-off between the flatness of the function and the tolerance for deviations larger than 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Data
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Forth-section"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Our analysis employs a total of 63 macroeconomic variables 
+\end_layout
+
+\begin_layout Standard
+Our analysis employs nine distinct series,
+ notably featuring the Metropolitan Lima Price Index represented in monthly percentage change over a twelve-month period (CPI) as our outcome variable.
+ Our main predictors are national variables such as the monetary policy rate,
+ the exchange rate,
+ the money supply (M1),
+ the international net reserves and the real minimum wage index.
+ Furthermore,
+ our model integrates external variables such as Maize (US$ per tonne),
+ Wheat (US$ per tonne),
+ Soybean oil (US$ per tonne),
+ and Crude Oil (US$ per barrel).
+ All data utilized in this study is sourced from the database of the Central Reserve Bank of Peru (BCRP),
+ with a consistent monthly frequency.
+\end_layout
+
+\begin_layout Standard
+The graphical representations in Figure A1 and A2 depict the plotted trajectories of these variables over time.
+ Notably,
+ the graphs reveal three distinct periods characterized by heightened volatility:
+ the periods of 2007-2008,
+ 2014-2015,
+ and most recently,
+ 2020-2022.
+ For the purpose of our forecasting analysis,
+ we are focusing only in the most recent period of high volatility.
+ The idea is to compare the performance of all the models under different circumstances.
+ First,
+ a low-volatility period,
+ during 2019.
+ In second and third place,
+ we will see how the models behaved during the pandemic shock and in the subsequent recovery,
+ which was characterized by a huge increase in volatility.
+ Finally,
+ in the fourth and fifth forecast we look at the performance of the models in recent years,
+ characterized by external shocks,
+ as well as a strong central bank response.
+ 
 \end_layout
 
 \begin_layout Section
