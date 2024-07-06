@@ -363,6 +363,11 @@ def calculate_p_value(dm_statistic):
     p_value = 2 * (1 - norm.cdf(abs(dm_statistic)))
     return p_value
 
+def create_lagged_features(data, lags):
+    lagged_data = pd.concat(
+        [data.shift(lag).add_suffix(f'_lag{lag}') for lag in range(1, lags + 1)], axis=1)
+    return lagged_data
+
 ### DIEBOLD-MARIANO test code
 # Author   : John Tsang
 # Date     : December 7th, 2017
