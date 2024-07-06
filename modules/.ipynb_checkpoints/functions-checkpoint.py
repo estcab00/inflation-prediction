@@ -68,7 +68,7 @@ def bcrp_dataframe( series , start_date , end_date, freq):
     month_d_mensual = ['01-01-','01-02-','01-03-','01-04-','01-05-','01-06-','01-07-','01-08-','01-09-','01-10-','01-11-','01-12-']
 
     month_s_trimestral = ['T1.','T2.','T3.','T4.']
-    month_d_trimestral = ['31-03-','30-06-','30-09-','31-12-']
+    month_d_trimestral = ['01-03-','01-06-','01-09-','01-12-']
     
     form_out = '/json'
     
@@ -338,6 +338,30 @@ def lags(data, lag, raw=False):
     
    # Drop rows with NaN values 
    return data.dropna()
+
+
+def diebold_mariano_test(y_true, y_pred1, y_pred2, h):
+    T = len(y_true) - h
+    if T <= 0:
+        return np.nan  # Not enough data points to calculate DM statistic
+    d = np.zeros(T)
+    
+    for t in range(T):
+        e1 = y_true.iloc[t+h] - y_pred1.iloc[t+h]
+        e2 = y_true.iloc[t+h] - y_pred2.iloc[t+h]
+        d[t] = (e1 ** 2) - (e2 ** 2)  # Example with squared error
+
+    d_bar = np.mean(d)
+    var_d = np.var(d, ddof=1)
+    
+    DM_statistic = d_bar / np.sqrt(var_d / T)
+    return DM_statistic
+
+def calculate_p_value(dm_statistic):
+    if np.isnan(dm_statistic):
+        return np.nan
+    p_value = 2 * (1 - norm.cdf(abs(dm_statistic)))
+    return p_value
 
 ### DIEBOLD-MARIANO test code
 # Author   : John Tsang
