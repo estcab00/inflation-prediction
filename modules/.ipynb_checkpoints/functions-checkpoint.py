@@ -368,6 +368,14 @@ def create_lagged_features(data, lags):
         [data.shift(lag).add_suffix(f'_lag{lag}') for lag in range(1, lags + 1)], axis=1)
     return lagged_data
 
+
+def moving_block_bootstrap(X, y, block_size):
+    n_samples = len(X)
+    block_starts = np.random.randint(0, n_samples - block_size, n_samples // block_size + 1)
+    X_bootstrap = np.vstack([X[start:start+block_size] for start in block_starts])
+    y_bootstrap = np.hstack([y[start:start+block_size] for start in block_starts])
+    return X_bootstrap[:n_samples], y_bootstrap[:n_samples]
+
 ### DIEBOLD-MARIANO test code
 # Author   : John Tsang
 # Date     : December 7th, 2017
