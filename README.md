@@ -86,7 +86,9 @@ Least Angle Regression (LARS) is an alternative method for feature selection and
 
 Elastic Net is another regularization technique used in linear regressions. It combines both $\ell_{1}$ and $\ell_{2}$ regularizations. That means that the estimates are chosen by:
 
-$$\text{Elastic Net} = \min_{\beta} \{ \|y - X\beta\|_{2}^{2} + \lambda (\rho\|\beta\|_{1} + (1 - \rho)\|\beta\|_{2}^{2}) \}$$
+$$
+\text{Elastic Net} = \min_{\beta} \{ \|y - X\beta\|_{2}^{2} + \lambda (\rho\|\beta\|_{1} + (1 - \rho)\|\beta\|_{2}^{2}) \}
+$$
 
 where $\|\beta\|_{1}$ and $\|\beta\|_{2}^{2}$ correspond to their specific regularizations, and $\rho$ is a tuning parameter that measures the weight of the $\ell_{1}$ penalty. If $\rho = 0$, then we will have a Ridge regression. If it is 1, then the Elastic Net transforms into a LASSO regression. By convention, we use $\rho = 0.5$, which gives equal proportion to each regularization technique. The other tuning parameter $\lambda$ represents the weight of the combined penalties. It is chosen during the cross-validation step to minimize the mean square error.
 
