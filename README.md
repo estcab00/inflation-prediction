@@ -40,7 +40,7 @@ $$LASSO = \min_{\beta}(\sum_{i=1}^N (y_i - \sum_{j=1}^K \beta_j x_ij )^2 + \lamb
 
 where the term $\lambda \sum_{i=1}^K\beta_i^2$ is a regularization of type $\ell_2$ and $\lambda$ is the tuning parameter.
 
-while the Ridge estimates minimize
+while the Ridge estimates minimize \\
 
 $$Ridge = \min_{\beta} ( RSS + \lambda \sum_{i=1}^K\beta_i^2)$$
 where the term $\lambda \sum_{i=1}^K\beta_i^2$ is a regularization of type $\ell_2$ and $\lambda$ is the tuning parameter.
