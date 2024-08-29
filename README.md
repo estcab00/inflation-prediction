@@ -55,41 +55,106 @@ $$
 
 The process is repeated until all folds have been used to calibrate the tuning parameters. The final hyperparameters are those that, on average, minimized the metrics across the different folds. This means that the ML model is trained a total of $l \times k$ times. Once the model has been calibrated, we use it to perform out-of-sample forecasting in the testing sample. Ultimately, we rank the models based on their performance in the out-of-sample forecast.
 
-
-The process is repeated until all folds have been used to calibrate the tuning parameters. The final hyperparameters are those that, on average, minimized the metrics across the different folds. This means that the ML model is trained a total of $ l \times k $ times. Once the model has been calibrated, we use it to perform out-of-sample forecasting in the testing sample. Ultimately, we rank the models based on their performance in the out-of-sample forecast.
-
-
 ## 4. ML models
 
 This section provides an overview of the Machine Learning methods employed in the research, including their implementation and evaluation strategies. We are considering three econometric models (RW, VAR, ARIMA) and four machine learning models (LASSO, Ridge, EN and RF). Regarding the comparison methods, we are using the root mean square error (RMSE) and mean absolute percentage error (MAPE) of the preditec values against the real values.
 
-### 3.1 Linear ML Models
-The linear machine learning models are LASSO and Ridge Regression
+### 4.1 Linear ML Models
+### 4.1.1 LASSO Regression
 
-Given the following linear regression model
+The least absolute shrinkage and selection operator (LASSO) was first developed as a frequentist shrinkage method by Tibshirani (1996). In machine learning, it is used as a method for feature selection and regularization. The LASSO regression adds a penalty term that depends on the absolute value of the regression coefficients.
 
-$$y_t = \beta x_t + \epsilon_t$$
-where $y$ is an Nx1 vector of dependant variables, X is an NxK matrix of explanatory variables, $\beta=(\beta_1 \ , ... \ , \beta_k)$ is a vector regression coefficients and $\epsilon$ is a vector of errors. It is possible that $K$ is relatively large compared to $N$. In those cases, the LASSO estimates are chosen to minimize
+Given the following multivariate linear regression model $Y = X\beta + \epsilon$, where $Y$ is an $N \times 1$ vector of dependent variables, $X$ is an $N \times K$ matrix of explanatory variables, $\beta = (\beta_{1}, \ldots, \beta_{k})$ is a $K \times 1$ vector of regression coefficients, and $\epsilon$ is an $N \times 1$ vector of errors. It is possible that $K$ is relatively large compared to $N$. In those cases, the LASSO estimates are chosen to minimize:
 
-$$LASSO = \min_{\beta}(\sum_{i=1}^N (y_i - \sum_{j=1}^K \beta_j x_ij )^2 + \lambda \sum_{i=1}^K|\beta_i|)$$
+$$
+\text{LASSO} = \min_{\beta} \left\{ (y - X\beta)^{T}(y - X\beta) + \lambda \sum_{j=1}^{p} |\beta_{j}| \right\}
+$$
 
-where the term $\lambda \sum_{i=1}^K\beta_i^2$ is a regularization of type $\ell_2$ and $\lambda$ is the tuning parameter.
+or equivalently:
 
-while the Ridge estimates minimize
+$$
+\text{LASSO} = \min_{\beta} \left\{ \|y - X\beta\|^{2} + \lambda \|\beta\|_{1} \right\}
+$$
 
-$$Ridge = \min_{\beta} ( RSS + \lambda \sum_{i=1}^K\beta_i^2)$$
+### 3.4.2 Ridge Regression
 
-where the term $\lambda \sum_{i=1}^K\beta_i^2$ is a regularization of type $\ell_2$ and $\lambda$ is the tuning parameter.
+Consider the same linear regression model as in LASSO. The ridge coefficients are chosen by imposing a penalty on the squared estimates:
+
+$$
+\text{Ridge} = \min_{\beta} \left\{ \|y - X\beta\|^{2} + \lambda\|\beta\|_{2}^{2} \right\}
+$$
+
+where the term $\lambda\|\beta\|_{2}^{2}$ is a regularization of type $\ell_{2}$ and $\lambda$ is the tuning parameter.
+
+As $\lambda$ increases, the coefficients $\beta_{1}, \ldots, \beta_{k}$ will approach zero. Notice that, unlike the LASSO regression, the estimates cannot be zero. That means that given a model with a large number of parameters, the ridge regression will always generate a model involving all predictors, but will reduce their magnitudes by making the coefficients very small. After the estimation of the $\ell_{2}$ penalty, we proceed with the point forecasts.
+
+### 3.4.3 Least Angle Regression
+
+Least Angle Regression (LARS) is an alternative method for feature selection and regularization introduced by Efron et al. (2004). Similarly to other regularization methods, it is particularly useful with high-dimensional data where the number of predictors is relatively large compared to the number of observations. This algorithm is also more computationally efficient compared with LASSO.
+
+### 3.4.4 Elastic Net
+
+Elastic Net is another regularization technique used in linear regressions. It combines both $\ell_{1}$ and $\ell_{2}$ regularizations. That means that the estimates are chosen by
+
+$$
+\text{Elastic Net} = \min_{\beta} \left\{ \|y - X\beta\|_{2}^{2} + \lambda \left(\rho\|\beta\|_{1} + (1 - \rho)\|\beta\|_{2}^{2}\right) \right\}
+$$
+
+where $\|\beta\|_{1}$ and $\|\beta\|_{2}^{2}$ correspond to their specific regularizations and $\rho$ is a tuning parameter that measures the weight of the $\ell_{1}$ penalty. If $\rho = 0$, then we will have a Ridge regression. If it is 1, then the Elastic Net transforms into a LASSO regression. By convention, we use $\rho = 0.5$, which gives equal proportion to each regularization technique. The other tuning parameter $\lambda$ presents the weight of the combined penalties. It is chosen during the cross-validation step to minimize the mean square error.
+
 
 ### 3.2 Non-linear ML Model
-The non-linear machine learning models used is a Random Forest Regressor. 
 
-Let us assume a regression tree model in the form
-$$y = \sum_{m=1}^M c_m \cdot 1_{(x \in R_m)}$$
-where $(R_1, . . .,R_M)$ correspond to the partition regions for the observations. To construct the regression tree, a set of possible values $(x_1, ..., x_p)$ is split into $M$ possible non-overlapping regions $(R_1, . . .,R_M)$. Then, for every observation that falls into the region $R_m$, we will make the same prediction, which is the average of the response values for the
-training observations in $R_m$.
+### 3.2.1 Random Forest
 
-In the context of RF, each time a split in a tree is done, a random sample of $m$ predictors is chosen as split possible candidates from the full set of $M$ predictors. This split is allowed to use only one of those $m$ predictors. Usually, the number of predictors assessed at each split is approximately the square root of the total number of predictors $M$, meaning $m=\sqrt{M}$, which differentiates RF from bootstrapping, where the split considers the full sample $m=M$ each time. The RF way of splitting predictors will typically be useful when we have a large number of correlated predictors in our dataset, which could be the case of inflation.
+Let us assume a regression tree model in the form 
+$$y=\sum_{m=1}^{M}c_{m}\cdot1_{(x\in R_{m})}$$
+where $(R_{1}, \ldots, R_{M})$ correspond to the partition regions for the observations. To construct the regression tree, a set of possible values $(x_{1}, \ldots, x_{p})$ is split into $M$ possible non-overlapping regions $(R_{1}, \ldots, R_{M})$. Nodes in the tree indicate how the data is split into these different regions based on the values of specific features. Then, for every observation that falls into the region $R_{m}$, we will make the same prediction, which is the average of the response values for the training observations in $R_{m}$. The endpoints of the tree are called leaf nodes (or leaves), representing the final prediction for each region.
+
+In the context of Random Forest (RF), each time a split in a tree is done, a random sample of $m$ predictors is chosen as split possible candidates from the full set of $M$ predictors. This split is allowed to use only one of those $m$ predictors. Usually, the number of predictors assessed at each split is approximately the square root of the total number of predictors $M$, meaning $m \approx \sqrt{M}$, which differentiates RF from bootstrapping, where the split considers the full sample $m = M$ each time. The RF way of splitting predictors will typically be useful when we have a large number of correlated predictors in our dataset, which could be the case of inflation. The hyperparameters chosen during the tuning are the number of predictors $m$ in each split, the total number of trees, the maximum depth of each tree, the minimum number of samples required to split each node, and the minimum number of samples required to be at a leaf.
+
+### 3.2.2 Support Vector Regression
+
+Support Vector Regression (SVR) is a type of Support Vector Machine (SVM) adapted for regression tasks. Unlike traditional regression models, which aim to minimize the error between predicted and actual values, SVR seeks to find a function that fits the data within a specified margin of tolerance, balancing between model complexity and prediction accuracy. SVR attempts to find a linear function $f(x) = w \times x + b$ that approximates the target values $y$. The optimization problem is defined as:
+
+$$
+\min_{\mathbf{w}, b} \frac{1}{2} \|\mathbf{w}\|^{2}
+$$
+
+subject to:
+
+$$
+y_{i} - (\mathbf{w} \cdot \mathbf{x}_{i} + b) \leq \alpha 
+$$
+
+$$
+(\mathbf{w} \cdot \mathbf{x}_{i} + b) - y_{i} \leq \alpha 
+$$
+
+where $\mathbf{w}$ is the weight vector, $b$ is the bias term, and $\alpha$ is a hyperparameter representing the margin of tolerance. The goal is to keep the function $f(x)$ as flat as possible while allowing deviations within the $\alpha$ margin.
+
+To handle data points outside this margin, slack variables $\xi_{i}$ and $\xi_{i}^{*}$ are introduced, leading to the soft margin SVR:
+
+$$
+\min_{\mathbf{w}, b, \xi, \xi^{*}} \frac{1}{2} \|\mathbf{w}\|^{2} + C \sum_{i=1}^{n} (\xi_{i} + \xi_{i}^{*})
+$$
+
+subject to:
+
+$$
+y_{i} - (\mathbf{w} \cdot \mathbf{x}_{i} + b) \leq \alpha + \xi_{i}
+$$
+
+$$
+(\mathbf{w} \cdot \mathbf{x}_{i} + b) - y_{i} \leq \alpha + \xi_{i}^{*}
+$$
+
+$$
+\xi_{i}, \xi_{i}^{*} \geq 0
+$$
+
+where $C$ is a regularization parameter that controls the trade-off between the flatness of the function and the tolerance for deviations larger than $\alpha$.
+
 
 ### 3.3 Model implementation
 
