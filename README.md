@@ -29,27 +29,31 @@ The same interpretation can be used for ```###``` at the end of ```.csv``` and `
 
 ### 3.1 General Framework
 
-Given the monthly price level \( P_{t} \), we define the monthly inflation as \( \pi_{t} = 100 \times (\ln(P_{t}) - \ln(P_{t-1})) \). Let's assume a \( K \times 1 \) vector \( X_{t} \) of predictors. Our objective is to predict inflation \( h \) periods forward \( \pi_{t+h} \), which can be viewed as:
+Given the monthly price level $( P_{t} )$, we define the monthly inflation as $ \pi_{t} = 100 \times (\ln(P_{t}) - \ln(P_{t-1})) $. Let's assume a $ K \times 1 $ vector $ X_{t} $ of predictors. Our objective is to predict inflation $ h $ periods forward $ \pi_{t+h} $, which can be viewed as:
 
-\[
+$$
 \pi_{t+h} = F_{h}(X_{t}, \theta) + \epsilon_{t+h}
-\]
+$$
 
-where \( h = 1, \ldots, H \) is the forecast horizon. \( F(\cdot) \) represents the relationship between inflation and its predictors, which could be either linear or non-linear, depending on the model being used. \( \theta \) represents both the parameters and hyperparameters of the ML models, and \( \epsilon_{t+h} \) is the forecast error.
+where $ h = 1, \ldots, H $ is the forecast horizon. $ F(\cdot) $ represents the relationship between inflation and its predictors, which could be either linear or non-linear, depending on the model being used. $ \theta $ represents both the parameters and hyperparameters of the ML models, and $ \epsilon_{t+h} $ is the forecast error.
 
 #### 3.1.1 Forecasting Procedure
 
-To perform the analysis of the predictive power of the different ML models, we first standardize the data to ensure all features are on the same scale. We divide our data into two consecutive sub-samples: training and testing. In the training sample, we will both fit the model and calibrate the hyperparameters. To do that, we implement a time series cross-validation, which, unlike other forms of cross-validation, considers the structure of the time series. The data is split into \( k \)-folds. Each iteration, the \( j \)-fold is used as the validation set, and the remaining \( j-1 \) folds are used as the training set. The optimization parameters in \( \theta \) are chosen to minimize a metric or loss function in a process called hyperparameter optimization. It can be described as follows:
+To perform the analysis of the predictive power of the different ML models, we first standardize the data to ensure all features are on the same scale. We divide our data into two consecutive sub-samples: training and testing. In the training sample, we will both fit the model and calibrate the hyperparameters. To do that, we implement a time series cross-validation, which, unlike other forms of cross-validation, considers the structure of the time series. The data is split into $ k $-folds. Each iteration, the $ j $-fold is used as the validation set, and the remaining $ j-1 $ folds are used as the training set. The optimization parameters in $ \theta $ are chosen to minimize a metric or loss function in a process called hyperparameter optimization. It can be described as follows:
 
-1. Given a set of hyperparameters in the hyperparameter space \( \theta \in \Theta \), we define a grid containing a set of \( l \) hyperparameters to evaluate \( G = \{\theta_{1}, \theta_{2}, \ldots, \theta_{l}\} \).
+1. Given a set of hyperparameters in the hyperparameter space $ \theta \in \Theta $, we define a grid containing a set of $ l $ hyperparameters to evaluate $ G = \{\theta_{1}, \theta_{2}, \ldots, \theta_{l}\} $.
 
-2. We train the model using the training data and the hyperparameters \( \theta_{i} \) \( M_{i} = M(\theta_{i}, D_{\text{training}}) \).
+2. We train the model using the training data and the hyperparameters $ \theta_{i} $, $ M_{i} = M(\theta_{i}, D_{\text{training}}) $.
 
-3. We evaluate the performance of the model with the validation set using the performance metric \( L_{i} = L(M_{i}, D_{\text{training}}, D_{\text{validation}}) \).
+3. We evaluate the performance of the model with the validation set using the performance metric $ L_{i} = L(M_{i}, D_{\text{training}}, D_{\text{validation}}) $.
 
-4. The hyperparameter is chosen to minimize the performance metric (e.g., MSE) \( \theta^{*} = \arg\min_{\theta_{i} \in G} L(M(\theta_{i}), D_{\text{training}}, D_{\text{validation}}) \text{ subject to } \theta_{i} \in G \text{ for } i \in \{1, 2, \ldots, l\} \).
+4. The hyperparameter is chosen to minimize the performance metric (e.g., MSE):
 
-The process is repeated until all folds have been used to calibrate the tuning parameters. The final hyperparameters are those that, on average, minimized the metrics across the different folds. This means that the ML model is trained a total of \( l \times k \) times. Once the model has been calibrated, we use it to perform out-of-sample forecasting in the testing sample. Ultimately, we rank the models based on their performance in the out-of-sample forecast.
+$$
+\theta^{*} = \arg\min_{\theta_{i} \in G} L(M(\theta_{i}), D_{\text{training}}, D_{\text{validation}}) \text{ subject to } \theta_{i} \in G \text{ for } i \in \{1, 2, \ldots, l\}
+$$
+
+The process is repeated until all folds have been used to calibrate the tuning parameters. The final hyperparameters are those that, on average, minimized the metrics across the different folds. This means that the ML model is trained a total of $ l \times k $ times. Once the model has been calibrated, we use it to perform out-of-sample forecasting in the testing sample. Ultimately, we rank the models based on their performance in the out-of-sample forecast.
 
 
 
