@@ -31,9 +31,7 @@ The same interpretation can be used for ```###``` at the end of ```.csv``` and `
 
 Given the monthly price level $(P_{t})$, we define the monthly inflation as $\pi_{t} = 100 \times (\ln(P_{t}) - \ln(P_{t-1}))$. Let's assume a $K \times 1$ vector $X_{t}$ of predictors. Our objective is to predict inflation $h$ periods forward $\pi_{t+h}$, which can be viewed as:
 
-$$
-\pi_{t+h} = F_{h}(X_{t}, \theta) + \epsilon_{t+h}
-$$
+$$\pi_{t+h} = F_{h}(X_{t}, \theta) + \epsilon_{t+h}$$
 
 where $h = 1, \ldots, H$ is the forecast horizon. $F(\cdot)$ represents the relationship between inflation and its predictors, which could be either linear or non-linear, depending on the model being used. $\theta$ represents both the parameters and hyperparameters of the ML models, and $\epsilon_{t+h}$ is the forecast error.
 
@@ -49,9 +47,7 @@ To perform the analysis of the predictive power of the different ML models, we f
 
 4. The hyperparameter is chosen to minimize the performance metric (e.g., MSE):
 
-$$
-\theta^{*} = \arg\min_{\theta_{i} \in G} L(M(\theta_{i}), D_{\text{training}}, D_{\text{validation}}) \text{ subject to } \theta_{i} \in G \text{ for } i \in \{1, 2, \ldots, l\}
-$$
+$$\theta^{*} = \arg\min_{\theta_{i} \in G} L(M(\theta_{i}), D_{\text{training}}, D_{\text{validation}}) \text{ subject to } \theta_{i} \in G \text{ for } i \in \{1, 2, \ldots, l\}$$
 
 The process is repeated until all folds have been used to calibrate the tuning parameters. The final hyperparameters are those that, on average, minimized the metrics across the different folds. This means that the ML model is trained a total of $l \times k$ times. Once the model has been calibrated, we use it to perform out-of-sample forecasting in the testing sample. Ultimately, we rank the models based on their performance in the out-of-sample forecast.
 
@@ -66,23 +62,17 @@ The least absolute shrinkage and selection operator (LASSO) was first developed 
 
 Given the following multivariate linear regression model $Y = X\beta + \epsilon$, where $Y$ is an $N \times 1$ vector of dependent variables, $X$ is an $N \times K$ matrix of explanatory variables, $\beta = (\beta_{1}, \ldots, \beta_{k})$ is a $K \times 1$ vector of regression coefficients, and $\epsilon$ is an $N \times 1$ vector of errors. It is possible that $K$ is relatively large compared to $N$. In those cases, the LASSO estimates are chosen to minimize:
 
-$$
-\text{LASSO} = \min_{\beta} \left\{ (y - X\beta)^{T}(y - X\beta) + \lambda \sum_{j=1}^{p} |\beta_{j}| \right\}
-$$
+$$\text{LASSO} = \min_{\beta} \{ (y - X\beta)^{T}(y - X\beta) + \lambda \sum_{j=1}^{p} |\beta_{j}| \}$$
 
 or equivalently:
 
-$$
-\text{LASSO} = \min_{\beta} \left\{ \|y - X\beta\|^{2} + \lambda \|\beta\|_{1} \right\}
-$$
+$$\text{LASSO} = \min_{\beta} \{ \|y - X\beta\|^{2} + \lambda \|\beta\|_{1} \}$$
 
 ### 3.4.2 Ridge Regression
 
 Consider the same linear regression model as in LASSO. The ridge coefficients are chosen by imposing a penalty on the squared estimates:
 
-$$
-\text{Ridge} = \min_{\beta} \left\{ \|y - X\beta\|^{2} + \lambda\|\beta\|_{2}^{2} \right\}
-$$
+$$\text{Ridge} = \min_{\beta} \{ \|y - X\beta\|^{2} + \lambda\|\beta\|_{2}^{2} \}$$
 
 where the term $\lambda\|\beta\|_{2}^{2}$ is a regularization of type $\ell_{2}$ and $\lambda$ is the tuning parameter.
 
@@ -94,14 +84,11 @@ Least Angle Regression (LARS) is an alternative method for feature selection and
 
 ### 3.4.4 Elastic Net
 
-Elastic Net is another regularization technique used in linear regressions. It combines both $\ell_{1}$ and $\ell_{2}$ regularizations. That means that the estimates are chosen by
+Elastic Net is another regularization technique used in linear regressions. It combines both $\ell_{1}$ and $\ell_{2}$ regularizations. That means that the estimates are chosen by:
 
-$$
-\text{Elastic Net} = \min_{\beta} \left\{ \|y - X\beta\|_{2}^{2} + \lambda \left(\rho\|\beta\|_{1} + (1 - \rho)\|\beta\|_{2}^{2}\right) \right\}
-$$
+$$\text{Elastic Net} = \min_{\beta} \{ \|y - X\beta\|_{2}^{2} + \lambda (\rho\|\beta\|_{1} + (1 - \rho)\|\beta\|_{2}^{2}) \}$$
 
-where $\|\beta\|_{1}$ and $\|\beta\|_{2}^{2}$ correspond to their specific regularizations and $\rho$ is a tuning parameter that measures the weight of the $\ell_{1}$ penalty. If $\rho = 0$, then we will have a Ridge regression. If it is 1, then the Elastic Net transforms into a LASSO regression. By convention, we use $\rho = 0.5$, which gives equal proportion to each regularization technique. The other tuning parameter $\lambda$ presents the weight of the combined penalties. It is chosen during the cross-validation step to minimize the mean square error.
-
+where $\|\beta\|_{1}$ and $\|\beta\|_{2}^{2}$ correspond to their specific regularizations, and $\rho$ is a tuning parameter that measures the weight of the $\ell_{1}$ penalty. If $\rho = 0$, then we will have a Ridge regression. If it is 1, then the Elastic Net transforms into a LASSO regression. By convention, we use $\rho = 0.5$, which gives equal proportion to each regularization technique. The other tuning parameter $\lambda$ represents the weight of the combined penalties. It is chosen during the cross-validation step to minimize the mean square error.
 
 ### 3.2 Non-linear ML Model
 
@@ -117,41 +104,27 @@ In the context of Random Forest (RF), each time a split in a tree is done, a ran
 
 Support Vector Regression (SVR) is a type of Support Vector Machine (SVM) adapted for regression tasks. Unlike traditional regression models, which aim to minimize the error between predicted and actual values, SVR seeks to find a function that fits the data within a specified margin of tolerance, balancing between model complexity and prediction accuracy. SVR attempts to find a linear function $f(x) = w \times x + b$ that approximates the target values $y$. The optimization problem is defined as:
 
-$$
-\min_{\mathbf{w}, b} \frac{1}{2} \|\mathbf{w}\|^{2}
-$$
+$$\min_{\mathbf{w}, b} \frac{1}{2} \|\mathbf{w}\|^{2}$$
 
 subject to:
 
-$$
-y_{i} - (\mathbf{w} \cdot \mathbf{x}_{i} + b) \leq \alpha 
-$$
+$$y_{i} - (\mathbf{w} \cdot \mathbf{x}_{i} + b) \leq \alpha$$
 
-$$
-(\mathbf{w} \cdot \mathbf{x}_{i} + b) - y_{i} \leq \alpha 
-$$
+$$(\mathbf{w} \cdot \mathbf{x}_{i} + b) - y_{i} \leq \alpha$$
 
 where $\mathbf{w}$ is the weight vector, $b$ is the bias term, and $\alpha$ is a hyperparameter representing the margin of tolerance. The goal is to keep the function $f(x)$ as flat as possible while allowing deviations within the $\alpha$ margin.
 
 To handle data points outside this margin, slack variables $\xi_{i}$ and $\xi_{i}^{*}$ are introduced, leading to the soft margin SVR:
 
-$$
-\min_{\mathbf{w}, b, \xi, \xi^{*}} \frac{1}{2} \|\mathbf{w}\|^{2} + C \sum_{i=1}^{n} (\xi_{i} + \xi_{i}^{*})
-$$
+$$\min_{\mathbf{w}, b, \xi, \xi^{*}} \frac{1}{2} \|\mathbf{w}\|^{2} + C \sum_{i=1}^{n} (\xi_{i} + \xi_{i}^{*})$$
 
 subject to:
 
-$$
-y_{i} - (\mathbf{w} \cdot \mathbf{x}_{i} + b) \leq \alpha + \xi_{i}
-$$
+$$y_{i} - (\mathbf{w} \cdot \mathbf{x}_{i} + b) \leq \alpha + \xi_{i}$$
 
-$$
-(\mathbf{w} \cdot \mathbf{x}_{i} + b) - y_{i} \leq \alpha + \xi_{i}^{*}
-$$
+$$(\mathbf{w} \cdot \mathbf{x}_{i} + b) - y_{i} \leq \alpha + \xi_{i}^{*}$$
 
-$$
-\xi_{i}, \xi_{i}^{*} \geq 0
-$$
+$$\xi_{i}, \xi_{i}^{*} \geq 0$$
 
 where $C$ is a regularization parameter that controls the trade-off between the flatness of the function and the tolerance for deviations larger than $\alpha$.
 
